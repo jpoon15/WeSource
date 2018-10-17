@@ -1,7 +1,8 @@
 
 exports.up = function(knex, Promise) {
-   return knex.schema.createTable('likes', function (table) {
+   return knex.schema.createTable('ratings', function (table) {
     table.increments('id');
+    table.integer('rating')
     table.integer('resource_id');
     table.integer('user_id');
     table.foreign('resource_id').references('id').inTable('resources');
@@ -10,5 +11,5 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTable('likes');
+  return knex.schema.dropTable('ratings');
 };
