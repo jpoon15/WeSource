@@ -1,4 +1,5 @@
 $(() => {
+  // on load
   $.ajax({
     method: "GET",
     url: "/api/users"
@@ -8,14 +9,13 @@ $(() => {
     }
   });
 
+  // Search Bar Query
   $("#searchButton").on("click", (e) => {
     e.preventDefault();
-
-    
+    // set search query as let
     let searchKeyword = $('#searchKeyword').val();
-    //console.log("searchKeyword: ", searchKeyword);
-    // we are go!
     $.ajax({
+      // route to GET from  
       url: "/api/users/search",
       method: "GET",
       data: {
@@ -28,8 +28,6 @@ $(() => {
           console.log(item);
           $(`<div class="card"><p>${item.title}</p><p>${item.description}</p><a href="${item.link}">${item.link}</a><p>${item.category_id}</p></div>`).prependTo($('.card-columns'));
         })
-      // do successful stuff
-      //console.log("response: ", response);
     },
       error: function(err){
         // do error stuff
