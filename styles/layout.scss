@@ -1,7 +1,73 @@
 body {
   background-color: #EEE;
+  padding-top: 50px;
 
   h1 {
     color: #244751;
   }
+
+  .header {
+    width: calc(100% - 5%);
+    padding: 10px 20px;
+    border: 1px solid;
+    border-radius: 5px;
+    margin: 0 auto;
+
+    &__right {
+      float: right;
+
+      a {
+        margin-left: 20px;
+
+        &:hover {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+    }
+
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+  }
+  
+  .searchContainer {
+    width: 50%;
+    margin: 40px auto;
+    display: flex;
+
+    form {
+      width: 100%;
+
+      input {
+        width: 80%;
+        padding: 10px 20px;
+        float: left;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border: 0;
+        border: 1px solid #fff;
+
+        &:focus {
+          border: 1px solid #999;
+          outline: 0;
+        }
+      }
+
+      button {
+        width: 20%;
+        float: right;
+        height: 100%;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border: 0;
+        background-color: #777;
+        color: #fff;
+        font-style: normal;
+      }
+    }
+  }
+
+
 }
