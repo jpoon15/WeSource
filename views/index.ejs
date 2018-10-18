@@ -16,7 +16,23 @@
 
   <body>
 
-    <h1>Hello World!</h1>
+      <header class="header">
+        <a href="#">WeSource</a>
+        <div class="header__right">
+          <a href="#">Login</a>
+          <a href="#">Logout</a>
+          <a href="#">ADD</a>
+        </div>
+      </header>
+
+      <div class="searchContainer">
+        <form action="/action_page.php">
+          <input type="text" placeholder="Search the WeSource database..." name="search">
+          <button type="submit"><i class="fa fa-search">Search</i></button>
+        </form>
+      </div>
+
+    <h1></h1>
 
       <div class="search-container">
         <form action="/api/users/resources" METHOD="GET">
