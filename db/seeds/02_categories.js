@@ -5,9 +5,9 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       return Promise.all([
         // Inserts seed entries
-        knex('categories').insert({category: 'Memes'}),
-        knex('categories').insert({category: 'Tech'}),
-        knex('categories').insert({category: 'Web-desgin'})
+        knex('categories').insert({id: 1, category: 'Memes'}),
+        knex('categories').insert({id: 2, category: 'Tech'}),
+        knex('categories').insert({id: 3, category: 'Web-desgin'})
       ]);
     });
 };
