@@ -9,5 +9,21 @@ module.exports = (knex) => {
     res.render("detail_page");
 
   });
+
+  router.get("/search", (req, res) => {
+    let searchKeyword = req.query.search;
+    console.log("search", req.query.search);
+
+    knex.select("*")
+      .from("resources")
+      .where("title", "like",`%${searchKeyword}%`)
+      .orWhere("description","like",`%${searchKeyword}%`)
+      .orWhere("link", "like",`%${searchKeyword}%`)
+      .then((results) => {
+        res.json(results);
+      })
+      res.redirect("/")
+  });
+
   return router;
 }
