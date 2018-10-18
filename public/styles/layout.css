@@ -1,0 +1,71 @@
+body {
+  background-color: #EEE;
+  padding-top: 50px;
+}
+
+body h1 {
+  color: #244751;
+}
+
+body .header {
+  width: calc(100% - 5%);
+  padding: 10px 20px;
+  border: 1px solid;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+body .header__right {
+  float: right;
+}
+
+body .header__right a {
+  margin-left: 20px;
+}
+
+body .header__right a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+body .header a {
+  color: #000;
+  text-decoration: none;
+}
+
+body .searchContainer {
+  width: 50%;
+  margin: 40px auto;
+  display: flex;
+}
+
+body .searchContainer form {
+  width: 100%;
+}
+
+body .searchContainer form input {
+  width: 80%;
+  padding: 10px 20px;
+  float: left;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: 0;
+  border: 1px solid #fff;
+}
+
+body .searchContainer form input:focus {
+  border: 1px solid #999;
+  outline: 0;
+}
+
+body .searchContainer form button {
+  width: 20%;
+  float: right;
+  height: 100%;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: 0;
+  background-color: #777;
+  color: #fff;
+  font-style: normal;
+}
