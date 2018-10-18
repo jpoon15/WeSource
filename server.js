@@ -43,6 +43,21 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+//Show page
+app.get("/resources/:id", (req, res) => {
+  res.render("index");
+});
+
+//User Dashboard
+app.get("/user/:id", (req, res) => {
+  res.render("dashboard");
+});
+
+//User Profile
+app.get("/user/:id/profile", (req, res) => {
+  res.render("dashboard");
+});
+
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
 });
