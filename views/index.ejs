@@ -47,31 +47,19 @@
         <a href="#">WeSource</a>
         <div class="header__right">
           <!-- A Full post back -->
-        <form action="/backdoor" method="POST">
-          <label for="email"> Sign In</label>
-          <input id="email" type="text" name="email" placeholder="Enter Email">
-          <button type="submit">Login</button>
-        </form>
-
-        <!-- To use jQuert to GET /  POSt -->
-        <form>
-          <label for="email"> Sign In</label>
-          <input id="email" type="text" name="email" placeholder="Enter Email">
-          <button id="testbtn">Login</button>
-        </form>
-
-          <!-- <a href="#">Login</a> -->
-      <!--     <a href="#">Logout</a> -->
-          <a href="#">ADD</a>
+          <form action="/backdoor" method="POST">
+            <label for="email"> Sign In</label>
+            <input id="email" type="text" name="email" placeholder="Enter Email">
+            <button type="submit">Login</button>
+          </form>
+          <a id="add" class="add" href="#">ADD</a>
         </div>
       </header>
 
       <div class="searchContainer">
-
         <form action="/api/homepage/search" METHOD="GET">
           <input type="text" placeholder="Search the WeSource database..." name="search" id="searchKeyword">
-          <button type="submit" id="searchButton"><i class="fa fa-search">Search</i></button>
-
+          <button type="submit" id="searchButton">Search</button>
         </form>
       </div>
 
@@ -165,5 +153,42 @@
         </div><!-- end row -->
       </div><!-- end container-fluid -->
       </section>
+
+      <div id="addResourceModal">
+        <section>
+          <h2>Add a new WeSource</h2>
+          <p>
+            <label for="url"><span>Url:</span></label>
+            <input type="text" id="url" name="resourceUrl">
+          </p>
+          <p>
+            <label for="title"><span>Title:</span></label>
+            <input type="text" id="title" name="resourceTitle">
+          </p>
+          <p>
+            <label for="description"><span>Desctiption:</span></label>
+            <input type="text" id="description" name="resourceDescription">
+          </p>
+          <p>
+            <label for="category">
+              <span>Categrory:</span>
+            </label>
+            <select id="category" name="resourceCategory">
+              <option value="">Accessibility</option>
+              <option value="">Animation</option>
+              <option value="">CSS</option>
+              <option value="">HTML</option>
+              <option value="">Inspiration</option>
+              <option value="">Javascript</option>
+              <option value="">Plugins</option>
+              <option value="">UI</option>
+              <option value="">Web Design</option>
+            </select>
+          </p>
+          <button id="addResource" type="submit">ADD</button>
+        </section>
+      </div>
+
+      <div id="overlay">overlay</div>
   </body>
 </html>

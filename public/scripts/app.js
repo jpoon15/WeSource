@@ -37,6 +37,18 @@ $(() => {
     });
   });
 
+  // Add New Resource
+  $('#add').on('click', (e) => {
+    e.preventDefault();
+    $('body').addClass('fixed');
+    $('#addResourceModal').show();
+    $('#overlay').show();
+  })
 
+  $('#overlay').on('click', function() {
+    $(this).hide();
+    $('body').removeClass('fixed');
+    $('#addResourceModal').hide();
+  })
 
 });
