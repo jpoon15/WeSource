@@ -19,8 +19,13 @@
       <header class="header">
         <a href="#">WeSource</a>
         <div class="header__right">
-          <a href="#">Login</a>
-          <a href="#">Logout</a>
+
+        <form action="/backdoor/:1" method="GET">
+          <label for="email"> Sign In</label>
+          <input id="email" type="text" name="email" placeholder="Enter Email">
+          <button>Login</button>
+          <!-- <a href="#">Login</a> -->
+      <!--     <a href="#">Logout</a> -->
           <a href="#">ADD</a>
         </div>
       </header>
