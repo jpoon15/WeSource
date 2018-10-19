@@ -13,40 +13,14 @@
     <script type="text/javascript" src="/scripts/bootstrap-app.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
 
-    <script>
-      $('#document').ready(function(e){
-        $('#testbtn').click(function(e){
-          e.preventDefault();
-          var userEmail = "alice@microsoft.com";
-          // alert("We are here");
-          var data = JSON.stringify({id: 100});
-
-
-          $.ajax({
-            url: '/test',
-            type: "POST",
-            dataType: "json",
-            contentType: "application/json; charset=utf-8",
-            data: { foo: 'bar'},// \'' + bar + '\', zoo: \'' + calibri + '\'}',
-            success: function(result){
-              console.log("we are in success",result);
-            },
-            error: function(err){
-              console.log("we are in errro",err);
-            }
-          });
-        });
-
-      });
-    </script>
   </head>
 
   <body>
-
       <header class="header">
         <a href="#">WeSource</a>
         <div class="header__right">
-          <!-- A Full post back -->
+
+          <!-- Login -->
           <form action="/backdoor" method="POST">
             <label for="email"> Sign In</label>
             <input id="email" type="text" name="email" placeholder="Enter Email">
@@ -55,7 +29,7 @@
           <a id="add" class="add" href="#">ADD</a>
         </div>
       </header>
-
+      <!-- Search Bar -->
       <div class="searchContainer">
         <form action="/api/homepage/search" METHOD="GET">
           <input type="text" placeholder="Search the WeSource database..." name="search" id="searchKeyword">

@@ -10,3 +10,6 @@ router.get("/:id", (req, res) => {
   res.render("mydashboard");
 });
 
+router.get("/:id/profile", (req, res) => {
+  res.render("profile");
+});
