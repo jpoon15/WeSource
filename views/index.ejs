@@ -12,6 +12,33 @@
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/bootstrap-app.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+
+    <script>
+      $('#document').ready(function(e){
+        $('#testbtn').click(function(e){
+          e.preventDefault();
+          var userEmail = "alice@microsoft.com";
+          // alert("We are here");
+          var data = JSON.stringify({id: 100});
+
+
+          $.ajax({
+            url: '/test',
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: { foo: 'bar'},// \'' + bar + '\', zoo: \'' + calibri + '\'}',
+            success: function(result){
+              console.log("we are in success",result);
+            },
+            error: function(err){
+              console.log("we are in errro",err);
+            }
+          });
+        });
+
+      });
+    </script>
   </head>
 
   <body>
@@ -19,11 +46,20 @@
       <header class="header">
         <a href="#">WeSource</a>
         <div class="header__right">
-
-        <form action="/backdoor/:1" method="GET">
+          <!-- A Full post back -->
+        <form action="/backdoor" method="POST">
           <label for="email"> Sign In</label>
           <input id="email" type="text" name="email" placeholder="Enter Email">
-          <button>Login</button>
+          <button type="submit">Login</button>
+        </form>
+
+        <!-- To use jQuert to GET /  POSt -->
+        <form>
+          <label for="email"> Sign In</label>
+          <input id="email" type="text" name="email" placeholder="Enter Email">
+          <button id="testbtn">Login</button>
+        </form>
+
           <!-- <a href="#">Login</a> -->
       <!--     <a href="#">Logout</a> -->
           <a href="#">ADD</a>
