@@ -9,7 +9,6 @@ exports.up = function(knex, Promise) {
     table.integer('user_id');
     table.foreign('category_id').references('id').inTable('categories');
     table.foreign('user_id').references('id').inTable('users');
-
   });
 };
 

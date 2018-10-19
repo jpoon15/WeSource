@@ -2,48 +2,26 @@
 
 const express = require('express');
 const router  = express.Router();
+const knex    = require('../lib/database-connection');
 
-module.exports = (knex) => {
+module.exports = router;
 
-  router.get("/:id", (req, res) => {
-    res.render("detail_page");
+router.get("/:id", (req, res) => {
+  res.render("detail_page");
 
-  });
+});
 
-  router.get("/search", (req, res) => {
-    let searchKeyword = req.query.search;
-    console.log("search", req.query.search);
+router.get("/search", (req, res) => {
+  let searchKeyword = req.query.search;
+  console.log("search", req.query.search);
 
-    knex.select("*")
-      .from("resources")
-      .where("title", "like",`%${searchKeyword}%`)
-      .orWhere("description","like",`%${searchKeyword}%`)
-      .orWhere("link", "like",`%${searchKeyword}%`)
-      .then((results) => {
-        res.json(results);
-      })
-      res.redirect("/")
-  });
-
-  return router;
-}
-
-  router.get("/new", (req, res) => {
-    res.render("detail_page");
-
-  });
-
-  router.get("/search", (req, res) => {
-    let searchKeyword = req.query.search;
-    console.log("search", req.query.search);
-
-    knex.select("*")
-      .from("resources")
-      .where("title", "like",`%${searchKeyword}%`)
-      .orWhere("description","like",`%${searchKeyword}%`)
-      .orWhere("link", "like",`%${searchKeyword}%`)
-      .then((results) => {
-        res.json(results);
-      })
-      res.redirect("/")
-  });
+  knex.select("*")
+    .from("resources")
+    .where("title", "like",`%${searchKeyword}%`)
+    .orWhere("description","like",`%${searchKeyword}%`)
+    .orWhere("link", "like",`%${searchKeyword}%`)
+    .then((results) => {
+      res.json(results);
+    })
+    res.redirect("/")
+});
