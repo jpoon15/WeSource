@@ -52,6 +52,38 @@ app.get("/resources", (req, res) => {
   res.render("detail_page");
 });
 
+app.get("/user", (req, res) => {
+  res.render("dashboard");
+});
+
+app.post('/test/:id',(req,res)=>{
+  console.log("Jenny is facing a trivial issue");
+  console.log(req.params);
+  //console.log(req.);
+  //console.log(req);
+  //res.json({result:"True"});
+
+});
+app.post('/backdoor', (req, res) => {
+  console.log(req.body.email);
+
+  // console.log(req.params.email);
+  let email = req.body.email
+    knex.select("*")
+    .from("users")
+    .where("email", "like",`%${email}%`)
+    .then(user => {
+      console.log(user);
+      // req.session.id = user.id;
+      // console.log(req.session.id)
+      // res.redirect('/user/:id');
+    });
+});
+
+app.post("/logout", (req, res) => {
+  req.session = null;
+  res.redirect("/");
+});
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
