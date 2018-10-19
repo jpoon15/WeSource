@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+        <style>
+           .top {
+               width:90%;
+               border: 2px dashed red;
+               margin-right: 5%;
+               margin-left: 5%;
+               margin-bottom: 2em; 
+               display: flex;
+               flex-direction: column;
+    
+
+               
+           }
+           .bottom {
+               width: 90%;
+               border: 2px dashed sandybrown;
+               margin-right: 5%;
+               margin-left: 5%; 
+               display: flex;
+               flex-direction: column;
+            
+           }
+           .my_articles_container {             
+	           flex-wrap: wrap;
+               display: flex;
+               flex-direction: row;
+               margin-right: 1em;
+               margin-left: 1em;
+               margin-top: 1em;
+               justify-content: space-evenly;
+           }
+           .liked_articles_container {
+              flex-wrap: wrap;
+               display: flex;
+               flex-direction: row;
+               margin-right: 1em;
+               margin-left: 1em;
+               margin-top: 1em;
+               justify-content: space-evenly;
+
+           }
+
+
+           #article1 {
+                    width: 20em;
+                    height: 20em;
+                    margin-top: 1em;
+                    margin-left: 1em;
+           }
+           #article2 {
+                    width: 20em;
+                    height: 20em;
+                    margin-top: 1em;
+                    margin-left: 1em;
+           }
+           #article3 {
+                    width: 20em;
+                    height: 20em;
+                    margin-top: 1em;
+                    margin-left: 1em;
+           }
+           h3 {
+               margin: 1em 1em;
+               font-family: fantasy;
+               font-size: 1.5em;
+           }
+
+            
+        </style>
+</head>
+<body>
+    <div class='top'>
+        <h3>My Sources</h3>
+        <div class='my_articles_container'>
+            <div id='article1' style='border: 2px dashed red;'>Article1</div>
+            <div id='article2' style='border: 2px dashed red;'>Article2</div>
+            <div id='article3' style='border: 2px dashed red;'>Article3</div>
+            <div id='article3' style='border: 2px dashed red;'>Article2</div>
+            <div id='article3' style='border: 2px dashed red;'>Article3</div>
+            <div id='article3' style='border: 2px dashed red;'>Article2</div>
+            <div id='article3' style='border: 2px dashed red;'>Article3</div>
+        </div>
+    </div>
+
+    <div class='bottom'>
+        <h3>Liked Sources</h3>
+        <div class='liked_articles_container'>
+                <div class="posting" id='article1' style='border: 2px dashed red;'>Article1</div>
+                <div class="posting" id='article2' style='border: 2px dashed red;'>Article2</div>
+                <div id='article3' style='border: 2px dashed red;'>Article3</div>
+        </div>
+    </div>
+
+    </body>
+</html>
