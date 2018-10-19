@@ -3,14 +3,13 @@
 require('dotenv').config();
 
 const PORT        = process.env.PORT || 8080;
-const ENV         = process.env.ENV || "development";
+const ENV         = process.env.ENV || "development"; // maybe delete later?
 const express     = require("express");
 const bodyParser  = require("body-parser");
 const sass        = require("node-sass-middleware");
 const app         = express();
 
-const knexConfig  = require("./knexfile");
-const knex        = require("knex")(knexConfig[ENV]);
+const knex        = require("./lib/database-connection");
 const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
 
@@ -38,9 +37,9 @@ app.use("/styles", sass({
 app.use(express.static("public"));
 
 // Mount all resource routes
-app.use("/api/homepage", homepageRoutes(knex));
-app.use("/api/users", usersRoutes(knex));
-app.use("/api/resources", resourcesRoutes(knex));
+app.use("/api/homepage", homepageRoutes);
+app.use("/api/users", usersRoutes);
+app.use("/api/resources", resourcesRoutes);
 
 // Home page
 app.get("/", (req, res) => {

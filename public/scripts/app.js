@@ -27,10 +27,11 @@ $(() => {
         $('.card-columns').empty();
         response.forEach(item => {
           console.log(item);
-          $(`<div class="card"><p>${item.title}</p><p>${item.description}</p><a href="${item.link}">${item.link}</a><p>${item.category_id}</p></div>`).prependTo($('.card-columns'));
+          $(`<div class="card card-pin"><img class="card-img" src="${item.imgurl}"/><p>${item.title}</p><p>${item.description}</p><a href="${item.link}">${item.link}</a><p>${item.category_id}</p></div>`).prependTo($('.card-columns'));
         })
     },
       error: function(err){
+        console.log(err);
         // do error stuff
       }
     });
