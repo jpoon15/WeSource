@@ -69,3 +69,7 @@ body .searchContainer form button {
   color: #fff;
   font-style: normal;
 }
+
+.card-columns {
+  overflow: hidden;
+}
