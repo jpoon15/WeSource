@@ -25,4 +25,3 @@ router.get("/search", (req, res) => {
     })
     res.redirect("/")
 });
-

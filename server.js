@@ -9,6 +9,8 @@ const bodyParser  = require("body-parser");
 const sass        = require("node-sass-middleware");
 const app         = express();
 
+const cookieSession = require('cookie-session');
+
 const knex        = require("./lib/database-connection");
 const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
@@ -22,6 +24,11 @@ const resourcesRoutes = require("./routes/resources");
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan('dev'));
+
+app.use(cookieSession({
+  name: 'session',
+  keys: ['happy-days']
+}))
 
 // Log knex SQL queries to STDOUT as well
 app.use(knexLogger(knex));
@@ -48,9 +55,38 @@ app.get("/", (req, res) => {
 
 // Resources
 app.get("/resources", (req, res) => {
-  res.render("detail_page");
+  res.render("index");
 });
 
+app.get("/user", (req, res) => {
+  res.render("dashboard");
+});
+
+// app.post('/test/:id',(req,res)=>{
+//   console.log(req.params);
+//   //res.json({result:"True"});
+// });
+
+//Login
+app.post('/backdoor', (req, res) => {
+  console.log(req.body.email);
+  let email = req.body.email
+
+    knex.select("*").first()
+    .from("users")
+    .where("email", "like",`%${email}%`)
+    .then(user => {
+      console.log(user);
+      req.session.id = user.id;
+      console.log(req.session.id)
+      res.redirect('api/users/' + req.session.id);
+    });
+});
+
+app.post("/logout", (req, res) => {
+  req.session = null;
+  res.redirect("/");
+});
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
