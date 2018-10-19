@@ -49,7 +49,7 @@ app.get("/", (req, res) => {
 
 // Resources
 app.get("/resources", (req, res) => {
-  res.render("detail_page");
+  res.render("index");
 });
 
 app.get("/user", (req, res) => {
@@ -57,10 +57,8 @@ app.get("/user", (req, res) => {
 });
 
 app.post('/test/:id',(req,res)=>{
-  console.log("Jenny is facing a trivial issue");
   console.log(req.params);
-  //console.log(req.);
-  //console.log(req);
+
   //res.json({result:"True"});
 
 });
