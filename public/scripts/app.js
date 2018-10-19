@@ -2,12 +2,13 @@ $(() => {
   // on load
   $.ajax({
     method: "GET",
-    url: "/api/users"
+    url: "/api/homepage"
   }).done((resources) => {
     for(resource of resources) {
-      $("<a>").attr("href", `/api/users/search/${resource.id}`).text(resource.title).appendTo($("body"));
+      $("<a>").attr("href", `/api/resources/${resource.id}`).text(resource.title).appendTo($("body"));
     }
   });
+
 
   // Search Bar Query
   $("#searchButton").on("click", (e) => {
@@ -15,8 +16,8 @@ $(() => {
     // set search query as let
     let searchKeyword = $('#searchKeyword').val();
     $.ajax({
-      // route to GET from  
-      url: "/api/users/search",
+      // route to GET from
+      url: "/api/homepage/search",
       method: "GET",
       data: {
         search: searchKeyword
@@ -34,6 +35,7 @@ $(() => {
       }
     });
   });
+
 
 
 });
