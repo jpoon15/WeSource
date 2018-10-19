@@ -61,10 +61,17 @@ body {
         height: 100%;
         border-top-right-radius: 5px;
         border-bottom-right-radius: 5px;
-        border: 0;
+        border: 1px solid #777;
         background-color: #777;
         color: #fff;
         font-style: normal;
+        font-style: normal;
+
+        &:hover {
+          border: 1px solid #000;
+          background-color: #fff;
+          color: #000;
+        }
       }
     }
   }
@@ -72,5 +79,64 @@ body {
 }
 
 .card-columns {
+  overflow: hidden;
+}
+
+
+#addResourceModal {
+  display: none;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  left: 50%;
+  top: 50%;
+  padding: 20px;
+  z-index: 3;
+  border-radius: 5px;
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  input, select {
+    float: right;
+    width: 180px;
+  }
+
+  #addResource {
+    width: 180px;
+    display: block;
+    margin: 0 auto;
+    border: 0;
+    border: 1px solid #777;
+    background: #777;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px;
+
+    &:hover {
+      border: 1px solid #000;
+      background-color: #fff;
+      color: #000;
+    }
+  }
+  
+}
+
+#overlay{
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0; 
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
+
+.fixed {
   overflow: hidden;
 }
