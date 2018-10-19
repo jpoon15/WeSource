@@ -59,7 +59,7 @@ app.get("/resources", (req, res) => {
 });
 
 app.get("/user", (req, res) => {
-  res.render("dashboard");
+  res.render("mydashboard");
 });
 
 // app.post('/test/:id',(req,res)=>{

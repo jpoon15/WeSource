@@ -7,12 +7,12 @@ const knex    = require('../lib/database-connection');
 module.exports = router;
 
 router.get("/:id", (req, res) => {
-  res.render("detail_page");
+  res.render("detail");
 
 });
 
 router.get("/search", (req, res) => {
-  let searchKeyword = req.query.search;
+  let searchKeyword = lowercase(req.query.search);
   console.log("search", req.query.search);
 
   knex.select("*")

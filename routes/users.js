@@ -7,6 +7,6 @@ const knex    = require('../lib/database-connection');
 module.exports = router;
 
 router.get("/:id", (req, res) => {
-  res.render("dashboard");
+  res.render("mydashboard");
 });
 
