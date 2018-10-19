@@ -16,16 +16,19 @@ router.get("/", (req, res) => {
 });
 
 router.get("/search", (req, res) => {
-  let searchKeyword = req.query.search;
+  let searchKeyword = (req.query.search).toLowerCase();
   console.log("search", req.query.search);
 
   knex.select("*")
     .from("resources")
-    .where("title", "like",`%${searchKeyword}%`)
-    .orWhere("description","like",`%${searchKeyword}%`)
-    .orWhere("link", "like",`%${searchKeyword}%`)
+    .where(
+      knex.raw('LOWER("title") like ?',`%${searchKeyword}%`))
+    .orWhere(
+      knex.raw('LOWER("description") like ?',`%${searchKeyword}%`)
+    .orWhere(
+      knex.raw('LOWER("link") like ?', `%${searchKeyword}%`)
     .then((results) => {
       res.json(results);
     })
-    //res.redirect("/")
+
 });
