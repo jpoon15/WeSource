@@ -24,9 +24,9 @@ router.get("/search", (req, res) => {
     .where(
       knex.raw('LOWER("title") like ?',`%${searchKeyword}%`))
     .orWhere(
-      knex.raw('LOWER("description") like ?',`%${searchKeyword}%`)
+      knex.raw('LOWER("description") like ?',`%${searchKeyword}%`))
     .orWhere(
-      knex.raw('LOWER("link") like ?', `%${searchKeyword}%`)
+      knex.raw('LOWER("link") like ?', `%${searchKeyword}%`))
     .then((results) => {
       res.json(results);
     })
