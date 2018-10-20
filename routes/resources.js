@@ -6,6 +6,7 @@ const knex    = require('../lib/database-connection');
 
 module.exports = router;
 
+//DISPLAY SHOW PAGE
 router.get("/:id", (req, res) => {
   console.log(req.params.id)
   let currentResourceId = req.params.id
@@ -13,7 +14,7 @@ router.get("/:id", (req, res) => {
   knex("resources")
     .where("id", `${currentResourceId}`).first()
     .then((results) => {
-      console.log("results", results);
+      // console.log("results", results);
       let templeVars = {
         resource: results
       }
@@ -21,19 +22,11 @@ router.get("/:id", (req, res) => {
     });
 });
 
-
-// router.get("/comments", (req, res) => {
-//   knex("comments")
-//     .where("resource_id", `${currentResourceId}`)
-//     .then((results) => {
-//       res.json(results);
-//     })
-// });
-
+//ADDING RESOURCES
 router.post("/add", (req, res) => {
   let userCurrent = req.session.id;
   console.log("we are in the add post", req.body);
-  //let newData = req.body;
+
   knex('resources').insert({
       link: req.body.link,
       title: req.body.title,
@@ -42,20 +35,35 @@ router.post("/add", (req, res) => {
       user_id: userCurrent
   }).returning('id')
   .then((id) => {
-    console.log("successfully inserted the record ");
-    console.log(id);
+    // console.log("successfully inserted the record ");
+    // console.log(id);
     res.json({result: "True"});
   })
-  //let userCurrent = req.session.id;
-  // //console.log("REQ cat: ", req.body);
-  // let newResource = {
-  //   link: req.body.resourceUrl,
-  //   title: req.body.resourceTitle,
-  //   description: req.body.resourceDescription,
-  //   category_id: req.body.resourceCategory,
-  //   //imgUrl = req.body.resourceCategory,
-  //   user_id: userCurrent
-  // }
-
-  //console.log("NEW RESOURCE: ", newResource);
 })
+
+//LIKING RESOURCE
+router.post("/like", (req, res) => {
+  let userCurrent = req.session.id
+  knex('likes').insert({
+    user_id: userCurrent,
+    resource_id: req.body.resource_id
+  }).returning('id')
+  .then((id) => {
+    console.log("successfully inserted the record");
+    // console.log(id);
+    res.json(id);
+  })
+})
+
+//DELETING LIKED RESOURCE
+router.post("/delete", (req, res) => {
+  let userCurrent = req.session.id
+  console.log("we are in the delete resource", req.body);
+
+  knex('likes')
+    .where('like_id', req.body.like_id)
+    .del()
+
+  res.send('successful deletion');
+});
+

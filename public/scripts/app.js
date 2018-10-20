@@ -1,5 +1,5 @@
 $(() => {
-  // on load
+  // ON LOAD
   $.ajax({
     method: "GET",
     url: "/api/homepage"
@@ -11,7 +11,6 @@ $(() => {
       $(`<a href="/api/resources/${resource.id}"><div class="card card-pin"><img class="card-img" src="${resource.imgurl}"/><p>${resource.title}</p><p>${resource.description}</p><p>${resource.category_id}</p></div></a>`).prependTo($('.card-columns'));
     }
   });
-
 
   // Search Bar Query
   $("#searchButton").on("click", (e) => {
@@ -54,30 +53,8 @@ $(() => {
     $('#addResourceModal, #registerModal').hide();
   })
 
-  // Comment Feed
-//   function createCommentElements()
 
-
-//   function renderComments(comments) {
-//     $('#comment_feed').empty();
-//     for (let i = 0; i < comments.length; i++) {
-//       let $newComment = createCommentElement(comment[i]);
-//       $('#comment-feed').append($newComment)
-//     }
-//   }
-
-
-//   function loadComments() {
-//     $.ajax('/api/resources/comment', {
-//       method: 'GET',
-//       success: function(comments) {
-//         renderComments(comments)
-//       }
-//     })
-//   }
-
-// loadComments();
-
+//ADDING RESOUCES
   $('#addResource').on('click', (e) => {
     e.preventDefault();
 
@@ -109,6 +86,35 @@ $(() => {
     });
   })
 
+//USER REGISTER
+$('#register').on('click', (e) => {
+    e.preventDefault();
+
+    var register_id = $('#register').find(':selected').val();
+
+    var data  = {
+      username: $('#url').val(),
+      email: $('#title').val(),
+      password: $('#description').val(),
+    };
+    //ajax call to save data
+    console.log("before ajax request ",data);
+    $.ajax({
+      url: '/api/users/register',
+      data: data,
+      type:'POST',
+      success: function(result){
+        console.log("we are in success");
+        // add success div notice
+        alert("You have successfully registered")
+      },
+      error: function(error){
+        console.log("we are in error");
+      }
+    });
+  })
+
+
   // Add New User
   $('#registerUser').on('click', (e) => {
     e.preventDefault();
@@ -117,5 +123,60 @@ $(() => {
     $('#overlay').show();
   })
 
+
+//LIKE AND UNLIKE FEATURE ON DETAIL PAGE
+var globalresourceId;
+
+$('#like_button').on('click', (e) => {
+  e.preventDefault();
+
+  var currentText = $('#like_button').text();
+
+  if(currentText === "Like"){
+      globalresourceId = $('#like_button').attr('value');
+      console.log("test ",globalresourceId);
+      //console.log(resourceId);
+      var data = {
+        resource_id: $('#like_button').attr('value')
+      };
+
+    $.ajax({
+      url: 'like',
+      data: data,
+      type: 'POST',
+      success: function(result) {
+        console.log('result', result)
+        console.log('we have successfully added to database');
+        // $('#like_button').attr('class', 'delete_like').attr('value', result).text('Unlike');
+        $('#like_button').attr('value', result).text('Unlike');
+      },
+      error: function(error) {
+        console.log("we are in error");
+      }
+    });
+
+  } else if(currentText==="Unlike"){
+      e.preventDefault();
+
+      var data = {
+        like_id: $('#like_button').attr('value')
+      };
+
+      console.log("before delete ajax request", data);
+
+      $.ajax({
+        url: 'delete',
+        data: data,
+        type: 'POST',
+        success: function(result) {
+          console.log('we have successfully deleted to database');
+          $('#like_button').attr('value',globalresourceId).text('Like');
+        },
+        error: function(error) {
+          console.log("we are in error");
+        }
+      });
+  }
+});
 
 });
