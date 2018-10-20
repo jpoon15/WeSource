@@ -32,14 +32,12 @@
 </head>
 
 <body>
-
+    <% include ./partials/_header %>
+    <% include ./partials/_search %>
   <h1><%=resource.title%></h1>
   <section class='res_description'>
     <p><%=resource.description%></p>
   </section>
-
-    <% include ./partials/_header %>
-    <% include ./partials/_search %>
 
     <div class='left'>
        <div class='left_container'>
@@ -60,7 +58,7 @@
     </div>
 
     <div class='right'>
-      <a id="like_button" class="create_like"value="<%=resource.id%>" href="#" style='font-size: 3em; margin-bottom: 1em; margin-top: 1em; text-decoration: none'> Like</a>
+      <a id="like_button" class="create_like"value="<%=resource.id%>" href="#" style='font-size: 3em; margin-bottom: 1em; margin-top: 1em; text-decoration: none'>Like</a>
       <p class="liked_msg"></p>
       <p class="unliked_msg"></p>
       <a id='go_button' href='http://<%=resource.link%>' style='font-size: 3em; margin-bottom: 1em; margin-top: 1em; text-decoration: none'>Check Out the Link</a>
