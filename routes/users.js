@@ -24,6 +24,22 @@ router.get("/:id/profile", (req, res) => {
   res.render("profile");
 });
 
+//Register a new User - AJAX REQ
 router.post("/register", (req, res) => {
-  res.render("profile");
+ // let userCurrent = req.session.id;
+  console.log("we are in the add post", req.body);
+
+  knex('users').insert({
+      email: req.body.email,
+      name: req.body.name,
+      password: hashedpassword
+  }).returning('id')
+  .then((id) => {
+    console.log("successfully inserted the record ");
+    console.log(id);
+    //allow them to be logged in upon registration?
+    res.json({result: "True"});
+  })
+
+
 })
