@@ -28,18 +28,21 @@ router.get("/:id/profile", (req, res) => {
 router.post("/register", (req, res) => {
  // let userCurrent = req.session.id;
   console.log("we are in the registration post", req.body);
+  const password = req.body.password;
+  const hashedPassword = bcrypt.hashSync(password,10);
 //Will insert data into database from ajax request:
-  knex('users').insert({
+  knex('users')
+    .insert({
       email: req.body.email,
-      name: req.body.name,
-      password: hashedpassword
-      //create hash password aspect
-  }).returning('id')
-  .then((id) => {
-    console.log("successfully inserted the record ");
-    console.log(id);
-    //allow them to be logged in upon registration?
-    res.json({result: "True"});
+      name: req.body.username,
+      password: hashedPassword
+    })
+    .returning('id')
+    .then((id) => {
+      console.log("successfully inserted the record ");
+      console.log(id);
+      //allow them to be logged in upon registration?
+      res.json({result: "True"});
   })
 
 
