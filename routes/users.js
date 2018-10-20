@@ -23,3 +23,7 @@ router.get("/:id", (req, res) => {
 router.get("/:id/profile", (req, res) => {
   res.render("profile");
 });
+
+router.post("/register", (req, res) => {
+  res.render("profile");
+})

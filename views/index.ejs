@@ -1,135 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Home Page</title>
-
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/app.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/theme.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/bootstrap-app.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-
-  </head>
-
+  <% include ./partials/_head %>
   <body>
-      <header class="header">
-        <a href="#">WeSource</a>
-        <div class="header__right">
-
-          <!-- Login -->
-          <form action="/backdoor" method="POST">
-            <label for="email"> Sign In</label>
-            <input id="email" type="text" name="email" placeholder="Enter Email">
-            <button type="submit">Login</button>
-          </form>
-          <a id="add" class="add" href="#">ADD</a>
-        </div>
-      </header>
-      <!-- Search Bar -->
-      <div class="searchContainer">
-        <form action="/api/homepage/search" METHOD="GET">
-          <input type="text" placeholder="Search the WeSource database..." name="search" id="searchKeyword">
-          <button type="submit" id="searchButton">Search</button>
-        </form>
-      </div>
-
-    <h1></h1>
+      <% include ./partials/_header %>
+      <% include ./partials/_search %>
 
     <section class="mt-4 mb-5">
       <div class="container-fluid">
         <div class="row">
           <div class="card-columns">
-            <div class="card card-pin">
-              <img class="card-img" src="https://images.unsplash.com/photo-1489743342057-3448cc7c3bb9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6d284a2efbca5f89528546307f7e7b87&auto=format&fit=crop&w=500&q=60" alt="Card image">
-              <div class="overlay">
-                <h2 class="card-title title">Cool Title</h2>
-                <div class="more">
-                  <a href="post.html">
-                  <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> More </a>
-                </div>
-              </div>
-            </div>
-            <div class="card card-pin">
-              <img class="card-img" src="https://images.unsplash.com/photo-1519996521430-02b798c1d881?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f770fc1a5d8ff9b0eb033d0f09e15d&auto=format&fit=crop&w=500&q=60" alt="Card image">
-              <div class="overlay">
-                <h2 class="card-title title">Cool Title</h2>
-                <div class="more">
-                  <a href="post.html">
-                  <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> More </a>
-                </div>
-              </div>
-            </div>
-            <div class="card card-pin">
-              <img class="card-img" src="https://images.unsplash.com/photo-1519996521430-02b798c1d881?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f770fc1a5d8ff9b0eb033d0f09e15d&auto=format&fit=crop&w=500&q=60" alt="Card image">
-              <div class="overlay">
-                <h2 class="card-title title">Cool Title</h2>
-                <div class="more">
-                  <a href="post.html">
-                  <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> More </a>
-                </div>
-              </div>
-            </div>
-            <div class="card card-pin">
-              <img class="card-img" src="https://images.unsplash.com/photo-1519996521430-02b798c1d881?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f770fc1a5d8ff9b0eb033d0f09e15d&auto=format&fit=crop&w=500&q=60" alt="Card image">
-              <div class="overlay">
-                <h2 class="card-title title">Cool Title</h2>
-                <div class="more">
-                  <a href="post.html">
-                  <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> More </a>
-                </div>
-              </div>
-            </div>
-            <div class="card card-pin">
-              <img class="card-img" src="https://images.unsplash.com/photo-1519996521430-02b798c1d881?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f770fc1a5d8ff9b0eb033d0f09e15d&auto=format&fit=crop&w=500&q=60" alt="Card image">
-              <div class="overlay">
-                <h2 class="card-title title">Cool Title</h2>
-                <div class="more">
-                  <a href="post.html">
-                  <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> More </a>
-                </div>
-              </div>
-            </div>
-            <div class="card card-pin">
-              <img class="card-img" src="https://images.unsplash.com/photo-1519996521430-02b798c1d881?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f770fc1a5d8ff9b0eb033d0f09e15d&auto=format&fit=crop&w=500&q=60" alt="Card image">
-              <div class="overlay">
-                <h2 class="card-title title">Cool Title</h2>
-                <div class="more">
-                  <a href="post.html">
-                  <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> More </a>
-                </div>
-              </div>
-            </div>
-            <div class="card card-pin">
-              <img class="card-img" src="https://images.unsplash.com/photo-1519996521430-02b798c1d881?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f770fc1a5d8ff9b0eb033d0f09e15d&auto=format&fit=crop&w=500&q=60" alt="Card image">
-              <div class="overlay">
-                <h2 class="card-title title">Cool Title</h2>
-                <div class="more">
-                  <a href="post.html">
-                  <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> More </a>
-                </div>
-              </div>
-            </div>
-            <div class="card card-pin">
-              <img class="card-img" src="https://images.unsplash.com/photo-1519996521430-02b798c1d881?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f770fc1a5d8ff9b0eb033d0f09e15d&auto=format&fit=crop&w=500&q=60" alt="Card image">
-              <div class="overlay">
-                <h2 class="card-title title">Cool Title</h2>
-                <div class="more">
-                  <a href="post.html">
-                  <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> More </a>
-                </div>
-              </div>
-            </div>
-          </div> <!-- end card-columns -->
-        </div><!-- end row -->
-      </div><!-- end container-fluid -->
+
+            </div> <!-- end card-columns -->
+          </div><!-- end row -->
+        </div><!-- end container-fluid -->
       </section>
 
       <div id="addResourceModal">
-        <section>
+        <form action="/api/resources/add" method="POST">
           <h2>Add a new WeSource</h2>
           <p>
             <label for="url"><span>Url:</span></label>
@@ -148,20 +35,39 @@
               <span>Categrory:</span>
             </label>
             <select id="category" name="resourceCategory">
-              <option value="">Accessibility</option>
-              <option value="">Animation</option>
-              <option value="">CSS</option>
-              <option value="">HTML</option>
-              <option value="">Inspiration</option>
-              <option value="">Javascript</option>
-              <option value="">Plugins</option>
-              <option value="">UI</option>
-              <option value="">Web Design</option>
+              <option value="1">Accessibility</option>
+              <option value="2">Animation</option>
+              <option value="3">CSS</option>
+              <option value="4">HTML</option>
+              <option value="5">Inspiration</option>
+              <option value="6">Javascript</option>
+              <option value="7">Plugins</option>
+              <option value="8">UI</option>
+              <option value="9">Web Design</option>
             </select>
           </p>
           <button id="addResource" type="submit">ADD</button>
-        </section>
+        </form>
       </div>
+
+      <div id="registerModal">
+          <form action="/api/user/register" method="POST">
+            <h2>Join WeSource!</h2>
+            <p>
+              <label for="username"><span>Username:</span></label>
+              <input type="text" id="username" name="registerName">
+            </p>
+            <p>
+              <label for="email"><span>Email:</span></label>
+              <input type="email" id="email" name="registerEmail">
+            </p>
+            <p>
+              <label for="password"><span>Password:</span></label>
+              <input type="password" id="password" name="registerPassword">
+            </p>
+            <button id="register" type="submit">REGISTER</button>
+          </form>
+        </div>
 
       <div id="overlay">overlay</div>
   </body>
