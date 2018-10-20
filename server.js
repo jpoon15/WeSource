@@ -50,7 +50,10 @@ app.use("/api/resources", resourcesRoutes);
 
 // Home page
 app.get("/", (req, res) => {
-  res.render("index");
+  let templateVar = {
+    articles: undefined,
+  }
+  res.render("index", templateVar);
 });
 
 // Resources

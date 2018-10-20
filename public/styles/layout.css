@@ -33,7 +33,15 @@ body .header__right a:hover {
 }
 
 body .header__right .addResource {
-  display: none;
+  display: inline-block;
+}
+
+body .header__right .myProfile {
+  display: inline-block;
+}
+
+body .header__right .myDashboard {
+  display: inline-block;
 }
 
 body .header__right form {
