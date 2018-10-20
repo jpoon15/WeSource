@@ -50,19 +50,19 @@
            }
 
 
-           #article1 {
+           .article1 {
                     width: 20em;
                     height: 20em;
                     margin-top: 1em;
                     margin-left: 1em;
            }
-           #article2 {
+           .article2 {
                     width: 20em;
                     height: 20em;
                     margin-top: 1em;
                     margin-left: 1em;
            }
-           #article3 {
+           .article3 {
                     width: 20em;
                     height: 20em;
                     margin-top: 1em;
@@ -73,6 +73,10 @@
                font-family: fantasy;
                font-size: 1.5em;
            }
+           .card-img {
+               width: 300px;
+               height: 300px;
+           }
 
             
         </style>
@@ -81,13 +85,16 @@
     <div class='top'>
         <h3>My Sources</h3>
         <div class='my_articles_container'>
-            <div id='article1' style='border: 2px dashed red;'>Article1</div>
-            <div id='article2' style='border: 2px dashed red;'>Article2</div>
-            <div id='article3' style='border: 2px dashed red;'>Article3</div>
-            <div id='article3' style='border: 2px dashed red;'>Article2</div>
-            <div id='article3' style='border: 2px dashed red;'>Article3</div>
-            <div id='article3' style='border: 2px dashed red;'>Article2</div>
-            <div id='article3' style='border: 2px dashed red;'>Article3</div>
+            <% articles.forEach(function(item){  %>
+            <div class="card card-pin">
+                <h2 class="card-title title"><%=item.title%></h2>
+                <img class="card-img" src='<%=item.imgurl%>'>
+                <p><%=item.description%></p>
+                <a href='<%item.link%>'><%=item.link%></a>
+                <p><%=item.category%></p>
+            </div>
+
+            <% }) %>
         </div>
     </div>
 
