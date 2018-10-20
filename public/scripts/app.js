@@ -1,5 +1,5 @@
 $(() => {
-  // on load
+  // ON LOAD
   $.ajax({
     method: "GET",
     url: "/api/homepage"
@@ -131,14 +131,17 @@ $('#register').on('click', (e) => {
       }
     });
   })
+
 //AJAX REQUEST: LIKING RESOURCE
 $('#like_button').on('click', (e) => {
   e.preventDefault();
+//Needs to change class so it's no longer a link
 
   var data = {
     resource_id: $('#like_button').attr('value')
   }
   console.log("before ajax request", data);
+
   $.ajax({
     url: 'like',
     data: data,
