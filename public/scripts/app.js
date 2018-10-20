@@ -53,10 +53,8 @@ $(() => {
     $('#addResourceModal').hide();
   })
 
-
   // Comment Feed
 //   function createCommentElements()
-
 
 //   function renderComments(comments) {
 //     $('#comment_feed').empty();
@@ -65,7 +63,6 @@ $(() => {
 //       $('#comment-feed').append($newComment)
 //     }
 //   }
-
 
 //   function loadComments() {
 //     $.ajax('/api/resources/comment', {
@@ -107,7 +104,7 @@ $(() => {
     });
   })
 
-  //AJAX REQUEST: REGISTER
+//AJAX REQUEST: REGISTER
 $('#register').on('click', (e) => {
     e.preventDefault();
 
@@ -134,4 +131,26 @@ $('#register').on('click', (e) => {
       }
     });
   })
+//AJAX REQUEST: LIKING RESOURCE
+$('#like_button').on('click', (e) => {
+  e.preventDefault();
+
+  var data = {
+    resource_id: $('#like_button').attr('value')
+  }
+  console.log("before ajax request", data);
+  $.ajax({
+    url: 'like',
+    data: data,
+    type: 'POST',
+    success: function(result) {
+      console.log('we have successfully added to database');
+    },
+    error: function(error) {
+      console.log("we are in error");
+    }
+  })
+})
+
+
 });
