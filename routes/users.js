@@ -17,9 +17,8 @@ router.get("/:id", (req, res) => {
         console.log(results);
         let templateVars= {articles: results}
         res.render("mydashboard", templateVars);
-      });
-  res.render("mydashboard");
-});
+      })
+})
 
 router.get("/:id/profile", (req, res) => {
   res.render("profile");
