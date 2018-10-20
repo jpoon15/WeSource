@@ -1,42 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Home Page</title>
-
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/app.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/theme.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/bootstrap-app.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-    
-  </head>
-
+    <% include ./partials/_head %>
   <body>
-
-      <!-- <header class="header">
-        <a href="#">WeSource</a>
-        <div class="header__right">
-
-          Login
-          <form action="/backdoor" method="POST">
-            <label for="email"> Sign In</label>
-            <input id="email" type="text" name="email" placeholder="Enter Email">
-            <button type="submit">Login</button>
-          </form>
-          <a id="add" class="add" href="#">ADD</a>
-        </div>
-      </header> -->
-
-      <% include ./partials/_header %> 
-
-      <!-- Search Bar -->
-      <% include ./partials/_search %> 
-
-    <h1></h1>
+    <% include ./partials/_header %> 
+    <!-- Search Bar -->
+    <% include ./partials/_search %> 
 
     <section class="mt-4 mb-5">
       <div class="container-fluid">
@@ -82,6 +50,25 @@
           <button id="addResource" type="submit">ADD</button>
         </form>
       </div>
+
+      <div id="registerModal">
+          <form action="/api/user/register" method="POST">
+            <h2>Join WeSource!</h2>
+            <p>
+              <label for="username"><span>Username:</span></label>
+              <input type="text" id="username" name="registerName">
+            </p>
+            <p>
+              <label for="email"><span>Email:</span></label>
+              <input type="email" id="email" name="registerEmail">
+            </p>
+            <p>
+              <label for="password"><span>Password:</span></label>
+              <input type="password" id="password" name="registerPassword">
+            </p>
+            <button id="register" type="submit">REGISTER</button>
+          </form>
+        </div>
 
       <div id="overlay">overlay</div>
   </body>

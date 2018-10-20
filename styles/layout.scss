@@ -1,20 +1,27 @@
+
+$brandColor: #244751;
+
 body {
   background-color: #EEE;
   padding-top: 50px;
 
   h1 {
-    color: #244751;
+    color: $brandColor;
   }
 
   .header {
+    position: relative;
     width: calc(100% - 5%);
     padding: 10px 20px;
-    border: 1px solid;
+    border: 1px solid $brandColor;
     border-radius: 5px;
     margin: 0 auto;
 
     &__right {
-      float: right;
+      position: absolute;
+      right: 20PX;
+      top: 50%;
+      transform: translateY(-50%);
 
       a {
         margin-left: 20px;
@@ -24,11 +31,65 @@ body {
           cursor: pointer;
         }
       }
+
+      .registerUser {
+        
+      }
+
+      .addResource {
+        display: none;
+      }
+
+      form {
+        display: inline-block;
+
+        input {
+          border: 1px solid #fff;
+          padding: 5px 10px;
+          margin-left: 5px;
+          border-top-left-radius: 5px;
+          border-bottom-left-radius: 5px;
+
+          &:hover,
+          &:focus {
+            border: 1px solid #999;
+            outline: none;
+          }
+        }
+
+        button {
+          border: 0;
+          background: #777;
+          color: #fff;
+          padding: 5px 10px;
+          border: 1px solid #777;
+          border-top-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+          margin-left: -4px;
+
+          &:hover {
+            border: 1px solid $brandColor;
+            background: #fff;
+            outline: none;
+            color: $brandColor;
+          }
+        }
+      }
     }
 
     a {
-      color: #000;
+      color: $brandColor;
       text-decoration: none;
+    }
+
+    .logo {
+      font-weight: 500;
+      font-size: 30px;
+      border-bottom: 1px solid transparent;
+
+      &:hover {
+        border-bottom: 2px solid $brandColor;
+      }
     }
   }
   
@@ -68,9 +129,14 @@ body {
         font-style: normal;
 
         &:hover {
-          border: 1px solid #000;
+          border: 1px solid $brandColor;
           background-color: #fff;
-          color: #000;
+          color: $brandColor;
+        }
+
+        &:focus {
+          outline: 0;
+          border: 1px solid $brandColor;
         }
       }
     }
@@ -87,7 +153,7 @@ body {
   display: none;
   position: fixed;
   transform: translate(-50%, -50%);
-  background-color: #fff;
+  background-color: #EEE;
   left: 50%;
   top: 50%;
   padding: 20px;
@@ -96,6 +162,17 @@ body {
 
   h2 {
     margin-bottom: 20px;
+  }
+
+  input {
+    padding: 5px 10px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+
+    &:focus {
+      outline: 0;
+      border: 1px solid #777;
+    }
   }
 
   input, select {
@@ -115,12 +192,64 @@ body {
     padding: 5px;
 
     &:hover {
-      border: 1px solid #000;
+      border: 1px solid $brandColor;
       background-color: #fff;
-      color: #000;
+      color: $brandColor;
     }
   }
-  
+}
+
+#registerModal {
+  display: none;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  background-color: #EEE;
+  left: 50%;
+  top: 50%;
+  padding: 20px;
+  z-index: 3;
+  border-radius: 5px;
+
+  h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+  }
+
+  input {
+    margin-left: 20px;
+    padding: 5px 10px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+
+    &:focus {
+      outline: 0;
+      border: 1px solid #777;
+    }
+  }
+
+  input, select {
+    float: right;
+    width: 180px;
+  }
+
+  #register {
+    width: 180px;
+    display: block;
+    margin: 30px auto 0;
+    border: 0;
+    border: 1px solid #777;
+    background: #777;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px;
+
+    &:hover {
+      border: 1px solid $brandColor;
+      background-color: #fff;
+      color: $brandColor;
+    }
+  }
 }
 
 #overlay{
