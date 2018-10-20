@@ -8,15 +8,19 @@ body h1 {
 }
 
 body .header {
+  position: relative;
   width: calc(100% - 5%);
   padding: 10px 20px;
-  border: 1px solid;
+  border: 1px solid #244751;
   border-radius: 5px;
   margin: 0 auto;
 }
 
 body .header__right {
-  float: right;
+  position: absolute;
+  right: 20PX;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 body .header__right a {
@@ -28,9 +32,58 @@ body .header__right a:hover {
   cursor: pointer;
 }
 
+body .header__right .addResource {
+  display: none;
+}
+
+body .header__right form {
+  display: inline-block;
+}
+
+body .header__right form input {
+  border: 1px solid #fff;
+  padding: 5px 10px;
+  margin-left: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+body .header__right form input:hover, body .header__right form input:focus {
+  border: 1px solid #999;
+  outline: none;
+}
+
+body .header__right form button {
+  border: 0;
+  background: #777;
+  color: #fff;
+  padding: 5px 10px;
+  border: 1px solid #777;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin-left: -4px;
+}
+
+body .header__right form button:hover {
+  border: 1px solid #244751;
+  background: #fff;
+  outline: none;
+  color: #244751;
+}
+
 body .header a {
-  color: #000;
+  color: #244751;
   text-decoration: none;
+}
+
+body .header .logo {
+  font-weight: 500;
+  font-size: 30px;
+  border-bottom: 1px solid transparent;
+}
+
+body .header .logo:hover {
+  border-bottom: 2px solid #244751;
 }
 
 body .searchContainer {
@@ -72,9 +125,14 @@ body .searchContainer form button {
 }
 
 body .searchContainer form button:hover {
-  border: 1px solid #000;
+  border: 1px solid #244751;
   background-color: #fff;
-  color: #000;
+  color: #244751;
+}
+
+body .searchContainer form button:focus {
+  outline: 0;
+  border: 1px solid #244751;
 }
 
 .card-columns {
@@ -85,7 +143,7 @@ body .searchContainer form button:hover {
   display: none;
   position: fixed;
   transform: translate(-50%, -50%);
-  background-color: #fff;
+  background-color: #EEE;
   left: 50%;
   top: 50%;
   padding: 20px;
@@ -95,6 +153,17 @@ body .searchContainer form button:hover {
 
 #addResourceModal h2 {
   margin-bottom: 20px;
+}
+
+#addResourceModal input {
+  padding: 5px 10px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+}
+
+#addResourceModal input:focus {
+  outline: 0;
+  border: 1px solid #777;
 }
 
 #addResourceModal input, #addResourceModal select {
@@ -115,9 +184,62 @@ body .searchContainer form button:hover {
 }
 
 #addResourceModal #addResource:hover {
-  border: 1px solid #000;
+  border: 1px solid #244751;
   background-color: #fff;
-  color: #000;
+  color: #244751;
+}
+
+#registerModal {
+  display: none;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  background-color: #EEE;
+  left: 50%;
+  top: 50%;
+  padding: 20px;
+  z-index: 3;
+  border-radius: 5px;
+}
+
+#registerModal h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+#registerModal input {
+  margin-left: 20px;
+  padding: 5px 10px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+}
+
+#registerModal input:focus {
+  outline: 0;
+  border: 1px solid #777;
+}
+
+#registerModal input, #registerModal select {
+  float: right;
+  width: 180px;
+}
+
+#registerModal #register {
+  width: 180px;
+  display: block;
+  margin: 30px auto 0;
+  border: 0;
+  border: 1px solid #777;
+  background: #777;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#registerModal #register:hover {
+  border: 1px solid #244751;
+  background-color: #fff;
+  color: #244751;
 }
 
 #overlay {

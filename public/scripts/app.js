@@ -30,7 +30,7 @@ $(() => {
         $('.card-columns').empty();
         response.forEach(item => {
           console.log(item);
-          $(`<div class="card card-pin"><img class="card-img" src="${item.imgurl}"/><p>${item.title}</p><p>${item.description}</p><a href="${item.link}">${item.link}</a><p>${item.category_id}</p></div>`).prependTo($('.card-columns'));
+          $(`<a href="/api/resources/${resource.id}"><div class="card card-pin"><img class="card-img" src="${item.imgurl}"/><p>${item.title}</p><p>${item.description}</p><p>${item.category_id}</p></div></a>`).prependTo($('.card-columns'));
         })
     },
       error: function(err){
@@ -51,7 +51,7 @@ $(() => {
   $('#overlay').on('click', function() {
     $(this).hide();
     $('body').removeClass('fixed');
-    $('#addResourceModal').hide();
+    $('#addResourceModal, #registerModal').hide();
   })
 
   // Comment Feed
@@ -100,6 +100,8 @@ $(() => {
         // add success div notice
         let newPost = $(`<div class="card card-pin"><img class="card-img" src="${result.imgurl}"/><p>${result.title}</p><p>${result.description}</p><a href="${result.link}">${result.link}</a><p>${result.category_id}</p></div>`);
         $(newPost).prependTo($('.card-columns'))
+        $('#overlay').hide();
+        $('#addResourceModal').hide();
       },
       error: function(error){
         console.log("we are in error");
@@ -107,7 +109,13 @@ $(() => {
     });
   })
 
-  //function insert
+  // Add New User
+  $('#registerUser').on('click', (e) => {
+    e.preventDefault();
+    $('body').addClass('fixed');
+    $('#registerModal').show();
+    $('#overlay').show();
+  })
 
 
 });
