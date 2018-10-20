@@ -28,11 +28,12 @@ router.get("/:id/profile", (req, res) => {
 router.post("/register", (req, res) => {
  // let userCurrent = req.session.id;
   console.log("we are in the add post", req.body);
-
+//Will insert data into database from ajax request:
   knex('users').insert({
       email: req.body.email,
       name: req.body.name,
       password: hashedpassword
+      //create hash password aspect
   }).returning('id')
   .then((id) => {
     console.log("successfully inserted the record ");
