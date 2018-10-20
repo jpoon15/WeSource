@@ -31,7 +31,11 @@
 </head>
 
 <body>
-  <h1><%=resource.title%> Title </h1>
+  <h1><%=resource.title%></h1>
+  <section class='res_description'>
+    <p><%=resource.description%></p>
+    <p><%=resource.link%></p>
+  </section>
     <div class='left'>
        <div class='left_container'>
         <div class='main_image'>
@@ -51,9 +55,9 @@
     </div>
 
     <div class='right'>
-            <a id="like_button" href="#" style='font-size: 3em; margin-bottom: 1em; margin-top: 1em; text-decoration: none'> Like</a>
-            <a id='share_button'href='#'style='font-size: 3em; margin-bottom: 1em; margin-top: 1em; text-decoration: none'>Share</a>
-            <a id='go_button'href='#'style='font-size: 3em; margin-bottom: 1em; margin-top: 1em; text-decoration: none'>Go</a>
+      <a id="like_button" href='#' style='font-size: 3em; margin-bottom: 1em; margin-top: 1em; text-decoration: none'> Like</a>
+      <a id='go_button' href='http://<%=resource.link%>' style='font-size: 3em; margin-bottom: 1em; margin-top: 1em; text-decoration: none'>Check Out the Link</a>
+      <a id='share_button'href=''style='font-size: 3em; margin-bottom: 1em; margin-top: 1em; text-decoration: none'>Share</a>
     </div>
 
     </body>
