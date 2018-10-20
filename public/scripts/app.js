@@ -51,4 +51,28 @@ $(() => {
     $('#addResourceModal').hide();
   })
 
+  // Comment Feed
+//   function createCommentElements()
+
+
+//   function renderComments(comments) {
+//     $('#comment_feed').empty();
+//     for (let i = 0; i < comments.length; i++) {
+//       let $newComment = createCommentElement(comment[i]);
+//       $('#comment-feed').append($newComment)
+//     }
+//   }
+
+
+//   function loadComments() {
+//     $.ajax('/api/resources/comment', {
+//       method: 'GET',
+//       success: function(comments) {
+//         renderComments(comments)
+//       }
+//     })
+//   }
+
+// loadComments();
+
 });
