@@ -54,6 +54,30 @@ $(() => {
     $('#addResourceModal').hide();
   })
 
+  // Comment Feed
+//   function createCommentElements()
+
+
+//   function renderComments(comments) {
+//     $('#comment_feed').empty();
+//     for (let i = 0; i < comments.length; i++) {
+//       let $newComment = createCommentElement(comment[i]);
+//       $('#comment-feed').append($newComment)
+//     }
+//   }
+
+
+//   function loadComments() {
+//     $.ajax('/api/resources/comment', {
+//       method: 'GET',
+//       success: function(comments) {
+//         renderComments(comments)
+//       }
+//     })
+//   }
+
+// loadComments();
+
   $('#addResource').on('click', (e) => {
     e.preventDefault();
 
@@ -65,7 +89,7 @@ $(() => {
       description: $('#description').val(),
       category_id: category_id
     };
-    //ajax call to save data 
+    //ajax call to save data
     console.log("before ajax request ",data);
     $.ajax({
       url: '/api/resources/add',
@@ -84,5 +108,6 @@ $(() => {
   })
 
   //function insert
+
 
 });

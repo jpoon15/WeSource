@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
+
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title><%=resource.title%></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
         <style>
            .left {
                width: 70%;
@@ -29,13 +28,19 @@
                text-align: center;
            }
 
-
         </style>
 </head>
 
 <body>
-    <% include ./partials/_header %> 
+<<<<<<< HEAD
+  <h1><%=resource.title%></h1>
+  <section class='res_description'>
+    <p><%=resource.description%></p>
+  </section>
+=======
+    <% include ./partials/_header %>
     <% include ./partials/_search %>
+>>>>>>> master
     <div class='left'>
        <div class='left_container'>
         <div class='main_image'>
@@ -55,9 +60,9 @@
     </div>
 
     <div class='right'>
-            <a id="like_button" href="#" style='font-size: 3em; margin-bottom: 1em; margin-top: 1em; text-decoration: none'> Like</a>
-            <a id='share_button'href='#'style='font-size: 3em; margin-bottom: 1em; margin-top: 1em; text-decoration: none'>Share</a>
-            <a id='go_button'href='#'style='font-size: 3em; margin-bottom: 1em; margin-top: 1em; text-decoration: none'>Go</a>
+      <a id="like_button" value = 1 href='#' style='font-size: 3em; margin-bottom: 1em; margin-top: 1em; text-decoration: none'> Like</a>
+      <a id='go_button' href='http://<%=resource.link%>' style='font-size: 3em; margin-bottom: 1em; margin-top: 1em; text-decoration: none'>Check Out the Link</a>
+      <a id='share_button'href=''style='font-size: 3em; margin-bottom: 1em; margin-top: 1em; text-decoration: none'>Share</a>
     </div>
 
     </body>
