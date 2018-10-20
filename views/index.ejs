@@ -16,11 +16,12 @@
   </head>
 
   <body>
-      <header class="header">
+
+      <!-- <header class="header">
         <a href="#">WeSource</a>
         <div class="header__right">
 
-          <!-- Login -->
+          Login
           <form action="/backdoor" method="POST">
             <label for="email"> Sign In</label>
             <input id="email" type="text" name="email" placeholder="Enter Email">
@@ -28,14 +29,12 @@
           </form>
           <a id="add" class="add" href="#">ADD</a>
         </div>
-      </header>
+      </header> -->
+
+      <% include ./partials/_header %> 
+
       <!-- Search Bar -->
-      <div class="searchContainer">
-        <form action="/api/homepage/search" METHOD="GET">
-          <input type="text" placeholder="Search the WeSource database..." name="search" id="searchKeyword">
-          <button type="submit" id="searchButton">Search</button>
-        </form>
-      </div>
+      <% include ./partials/_search %> 
 
     <h1></h1>
 
