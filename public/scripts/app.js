@@ -12,7 +12,6 @@ $(() => {
     }
   });
 
-
   // Search Bar Query
   $("#searchButton").on("click", (e) => {
     e.preventDefault();
@@ -53,6 +52,7 @@ $(() => {
     $('body').removeClass('fixed');
     $('#addResourceModal').hide();
   })
+
 
   // Comment Feed
 //   function createCommentElements()
@@ -107,7 +107,31 @@ $(() => {
     });
   })
 
-  //function insert
+  //AJAX REQUEST: REGISTER
+$('#register').on('click', (e) => {
+    e.preventDefault();
 
+    var register_id = $('#register').find(':selected').val();
 
+    var data  = {
+      username: $('#url').val(),
+      email: $('#title').val(),
+      password: $('#description').val(),
+    };
+    //ajax call to save data
+    console.log("before ajax request ",data);
+    $.ajax({
+      url: '/api/users/register',
+      data: data,
+      type:'POST',
+      success: function(result){
+        console.log("we are in success");
+        // add success div notice
+        alert("You have successfully registered")
+      },
+      error: function(error){
+        console.log("we are in error");
+      }
+    });
+  })
 });
