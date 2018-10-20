@@ -49,7 +49,7 @@ router.post("/like", (req, res) => {
     resource_id: req.body.resource_id
   }).returning('id')
   .then((id) => {
-    // console.log("successfully inserted the record");
+    console.log("successfully inserted the record");
     // console.log(id);
     res.json(id);
   })
@@ -63,7 +63,7 @@ router.post("/delete", (req, res) => {
   knex('likes')
     .where('like_id', req.body.like_id)
     .del()
-    console.log("successfully deleted the record");
-    res.json({result: "True"});
+
+  res.send('successful deletion');
 });
 
