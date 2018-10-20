@@ -93,9 +93,9 @@ $('#register').on('click', (e) => {
     var register_id = $('#register').find(':selected').val();
 
     var data  = {
-      username: $('#url').val(),
-      email: $('#title').val(),
-      password: $('#description').val(),
+      email: $('#useremail').val(),
+      username: $('#username').val(),
+      password: $('#password').val(),
     };
     //ajax call to save data
     console.log("before ajax request ",data);
