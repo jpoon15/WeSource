@@ -113,21 +113,21 @@ $('#register').on('click', (e) => {
   })
 
 //LIKING RESOURCE ON DETAIL PAGE
-$('#like_button').on('click', (e) => {
+$('.create_like').on('click', (e) => {
   e.preventDefault();
 //Needs to change class so it's no longer a link
 
   var data = {
     resource_id: $('#like_button').attr('value')
   }
-  // console.log("before ajax request", data);
-
   $.ajax({
     url: 'like',
     data: data,
     type: 'POST',
     success: function(result) {
+      console.log('result', result)
       console.log('we have successfully added to database');
+      $('#like_button').attr('class', 'delete_like').attr('value', result).text('Unlike');
     },
     error: function(error) {
       console.log("we are in error");
@@ -135,5 +135,27 @@ $('#like_button').on('click', (e) => {
   })
 })
 
+//UNLIKING RESOURCE ON DETAIL PAGE
+$('.delete_like').on('click', (e) => {
+  e.preventDefault();
+
+  var data = {
+    like_id: $('.delete_like').attr('value')
+  }
+  console.log("before delete ajax request", data);
+
+  $.ajax({
+    url: 'delete',
+    data: data,
+    type: 'POST',
+    success: function(result) {
+      console.log('we have successfully deleted to database');
+      $('#like_button').attr('class', 'create_like').text('Like');
+    },
+    error: function(error) {
+      console.log("we are in error");
+    }
+  })
+})
 
 });
