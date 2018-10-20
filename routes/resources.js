@@ -7,8 +7,17 @@ const knex    = require('../lib/database-connection');
 module.exports = router;
 
 router.get("/:id", (req, res) => {
-  res.render("detail");
+  console.log(req.params.id)
+  let currentResourceId = req.params.id
 
+  knex("resources")
+    .where("id", `${currentResourceId}`)
+    .then((results) => {
+      let templeVars = {
+        resource: results
+      }
+      res.render("detail", templeVars);
+    });
 });
 
 router.get("/search", (req, res) => {
