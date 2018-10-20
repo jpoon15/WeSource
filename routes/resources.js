@@ -11,8 +11,9 @@ router.get("/:id", (req, res) => {
   let currentResourceId = req.params.id
 
   knex("resources")
-    .where("id", `${currentResourceId}`)
+    .where("id", `${currentResourceId}`).first()
     .then((results) => {
+      console.log("results", results);
       let templeVars = {
         resource: results
       }
