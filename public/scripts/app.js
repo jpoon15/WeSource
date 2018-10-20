@@ -113,49 +113,92 @@ $('#register').on('click', (e) => {
   })
 
 //LIKING RESOURCE ON DETAIL PAGE
-$('.create_like').on('click', (e) => {
-  e.preventDefault();
-//Needs to change class so it's no longer a link
+//1. Use Id to Click
+//2. In the click check for the text
+//3. if its like {
 
-  var data = {
-    resource_id: $('#like_button').attr('value')
+//}
+// if its unlike do this
+
+var globalresourceId;
+$('#like_button').on('click', (e) => {
+
+  e.preventDefault();
+  //Needs to change class so it's no longer a link
+  var currentText = $('#like_button').text();
+  if(currentText === "Like"){
+      globalresourceId = $('#like_button').attr('value');
+      console.log("test ",globalresourceId);
+      //console.log(resourceId);
+      var data = {
+        resource_id: $('#like_button').attr('value')
+      };
+
+    $.ajax({
+      url: 'like',
+      data: data,
+      type: 'POST',
+      success: function(result) {
+        console.log('result', result)
+        console.log('we have successfully added to database');
+        // $('#like_button').attr('class', 'delete_like').attr('value', result).text('Unlike');
+        $('#like_button').attr('value', result).text('Unlike');
+      },
+      error: function(error) {
+        console.log("we are in error");
+      }
+    }); //ajax call ends here;
+  } else if(currentText==="Unlike"){
+      e.preventDefault();
+
+      var data = {
+        like_id: $('#like_button').attr('value')
+      };
+
+      console.log("before delete ajax request", data);
+
+      $.ajax({
+        url: 'delete',
+        data: data,
+        type: 'POST',
+        success: function(result) {
+          console.log('we have successfully deleted to database');
+          $('#like_button').attr('value',globalresourceId).text('Like');
+        },
+        error: function(error) {
+          console.log("we are in error");
+        }
+      });
+
+
   }
-  $.ajax({
-    url: 'like',
-    data: data,
-    type: 'POST',
-    success: function(result) {
-      console.log('result', result)
-      console.log('we have successfully added to database');
-      $('#like_button').attr('class', 'delete_like').attr('value', result).text('Unlike');
-    },
-    error: function(error) {
-      console.log("we are in error");
-    }
-  })
-})
+
+
+}); //Like button code ends here
 
 //UNLIKING RESOURCE ON DETAIL PAGE
 $('.delete_like').on('click', (e) => {
   e.preventDefault();
+  alert("hello");
 
   var data = {
     like_id: $('.delete_like').attr('value')
-  }
+  };
+
   console.log("before delete ajax request", data);
 
-  $.ajax({
-    url: 'delete',
-    data: data,
-    type: 'POST',
-    success: function(result) {
-      console.log('we have successfully deleted to database');
-      $('#like_button').attr('class', 'create_like').text('Like');
-    },
-    error: function(error) {
-      console.log("we are in error");
-    }
-  })
+  // $.ajax({
+  //   url: 'delete',
+  //   data: data,
+  //   type: 'POST',
+  //   success: function(result) {
+  //     console.log('we have successfully deleted to database');
+  //     $('#like_button').attr('class', 'create_like').text('Like');
+  //   },
+  //   error: function(error) {
+  //     console.log("we are in error");
+  //   }
+  // })
 })
 
 });
