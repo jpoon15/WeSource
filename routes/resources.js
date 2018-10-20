@@ -21,17 +21,12 @@ router.get("/:id", (req, res) => {
     });
 });
 
-router.get("/search", (req, res) => {
-  let searchKeyword = lowercase(req.query.search);
-  console.log("search", req.query.search);
 
-  knex.select("*")
-    .from("resources")
-    .where("title", "like",`%${searchKeyword}%`)
-    .orWhere("description","like",`%${searchKeyword}%`)
-    .orWhere("link", "like",`%${searchKeyword}%`)
-    .then((results) => {
-      res.json(results);
-    })
-    res.redirect("/")
-});
+
+// router.get("/comments", (req, res) => {
+//   knex("comments")
+//     .where("resource_id", `${currentResourceId}`)
+//     .then((results) => {
+//       res.json(results);
+//     })
+// });
