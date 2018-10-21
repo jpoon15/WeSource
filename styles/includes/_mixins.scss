@@ -1,0 +1,30 @@
+
+// border radius mixin
+@mixin border-radius($value){
+    -moz-border-radius: $value;
+    -webkit--radius: $value;
+    border-radius: $value;
+}
+
+// breakpoint mixin
+$breakpoints: (
+    "phone-small":       320px,
+    "phone-medium":      375px,
+    "phone-large":       414px,
+    "tablet-portrait":   768px,
+    "tablet-landscape":  1024px,
+    "desktop":           1200px,
+    "desktop-wide":      1440px
+);
+
+@mixin bp($width, $type: max) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+        @if $type == min {
+            $width: $width - 1px;
+        }
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+}

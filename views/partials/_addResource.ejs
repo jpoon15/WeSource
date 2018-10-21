@@ -1,0 +1,35 @@
+<div id="addResourceModal">
+<i class="fas fa-times"></i>
+<form action="/api/resources/add" method="POST">
+    <h2>Add a WeSource!</h2>
+    <p>
+    <label for="url"><span>Url:</span></label>
+    <input type="text" id="url" name="resourceUrl">
+    </p>
+    <p>
+    <label for="title"><span>Title:</span></label>
+    <input type="text" id="title" name="resourceTitle">
+    </p>
+    <p>
+    <label for="description"><span>Descriiption:</span></label>
+    <input type="text" id="description" name="resourceDescription">
+    </p>
+    <p>
+    <label for="category">
+    <span>Categrory:</span>
+    </label>
+    <select id="category" name="resourceCategory">
+    <option value="1">Accessibility</option>
+    <option value="2">Animation</option>
+    <option value="3">CSS</option>
+    <option value="4">HTML</option>
+    <option value="5">Inspiration</option>
+    <option value="6">Javascript</option>
+    <option value="7">Plugins</option>
+    <option value="8">UI</option>
+    <option value="9">Web Design</option>
+    </select>
+    </p>
+    <button id="addResource" type="submit">ADD</button>
+</form>
+</div>

@@ -39,6 +39,14 @@ $(() => {
     });
   });
 
+  // Login
+    $('#addLoggedOut').on('click', (e) => {
+    e.preventDefault();
+    $('body').addClass('fixed');
+    $('#loginModal').show();
+    $('#overlay').show();
+  })
+
   // Add New Resource
   $('#add').on('click', (e) => {
     e.preventDefault();
@@ -59,7 +67,13 @@ $(() => {
   $('#overlay').on('click', function() {
     $(this).hide();
     $('body').removeClass('fixed');
-    $('#addResourceModal, #registerModal').hide();
+    $('#addResourceModal, #registerModal, #loginModal').hide();
+  })
+
+  $('.fa-times').on('click', function() {
+    $('#overlay').hide();
+    $('body').removeClass('fixed');
+    $('#addResourceModal, #registerModal, #loginModal').hide();
   })
 
 
