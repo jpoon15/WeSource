@@ -1,5 +1,6 @@
 
-$brandColor: #244751;
+@import 'includes/_mixins';
+@import 'includes/_variables';
 
 body {
   background-color: #EEE;
@@ -17,25 +18,68 @@ body {
     border-radius: 5px;
     margin: 0 auto;
 
+    @include bp('tablet-landscape') {
+      text-align: center;
+    }
+
     &__right {
       position: absolute;
-      right: 20PX;
+      right: 20px;
       top: 50%;
       transform: translateY(-50%);
 
+      @include bp('tablet-landscape') {
+        position: relative;
+        text-align: center;
+        width: 100%;
+        right: auto;
+        margin-top: 90px;
+        
+      }
+
+      &.user {
+        @include bp('tablet-landscape') {
+          margin-top: 50px;
+        }
+
+        form {
+          @include bp('tablet-landscape') {
+            width: auto;
+          }
+        }
+
+      }
+
+      &.noUser {
+        @include bp('tablet-landscape') {
+          margin-bottom: -30px;
+        }
+      }
+
       a {
-        margin-left: 20px;
+        margin-right: 20px;
 
         &:hover {
           text-decoration: underline;
           cursor: pointer;
         }
-      }
 
-      .registerUser {
-        
-      }
+        &.register {
+          border: 0;
+          background: #777;
+          color: #fff;
+          padding: 8px 10px;
+          border: 1px solid #777;
+          margin-left: -4px;
+          border-radius: 5px;
+          margin-left: 20px;
+          margin-right: 0;
 
+          @include bp('tablet-landscape') {
+            display: none;
+          }
+
+<<<<<<< HEAD
       .addResource {
 <<<<<<< HEAD
         display: inline-block;
@@ -48,10 +92,52 @@ body {
 =======
         //display: none;
 >>>>>>> master
+=======
+          &:hover {
+            border: 1px solid $brandColor;
+            background: #fff;
+            outline: none;
+            color: $brandColor;
+            text-decoration: none;
+          }
+        }
+>>>>>>> 0787fb197f7301699b0f99b0a3713263b954c949
       }
 
       form {
         display: inline-block;
+
+        @include bp('tablet-landscape'){
+          width: 300px;
+        }
+
+        p {
+          display: inline-block;
+          margin-bottom: 0;
+          margin-left: 10px;
+
+          @include bp('tablet-landscape') {
+            display: block;
+            width: 100%;
+            margin-bottom: 20px;
+            overflow: hidden;
+            margin-left: 0;
+          }
+
+          label {
+            @include bp('tablet-landscape') {
+              float: left;
+            }
+
+          }
+
+          input {
+            @include bp('tablet-landscape') {
+              float: right;
+            }
+
+          }
+        }
 
         input {
           border: 1px solid #fff;
@@ -73,8 +159,6 @@ body {
           color: #fff;
           padding: 5px 10px;
           border: 1px solid #777;
-          border-top-right-radius: 5px;
-          border-bottom-right-radius: 5px;
           margin-left: -4px;
 
           &:hover {
@@ -82,6 +166,20 @@ body {
             background: #fff;
             outline: none;
             color: $brandColor;
+          }
+
+          &.login {
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+
+            @include bp('tablet-landscape'){
+              border-radius: 5px;
+              width: 100%;
+            }
+          }
+
+          &.logout {
+            border-radius: 5px;
           }
         }
       }
@@ -95,7 +193,19 @@ body {
     .logo {
       font-weight: 500;
       font-size: 30px;
-      border-bottom: 1px solid transparent;
+      border-bottom: 2px solid transparent;
+
+      @include bp('tablet-landscape') {
+        width: auto;
+        display: inline-block;
+        margin: 0 auto;
+        font-size: 50px;
+        line-height: 50px;
+      }
+
+      // @include bp('phone-large') {
+        
+      // }
 
       &:hover {
         border-bottom: 2px solid $brandColor;
@@ -108,6 +218,10 @@ body {
     margin: 40px auto;
     display: flex;
 
+    @include bp('tablet-landscape') {
+        width: 80%;
+    }
+
     form {
       width: 100%;
 
@@ -119,6 +233,10 @@ body {
         border-bottom-left-radius: 5px;
         border: 0;
         border: 1px solid #fff;
+
+        @include bp('tablet-landscape') {
+          width: 70%;
+        }
 
         &:focus {
           border: 1px solid #999;
@@ -138,6 +256,10 @@ body {
         font-style: normal;
         font-style: normal;
 
+        @include bp('tablet-landscape') {
+          width: 30%;
+        }
+
         &:hover {
           border: 1px solid $brandColor;
           background-color: #fff;
@@ -151,12 +273,55 @@ body {
       }
     }
   }
-  
+}
+
+.addResource {
+  @include bp('tablet-landscape') {
+    width: 80%;
+    display: inline-block;
+  }
+
+  .logo {
+    font-weight: 500;
+  }
+}
+
+
+.newWeSource {
+  text-align: center;
+  margin-top: 40px;
+
+  @include bp('tablet-landscape') {
+
+  }
+
+  a{
+    background-color: #69b269;
+    padding: 15px 30px;
+    color: $brandColor;
+    font-size: 25px;
+    border-radius: 5px;
+    border: 1px solid #69b269;
+
+    &:hover {
+      text-decoration: none;
+      background-color: #fff;
+      border: 1px solid $brandColor;
+    }
+  }
 }
 
 .card-columns {
   overflow: hidden;
 }
+
+.login_msg {
+  display: none;
+} 
+
+.register_msg {
+  display: none;
+} 
 
 
 #addResourceModal {
@@ -262,6 +427,64 @@ body {
   }
 }
 
+#loginModal {
+  display: none;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  background-color: #EEE;
+  left: 50%;
+  top: 50%;
+  padding: 20px;
+  z-index: 3;
+  border-radius: 5px;
+
+  h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+  }
+
+  input {
+    margin-left: 20px;
+    padding: 5px 10px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+
+    &:focus {
+      outline: 0;
+      border: 1px solid #777;
+    }
+  }
+
+  input {
+    float: right;
+    width: 180px;
+  }
+
+  #login {
+    width: 180px;
+    display: block;
+    margin: 30px auto 0;
+    border: 0;
+    border: 1px solid #777;
+    background: #777;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px;
+
+    &:hover {
+      border: 1px solid $brandColor;
+      background-color: #fff;
+      color: $brandColor;
+    }
+  }
+}
+
+.fa-times {
+  float: right;
+  cursor: pointer;
+}
+
 #overlay{
   position: fixed; /* Sit on top of the page content */
   display: none; /* Hidden by default */
@@ -283,7 +506,9 @@ body {
 
 
 
+.res_description {
 
+<<<<<<< HEAD
 .top {
   width:90%;
   border: 2px dashed red;
@@ -293,8 +518,33 @@ body {
   display: flex;
   flex-direction: column;
 }
+=======
+  .left {
+    width: 55%;
+    border: 1px solid $brandColor;
+    border-radius: 5px;
+    float: left;
+    margin-left: 10%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+>>>>>>> 0787fb197f7301699b0f99b0a3713263b954c949
 
+.right {
+    width: 15%;
+    border: 1px solid $brandColor;
+    border-radius: 5px;
+    float: right;
+    margin-right: 10%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+}
 
+<<<<<<< HEAD
 .bottom {
   width: 90%;
   border: 2px dashed sandybrown;
@@ -334,3 +584,5 @@ h3 {
   width: 300px;
   height: 300px;
 }
+=======
+>>>>>>> 0787fb197f7301699b0f99b0a3713263b954c949

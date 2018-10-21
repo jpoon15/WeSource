@@ -51,10 +51,17 @@ app.use("/api/resources", resourcesRoutes);
 
 // Home page
 app.get("/", (req, res) => {
+<<<<<<< HEAD
   let templateVar = {
     articles: undefined,
   }
   res.render("index", templateVar);
+=======
+  let templateVars    = {
+    user: req.session.id
+};
+  res.render("index", templateVars);
+>>>>>>> 0787fb197f7301699b0f99b0a3713263b954c949
 });
 
 // Resources
