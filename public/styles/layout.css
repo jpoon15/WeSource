@@ -495,3 +495,26 @@ body .searchContainer form button:focus {
 .fixed {
   overflow: hidden;
 }
+
+.res_description .left {
+  width: 55%;
+  border: 1px solid #244751;
+  border-radius: 5px;
+  float: left;
+  margin-left: 10%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.res_description .right {
+  width: 15%;
+  border: 1px solid #244751;
+  border-radius: 5px;
+  float: right;
+  margin-right: 10%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
