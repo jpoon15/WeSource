@@ -78,6 +78,7 @@ $(() => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   //$('.card-columns .card__cat:contains("HTML")').closest('.card-pin').addClass('platinum')
 
@@ -86,6 +87,8 @@ $(() => {
   //$('.card__cat:contains("HTML")').addClass('NEWCLASS');
 
 >>>>>>> 66738619dcb9ef5a69f991a59b061cea17e11f6c
+=======
+>>>>>>> users_dashboard
 =======
 >>>>>>> users_dashboard
 =======
