@@ -4,19 +4,10 @@ $(() => {
     $.ajax({
     method: "GET",
     url: "/api/homepage"
-<<<<<<< HEAD
-    }).done((resources) => {
-      console.log(resources);
-      for(resource of resources) {
-      $(`<a href="/api/resources/${resource.id}"><div class="card card-pin"><img class="card-img" src="${resource.imgurl}"/><p>${resource.title}</p><p>${resource.description}</p><p>${resource.category}</p></div></a>`).prependTo($('.card-columns'));
-=======
   }).done((resources) => {
     console.log(resources);
     for(resource of resources) {
-      // $("<a>").attr("href", `/api/resources/${resource.id}`).text(resource.title).appendTo($("body"));
-      //$(`<a href="/api/resources/${resource.id}"><div class="card card-pin"><img class="card-img" src="${resource.imgurl}"/><p>${resource.title}</p><p>${resource.description}</p><a href="${resource.link}">${resource.link}</a><p>${resource.category_id}</p></div></a>`).prependTo($('.card-columns'));
-      $(`<a href="/api/resources/${resource.id}"><div class="card card-pin"><img class="card__img" src="${resource.imgurl}"/><p class="card__title">${resource.title}</p><p class="card__description">${resource.description}</p><p class="card__cat ${resource.category}">${resource.category}</p></div></a>`).prependTo($('.card-columns'));
->>>>>>> 66738619dcb9ef5a69f991a59b061cea17e11f6c
+     $(`<a href="/api/resources/${resource.id}"><div class="card card-pin"><img class="card__img" src="${resource.imgurl}"/><p class="card__title">${resource.title}</p><p class="card__description">${resource.description}</p><p class="card__cat ${resource.category}">${resource.category}</p></div></a>`).prependTo($('.card-columns'));
     }
   });
   };
@@ -85,14 +76,17 @@ $(() => {
   })
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   //$('.card-columns .card__cat:contains("HTML")').closest('.card-pin').addClass('platinum')
 
   $("p.card__cat:contains('HTML')").parentsUntil("div").find("p").addClass("newClass");
-    
+
   //$('.card__cat:contains("HTML")').addClass('NEWCLASS');
 
 >>>>>>> 66738619dcb9ef5a69f991a59b061cea17e11f6c
+=======
+>>>>>>> users_dashboard
 //ADD NEW RESOUCE
   $('#addResource').on('click', (e) => {
     e.preventDefault();
