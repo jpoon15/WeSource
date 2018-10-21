@@ -25,7 +25,9 @@ router.get("/:id", (req, res) => {
           console.log("likedResources", likedres)
           let templateVars= {
             articles: results,
-            liked_res: likedres}
+            liked_res: likedres,
+            user: userId
+          }
         res.render("mydashboard", templateVars);
       })
     })
