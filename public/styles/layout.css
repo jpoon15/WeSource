@@ -326,3 +326,10 @@ h3 {
   width: 300px;
   height: 300px;
 }
+.register_msg {
+  display: none;
+}
+
+.login_msg {
+  display: none;
+}

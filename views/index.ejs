@@ -4,7 +4,8 @@
   <body>
       <% include ./partials/_header %>
       <% include ./partials/_search %>
-
+<div class="login_msg">You have logged in</div>
+<div class="register_msg">You have successfully registered</div>
     <section class="mt-4 mb-5">
       <div class="container-fluid">
         <div class="row">
@@ -27,7 +28,7 @@
             <input type="text" id="title" name="resourceTitle">
           </p>
           <p>
-            <label for="description"><span>Desctiption:</span></label>
+            <label for="description"><span>Descriiption:</span></label>
             <input type="text" id="description" name="resourceDescription">
           </p>
           <p>
@@ -51,15 +52,15 @@
       </div>
 
       <div id="registerModal">
-          <form action="/api/user/register" method="POST">
+          <form action="/api/users/register" method="POST">
             <h2>Join WeSource!</h2>
             <p>
               <label for="username"><span>Username:</span></label>
               <input type="text" id="username" name="registerName">
             </p>
-            <p>
-              <label for="email"><span>Email:</span></label>
-              <input type="email" id="email" name="registerEmail">
+ <p>
+              <label for="useremail"><span>Email:</span></label>
+              <input type="text" id="useremail" name="registerEmail">
             </p>
             <p>
               <label for="password"><span>Password:</span></label>

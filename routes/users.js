@@ -3,10 +3,13 @@
 const express = require('express');
 const router  = express.Router();
 const knex    = require('../lib/database-connection');
+const bcrypt  = require('bcryptjs');
+
 
 module.exports = router;
 
 router.get("/:id", (req, res) => {
+<<<<<<< HEAD
   
   knex.select(
     'r.id',
@@ -34,12 +37,38 @@ router.get("/:id", (req, res) => {
         res.render("mydashboard", templateVars);
     });
 
+=======
+  knex
+    .select("*")
+    .from("resources")
+    .join('categories', 'resources.category_id', '=', 'categories.id')
+    .select('resources')
+    .where({user_id: '1'})
+    .then((results) => {
+      let templateVars= {articles: results}
+      res.render("mydashboard", templateVars);
+    })
+>>>>>>> master
 })
 
 router.get("/:id/profile", (req, res) => {
   res.render("profile");
 });
 
+//Register a new User
 router.post("/register", (req, res) => {
-  res.render("profile");
+  const password = req.body.password;
+  const hashedPassword = bcrypt.hashSync(password,10);
+  knex('users')
+    .insert({
+      email: req.body.email,
+      name: req.body.username,
+      password: hashedPassword
+    })
+    .returning('id')
+    .then((id) => {
+      console.log("successfully inserted the record ");
+      console.log(id);
+      res.json({result: "True"});
+    })
 })
