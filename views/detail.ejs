@@ -51,7 +51,9 @@
     </div>
 
     <div class='right'>
+      <% if (user === resource.user_id) {%>
       <a id="delete_button" class="delete_res"value="<%=resource.id%>" href="#" style='font-size: 3em; margin-bottom: 1em; margin-top: 1em; text-decoration: none'>Delete</a>
+      <% } %>
 
       <% if(like) { %>
       <!-- if there is a like -->
