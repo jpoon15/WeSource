@@ -11,12 +11,7 @@ module.exports = router;
 router.get("/:id", (req, res) => {
   let userId = req.session.id;
   knex
-    .select(
-      'resources.id as resource_id',
-
-
-
-      )
+    .select("*")
     .from("resources")
     .where("user_id", `${userId}`)
     .then(results => {
@@ -33,7 +28,7 @@ router.get("/:id", (req, res) => {
             liked_res: likedres}
         res.render("mydashboard", templateVars);
       })
-      })
+    })
 })
 
 router.get("/:id/profile", (req, res) => {
