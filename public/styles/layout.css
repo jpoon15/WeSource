@@ -32,6 +32,18 @@ body .header__right a:hover {
   cursor: pointer;
 }
 
+body .header__right .addResource {
+  display: inline-block;
+}
+
+body .header__right .myProfile {
+  display: inline-block;
+}
+
+body .header__right .myDashboard {
+  display: inline-block;
+}
+
 body .header__right form {
   display: inline-block;
 }
@@ -262,3 +274,64 @@ body .searchContainer form button:focus {
 .fixed {
   overflow: hidden;
 }
+/*<<<<<<< HEAD
+=======
+
+.top {
+  width: 90%;
+  border: 2px dashed red;
+  margin-right: 5%;
+  margin-left: 5%;
+  margin-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom {
+  width: 90%;
+  border: 2px dashed sandybrown;
+  margin-right: 5%;
+  margin-left: 5%;
+  display: flex;
+  flex-direction: column;
+}
+
+.my_articles_container {
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  margin-right: 1em;
+  margin-left: 1em;
+  margin-top: 1em;
+  justify-content: space-evenly;
+}
+
+.liked_articles_container {
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  margin-right: 1em;
+  margin-left: 1em;
+  margin-top: 1em;
+  width: 20em;
+  height: 20em;
+  justify-content: space-evenly;
+}
+
+h3 {
+  margin: 1em 1em;
+  font-family: fantasy;
+  font-size: 1.5em;
+}
+
+.card-img {
+  width: 300px;
+  height: 300px;
+}
+.register_msg {
+  display: none;
+}
+
+.login_msg {
+  display: none;
+}*/
