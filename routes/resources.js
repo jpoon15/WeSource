@@ -5,37 +5,7 @@ const router          = express.Router();
 const createResource  = require('../lib/database-helper');
 const knex            = require('../lib/database-connection');
 
-
-
 module.exports = router;
-
-// SCRAPING FUNCTION
-
-// function createResource(data) {
-
-//   return rp(data.link)
-//   .then( (html) => {
-//       let $ = cheerio.load(html);
-//       //console.log($);
-//       // add fallbacks for any missing meta tags
-
-//       // if (!$('meta[property="og:image"]')) {
-//       //     return $('meta[property="twitter:image"]').attr('content');
-//       // } else if (!$('meta[property="twitter:image"]')) {
-//       //     return // custom image
-//       // }
-//       return $('meta[property="og:image"]').attr('content');
-//   })
-//   .then( (imgUrl) => {
-//       console.log("img ", imgUrl);
-//       //console.log("resources: ", resources);
-//       // add image to data via data.imageUrl = whatever...
-
-//       //return knex('resources').insert(data).returning('id');
-//   })
-// }
-
-
 
 //DISPLAY SHOW PAGE
 router.get("/:id", (req, res) => {
@@ -57,7 +27,6 @@ router.get("/:id", (req, res) => {
         res.render("detail", templeVars);
       })
     })
-
 });
 
 //ADDING RESOURCES

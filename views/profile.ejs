@@ -3,8 +3,8 @@
 <% include ./partials/_head %> 
 <body>
     <% include ./partials/_header %>
+    <h1>My Dashboard</h1>
     <div class='left'>
-      <h1 style='font-family: fantasy; padding-left: 1em;'>My Profile</h1>
         <div class='forums_container'>
         <label>Username</label>
         <input type="text" value="" class="input-xlarge">
@@ -21,5 +21,7 @@
     <div class='right'>
         <button id="edit">Edit</button>
     </div>
+    <% include ./partials/_addResource %>
+    <div id="overlay">overlay</div>
     </body>
 </html>

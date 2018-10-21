@@ -39,6 +39,15 @@ $(() => {
 
 //MODALS
   //ADD NEW RESOURCES
+  // Login
+    $('#addLoggedOut').on('click', (e) => {
+    e.preventDefault();
+    $('body').addClass('fixed');
+    $('#loginModal').show();
+    $('#overlay').show();
+  })
+
+  // Add New Resource
   $('#add').on('click', (e) => {
     e.preventDefault();
     $('body').addClass('fixed');
@@ -57,7 +66,13 @@ $(() => {
   $('#overlay').on('click', function() {
     $(this).hide();
     $('body').removeClass('fixed');
-    $('#addResourceModal, #registerModal').hide();
+    $('#addResourceModal, #registerModal, #loginModal').hide();
+  })
+
+  $('.fa-times').on('click', function() {
+    $('#overlay').hide();
+    $('body').removeClass('fixed');
+    $('#addResourceModal, #registerModal, #loginModal').hide();
   })
 
 //ADD NEW RESOUCE
@@ -77,7 +92,7 @@ $(() => {
       data: data,
       type:'POST',
       success: function(result){
-        console.log("we are in success!");
+        // console.log("we are in success!");
         // add success div notice
         let newPost = $(`<div class="card card-pin"><img class="card-img" src="${result.imgurl}"/><p>${result.title}</p><p>${result.description}</p><a href="${result.link}">${result.link}</a><p>${result.category_id}</p></div>`);
         $(newPost).prependTo($('.card-columns'))
@@ -91,36 +106,35 @@ $(() => {
     });
   })
 
-  // REGISTER NEW USER
-  $('#register').on('click', (e) => {
-      e.preventDefault();
+// REGISTER NEW USER
+$('#register').on('click', (e) => {
+    e.preventDefault();
 
-      var register_id = $('#register').find(':selected').val();
+    var register_id = $('#register').find(':selected').val();
 
-      var data  = {
-        email: $('#useremail').val(),
-        username: $('#username').val(),
-        password: $('#password').val(),
-      };
-      console.log("before ajax request ",data);
-      $.ajax({
-        url: '/api/users/register',
-        data: data,
-        type:'POST',
-        success: function(result){
-          console.log("we are in success");
-          $('#overlay').hide();
-          $('#registerModal').hide();
-          $('.register_msg').show()
-        },
-        error: function(error){
-          console.log("we are in error");
-        }
-      });
-    })
+    var data  = {
+      email: $('#useremail').val(),
+      username: $('#username').val(),
+      password: $('#password').val(),
+    };
+    // console.log("before ajax request ",data);
+    $.ajax({
+      url: '/api/users/register',
+      data: data,
+      type:'POST',
+      success: function(result){
+        console.log("we are in success");
+        $('#overlay').hide();
+        $('#registerModal').hide();
+        $('.register_msg').show()
+      },
+      error: function(error){
+        console.log("we are in error");
+      }
+    });
+  })
 
-  //LIKE AND UNLIKE FEATURE ON DETAIL PAGE
-
+//LIKE AND UNLIKE FEATURE ON DETAIL PAGE
   var globalresourceId;
   $('#like_button').on('click', (e) => {
     e.preventDefault();
@@ -162,7 +176,7 @@ $(() => {
         data: data,
         type: 'POST',
         success: function(result) {
-          console.log('we have successfully removed your like');
+          // console.log('we have successfully removed your like');
           $('#like_button').attr('value',globalresourceId).text('Like');
         },
         error: function(error) {

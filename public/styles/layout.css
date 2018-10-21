@@ -16,15 +16,49 @@ body .header {
   margin: 0 auto;
 }
 
+@media only screen and (max-width: 1024px) {
+  body .header {
+    text-align: center;
+  }
+}
+
 body .header__right {
   position: absolute;
-  right: 20PX;
+  right: 20px;
   top: 50%;
   transform: translateY(-50%);
 }
 
+@media only screen and (max-width: 1024px) {
+  body .header__right {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    right: auto;
+    margin-top: 90px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  body .header__right.user {
+    margin-top: 50px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  body .header__right.user form {
+    width: auto;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  body .header__right.noUser {
+    margin-bottom: -30px;
+  }
+}
+
 body .header__right a {
-  margin-left: 20px;
+  margin-right: 20px;
 }
 
 body .header__right a:hover {
@@ -32,8 +66,68 @@ body .header__right a:hover {
   cursor: pointer;
 }
 
+body .header__right a.register {
+  border: 0;
+  background: #777;
+  color: #fff;
+  padding: 8px 10px;
+  border: 1px solid #777;
+  margin-left: -4px;
+  border-radius: 5px;
+  margin-left: 20px;
+  margin-right: 0;
+}
+
+@media only screen and (max-width: 1024px) {
+  body .header__right a.register {
+    display: none;
+  }
+}
+
+body .header__right a.register:hover {
+  border: 1px solid #244751;
+  background: #fff;
+  outline: none;
+  color: #244751;
+  text-decoration: none;
+}
+
 body .header__right form {
   display: inline-block;
+}
+
+@media only screen and (max-width: 1024px) {
+  body .header__right form {
+    width: 300px;
+  }
+}
+
+body .header__right form p {
+  display: inline-block;
+  margin-bottom: 0;
+  margin-left: 10px;
+}
+
+@media only screen and (max-width: 1024px) {
+  body .header__right form p {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    overflow: hidden;
+    margin-left: 0;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  body .header__right form p label {
+    float: left;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  body .header__right form p input {
+    float: right;
+  }
 }
 
 body .header__right form input {
@@ -55,8 +149,6 @@ body .header__right form button {
   color: #fff;
   padding: 5px 10px;
   border: 1px solid #777;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
   margin-left: -4px;
 }
 
@@ -67,6 +159,22 @@ body .header__right form button:hover {
   color: #244751;
 }
 
+body .header__right form button.login {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+@media only screen and (max-width: 1024px) {
+  body .header__right form button.login {
+    border-radius: 5px;
+    width: 100%;
+  }
+}
+
+body .header__right form button.logout {
+  border-radius: 5px;
+}
+
 body .header a {
   color: #244751;
   text-decoration: none;
@@ -75,7 +183,17 @@ body .header a {
 body .header .logo {
   font-weight: 500;
   font-size: 30px;
-  border-bottom: 1px solid transparent;
+  border-bottom: 2px solid transparent;
+}
+
+@media only screen and (max-width: 1024px) {
+  body .header .logo {
+    width: auto;
+    display: inline-block;
+    margin: 0 auto;
+    font-size: 50px;
+    line-height: 50px;
+  }
 }
 
 body .header .logo:hover {
@@ -86,6 +204,12 @@ body .searchContainer {
   width: 50%;
   margin: 40px auto;
   display: flex;
+}
+
+@media only screen and (max-width: 1024px) {
+  body .searchContainer {
+    width: 80%;
+  }
 }
 
 body .searchContainer form {
@@ -100,6 +224,12 @@ body .searchContainer form input {
   border-bottom-left-radius: 5px;
   border: 0;
   border: 1px solid #fff;
+}
+
+@media only screen and (max-width: 1024px) {
+  body .searchContainer form input {
+    width: 70%;
+  }
 }
 
 body .searchContainer form input:focus {
@@ -120,6 +250,12 @@ body .searchContainer form button {
   font-style: normal;
 }
 
+@media only screen and (max-width: 1024px) {
+  body .searchContainer form button {
+    width: 30%;
+  }
+}
+
 body .searchContainer form button:hover {
   border: 1px solid #244751;
   background-color: #fff;
@@ -131,8 +267,47 @@ body .searchContainer form button:focus {
   border: 1px solid #244751;
 }
 
+@media only screen and (max-width: 1024px) {
+  .addResource {
+    width: 80%;
+    display: inline-block;
+  }
+}
+
+.addResource .logo {
+  font-weight: 500;
+}
+
+.newWeSource {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.newWeSource a {
+  background-color: #69b269;
+  padding: 15px 30px;
+  color: #244751;
+  font-size: 25px;
+  border-radius: 5px;
+  border: 1px solid #69b269;
+}
+
+.newWeSource a:hover {
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #244751;
+}
+
 .card-columns {
   overflow: hidden;
+}
+
+.login_msg {
+  display: none;
+}
+
+.register_msg {
+  display: none;
 }
 
 #addResourceModal {
@@ -238,6 +413,64 @@ body .searchContainer form button:focus {
   color: #244751;
 }
 
+#loginModal {
+  display: none;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  background-color: #EEE;
+  left: 50%;
+  top: 50%;
+  padding: 20px;
+  z-index: 3;
+  border-radius: 5px;
+}
+
+#loginModal h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+#loginModal input {
+  margin-left: 20px;
+  padding: 5px 10px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+}
+
+#loginModal input:focus {
+  outline: 0;
+  border: 1px solid #777;
+}
+
+#loginModal input {
+  float: right;
+  width: 180px;
+}
+
+#loginModal #login {
+  width: 180px;
+  display: block;
+  margin: 30px auto 0;
+  border: 0;
+  border: 1px solid #777;
+  background: #777;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#loginModal #login:hover {
+  border: 1px solid #244751;
+  background-color: #fff;
+  color: #244751;
+}
+
+.fa-times {
+  float: right;
+  cursor: pointer;
+}
+
 #overlay {
   position: fixed;
   /* Sit on top of the page content */
@@ -261,4 +494,27 @@ body .searchContainer form button:focus {
 
 .fixed {
   overflow: hidden;
+}
+
+.res_description .left {
+  width: 55%;
+  border: 1px solid #244751;
+  border-radius: 5px;
+  float: left;
+  margin-left: 10%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.res_description .right {
+  width: 15%;
+  border: 1px solid #244751;
+  border-radius: 5px;
+  float: right;
+  margin-right: 10%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }

@@ -4,47 +4,48 @@
   <body>
     <% include ./partials/_header %>
     <% include ./partials/_search %>
+  <section class='my_articles_container'>
+    <h1>My Dashboard</h1>
     <h3>My Sources</h3>
-    <div class='my_articles_container'>
-      <section class="mt-4 mb-5">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="card-columns">
-              <% articles.forEach(function(item) {  %>
-              <% console.log(item) %>
+    <section class="mt-4 mb-5">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="card-columns">
+            <% articles.forEach(function(item){  %>
               <div class="card card-pin">
-                <p><%=item.title%></p>
+                <h2 class="card-title title"><%=item.title%></h2>
                 <img class="card-img" src='<%=item.imgurl%>'>
                 <p><%=item.description%></p>
                 <a href='<%item.link%>'><%=item.link%></a>
                 <p><%=item.category%></p>
               </div>
-              <% }) %>
-            </div>
+            <% }) %>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
+  </section>
 
-    <div class='my_likes_container'>
-      <h3>Liked Sources</h3>
-        <section class="mt-4 mb-5">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="card-columns">
-                <% liked_res.forEach(function(item){  %>
-                <div class="card card-pin">
-                  <p><%=item.title%></p>
-                  <img class="card-img" src='<%=item.imgurl%>'>
-                  <p><%=item.description%></p>
-                  <a href='<%item.link%>'><%=item.link%></a>
-                  <p><%=item.category%></p>
-                </div>
-              <% }) %>
-            </div>
+  <section class='my_likes_container'>
+  <h3>Liked Sources</h3>
+    <section class="mt-4 mb-5">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="card-columns">
+          <% liked_res.forEach(function(item){  %>
+          <div class="card card-pin">
+              <p><%=item.title%></p>
+              <img class="card-img" src='<%=item.imgurl%>'>
+              <p><%=item.description%></p>
+              <a href='<%item.link%>'><%=item.link%></a>
+              <p><%=item.category%></p>
           </div>
+          <% }) %>
         </div>
-      </section>
+      </div>
     </div>
+  </section>
+  <% include ./partials/_addResource %>
+  <div id="overlay">overlay</div>
   </body>
 </html>
