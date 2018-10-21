@@ -9,16 +9,31 @@ const bcrypt  = require('bcryptjs');
 module.exports = router;
 
 router.get("/:id", (req, res) => {
+  let userId = req.session.id;
   knex
-    .select("*")
+    .select(
+      'resources.id as resource_id',
+
+
+
+      )
     .from("resources")
-    .join('categories', 'resources.category_id', '=', 'categories.id')
-    .select('resources')
-    .where({user_id: '1'})
-    .then((results) => {
-      let templateVars= {articles: results}
-      res.render("mydashboard", templateVars);
-    })
+    .where("user_id", `${userId}`)
+    .then(results => {
+      let resResults = results;
+      console.log("results1", resResults)
+      knex.select("*")
+        .from("likes")
+        .where("likes.user_id", `${userId}`)
+        .join("resources", "resources.id", "=", "likes.resource_id")
+        .then(likedres => {
+          console.log("likedResources", likedres)
+          let templateVars= {
+            articles: results,
+            liked_res: likedres}
+        res.render("mydashboard", templateVars);
+      })
+      })
 })
 
 router.get("/:id/profile", (req, res) => {
@@ -37,6 +52,7 @@ router.post("/register", (req, res) => {
     })
     .returning('id')
     .then((id) => {
+        let userId = req.session.id
       console.log("successfully inserted the record ");
       console.log(id);
       res.json({result: "True"});
