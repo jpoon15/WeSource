@@ -302,6 +302,10 @@ body .searchContainer form button:focus {
   overflow: hidden;
 }
 
+.card-columns a {
+  display: inline-block;
+}
+
 .card {
   color: #244751;
   border-radius: 5px;
