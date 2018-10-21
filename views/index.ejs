@@ -11,65 +11,52 @@
         <div class="row">
           <div class="card-columns">
 
-            </div> <!-- end card-columns -->
-          </div><!-- end row -->
-        </div><!-- end container-fluid -->
-      </section>
+          </div> <!-- end card-columns -->
+        </div><!-- end row -->
+      </div><!-- end container-fluid -->
+    </section>
 
-      <div id="addResourceModal">
-        <form action="/api/resources/add" method="POST">
-          <h2>Add a new WeSource</h2>
-          <p>
-            <label for="url"><span>Url:</span></label>
-            <input type="text" id="url" name="resourceUrl">
-          </p>
-          <p>
-            <label for="title"><span>Title:</span></label>
-            <input type="text" id="title" name="resourceTitle">
-          </p>
+    <% include ./partials/_addResource %>
+
+    <div id="registerModal">
+      <i class="fas fa-times"></i>
+      <form action="/backdoor" method="POST">
+        <h2>REGISTER</h2>
+        <p>
+          <label for="username"><span>Username:</span></label>
+          <input type="text" id="username" name="registerName">
+        </p>
+        <p>
+          <label for="useremail"><span>Email:</span></label>
+          <input type="email" id="useremail" name="registerEmail">
+        </p>
+        <p>
+          <label for="password"><span>Password:</span></label>
+          <input type="password" id="password" name="registerPassword">
+        </p>
+        <button id="register" type="submit">REGISTER</button>
+      </form>
+    </div>
+
+    <div id="loginModal">
+        <i class="fas fa-times"></i>
+        <form action="/api/users/register" method="POST">
+          <h2>LOGIN</h2>
           <p>
             <label for="description"><span>Description:</span></label>
             <input type="text" id="description" name="resourceDescription">
+            <label for="useremail"><span>Email:</span></label>
+            <input type="email" id="useremail" name="registerEmail">
           </p>
           <p>
-            <label for="category">
-              <span>Categrory:</span>
-            </label>
-            <select id="category" name="resourceCategory">
-              <option value="1">Accessibility</option>
-              <option value="2">Animation</option>
-              <option value="3">CSS</option>
-              <option value="4">HTML</option>
-              <option value="5">Inspiration</option>
-              <option value="6">Javascript</option>
-              <option value="7">Plugins</option>
-              <option value="8">UI</option>
-              <option value="9">Web Design</option>
-            </select>
+            <label for="password"><span>Password:</span></label>
+            <input type="password" id="password" name="registerPassword">
           </p>
-          <button id="addResource" type="submit">ADD</button>
+          <button id="login" type="submit">LOGIN</button>
         </form>
       </div>
 
-      <div id="registerModal">
-          <form action="/api/users/register" method="POST">
-            <h2>Join WeSource!</h2>
-            <p>
-              <label for="username"><span>Username:</span></label>
-              <input type="text" id="username" name="registerName">
-            </p>
- <p>
-              <label for="useremail"><span>Email:</span></label>
-              <input type="text" id="useremail" name="registerEmail">
-            </p>
-            <p>
-              <label for="password"><span>Password:</span></label>
-              <input type="password" id="password" name="registerPassword">
-            </p>
-            <button id="register" type="submit">REGISTER</button>
-          </form>
-        </div>
+    <div id="overlay">overlay</div>
 
-      <div id="overlay">overlay</div>
   </body>
 </html>
