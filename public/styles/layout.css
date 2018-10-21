@@ -32,10 +32,6 @@ body .header__right a:hover {
   cursor: pointer;
 }
 
-body .header__right .addResource {
-  display: none;
-}
-
 body .header__right form {
   display: inline-block;
 }
