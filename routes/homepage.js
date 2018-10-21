@@ -11,6 +11,7 @@ router.get("/", (req, res) => {
   knex
     .select("*")
     .from("resources")
+    .join("categories", "categories.id", "=", "resources.category_id")
     .then((results) => {
       res.json(results);
   });

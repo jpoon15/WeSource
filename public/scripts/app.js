@@ -8,7 +8,7 @@ $(() => {
     for(resource of resources) {
       // $("<a>").attr("href", `/api/resources/${resource.id}`).text(resource.title).appendTo($("body"));
       //$(`<a href="/api/resources/${resource.id}"><div class="card card-pin"><img class="card-img" src="${resource.imgurl}"/><p>${resource.title}</p><p>${resource.description}</p><a href="${resource.link}">${resource.link}</a><p>${resource.category_id}</p></div></a>`).prependTo($('.card-columns'));
-      $(`<a href="/api/resources/${resource.id}"><div class="card card-pin"><img class="card-img" src="${resource.imgurl}"/><p>${resource.title}</p><p>${resource.description}</p><p>${resource.category_id}</p></div></a>`).prependTo($('.card-columns'));
+      $(`<a href="/api/resources/${resource.id}"><div class="card card-pin"><img class="card__img" src="${resource.imgurl}"/><p class="card__title">${resource.title}</p><p class="card__description">${resource.description}</p><p class="card__cat ${resource.category}">${resource.category}</p></div></a>`).prependTo($('.card-columns'));
     }
   });
 
@@ -29,7 +29,7 @@ $(() => {
         $('.card-columns').empty();
         response.forEach(item => {
           console.log(item);
-          $(`<a href="/api/resources/${resource.id}"><div class="card card-pin"><img class="card-img" src="${item.imgurl}"/><p>${item.title}</p><p>${item.description}</p><p>${item.category_id}</p></div></a>`).prependTo($('.card-columns'));
+          $(`<a href="/api/resources/${resource.id}"><div class="card card-pin"><img class="card__img" src="${item.imgurl}"/><p class="card__title">${item.title}</p><p class="card__description">${item.description}</p><p class="card__cat ${resource.category}">${item.category}</p></div></a>`).prependTo($('.card-columns'));
         })
     },
       error: function(err){
@@ -76,6 +76,11 @@ $(() => {
     $('#addResourceModal, #registerModal, #loginModal').hide();
   })
 
+  //$('.card-columns .card__cat:contains("HTML")').closest('.card-pin').addClass('platinum')
+
+  $("p.card__cat:contains('HTML')").parentsUntil("div").find("p").addClass("newClass");
+    
+  //$('.card__cat:contains("HTML")').addClass('NEWCLASS');
 
 //ADD NEW RESOUCE
   $('#addResource').on('click', (e) => {
@@ -97,7 +102,7 @@ $(() => {
       success: function(result){
         console.log("we are in success!");
         // add success div notice
-        let newPost = $(`<div class="card card-pin"><img class="card-img" src="${result.imgurl}"/><p>${result.title}</p><p>${result.description}</p><a href="${result.link}">${result.link}</a><p>${result.category_id}</p></div>`);
+        let newPost = $(`<div class="card card-pin"><img class="card__img" src="${result.imgurl}"/><p class="card__title">${result.title}</p><textarea class="card__description">${result.description}</textarea><a href="${result.link}">${result.link}</a><p class="card__cat ${resource.category}">${result.category}</p></div>`);
         $(newPost).prependTo($('.card-columns'))
         $('#overlay').hide();
         $('#addResourceModal').hide();
