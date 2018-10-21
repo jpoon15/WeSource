@@ -137,10 +137,6 @@ $('#register').on('click', (e) => {
     });
   })
 
-
-
-
-
 //LIKE AND UNLIKE FEATURE ON DETAIL PAGE
 var globalresourceId;
 

@@ -18,18 +18,42 @@ body {
     border-radius: 5px;
     margin: 0 auto;
 
+    @include bp('tablet-landscape') {
+      text-align: center;
+    }
+
     &__right {
       position: absolute;
-      right: 20PX;
+      right: 20px;
       top: 50%;
       transform: translateY(-50%);
 
       @include bp('tablet-landscape') {
         position: relative;
         text-align: center;
-        width: auto;
-        margin-top: 70px;
+        width: 100%;
+        right: auto;
+        margin-top: 90px;
         
+      }
+
+      &.user {
+        @include bp('tablet-landscape') {
+          margin-top: 50px;
+        }
+
+        form {
+          @include bp('tablet-landscape') {
+            width: auto;
+          }
+        }
+
+      }
+
+      &.noUser {
+        @include bp('tablet-landscape') {
+          margin-bottom: -30px;
+        }
       }
 
       a {
@@ -68,15 +92,21 @@ body {
       form {
         display: inline-block;
 
+        @include bp('tablet-landscape'){
+          width: 300px;
+        }
+
         p {
           display: inline-block;
           margin-bottom: 0;
+          margin-left: 10px;
 
           @include bp('tablet-landscape') {
             display: block;
             width: 100%;
             margin-bottom: 20px;
             overflow: hidden;
+            margin-left: 0;
           }
 
           label {
@@ -126,6 +156,11 @@ body {
           &.login {
             border-top-right-radius: 5px;
             border-bottom-right-radius: 5px;
+
+            @include bp('tablet-landscape'){
+              border-radius: 5px;
+              width: 100%;
+            }
           }
 
           &.logout {
@@ -146,11 +181,16 @@ body {
       border-bottom: 2px solid transparent;
 
       @include bp('tablet-landscape') {
-        width: 135px;
-        display: block;
+        width: auto;
+        display: inline-block;
         margin: 0 auto;
-        text-align: center;
+        font-size: 50px;
+        line-height: 50px;
       }
+
+      // @include bp('phone-large') {
+        
+      // }
 
       &:hover {
         border-bottom: 2px solid $brandColor;
@@ -163,6 +203,10 @@ body {
     margin: 40px auto;
     display: flex;
 
+    @include bp('tablet-landscape') {
+        width: 80%;
+    }
+
     form {
       width: 100%;
 
@@ -174,6 +218,10 @@ body {
         border-bottom-left-radius: 5px;
         border: 0;
         border: 1px solid #fff;
+
+        @include bp('tablet-landscape') {
+          width: 70%;
+        }
 
         &:focus {
           border: 1px solid #999;
@@ -193,6 +241,10 @@ body {
         font-style: normal;
         font-style: normal;
 
+        @include bp('tablet-landscape') {
+          width: 30%;
+        }
+
         &:hover {
           border: 1px solid $brandColor;
           background-color: #fff;
@@ -208,16 +260,31 @@ body {
   }
 }
 
+.addResource {
+  @include bp('tablet-landscape') {
+    width: 80%;
+    display: inline-block;
+  }
+
+  .logo {
+    font-weight: 500;
+  }
+}
+
+
 .newWeSource {
-  //background: red;
   text-align: center;
   margin-top: 40px;
+
+  @include bp('tablet-landscape') {
+
+  }
 
   a{
     background-color: #69b269;
     padding: 15px 30px;
     color: $brandColor;
-    font-size: 20px;
+    font-size: 25px;
     border-radius: 5px;
     border: 1px solid #69b269;
 
