@@ -346,6 +346,48 @@ body {
   }
 }
 
+.card {
+  color: $brandColor;
+  border-radius: 5px;
+
+  &__img {
+    margin-bottom: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  &__title {
+    width: 80%;
+    margin: 0 auto 15px;
+    font-weight: 700;
+  }
+
+  &__description {
+    width: 80%;
+    margin: 0 auto 15px;
+  }
+
+  &__cat {
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 2px 0 4px;
+    color: #111;
+
+    &.accessibility { background-color: #fed345; }
+    &.animation { background-color: #e64600; color: #fff; }
+    &.css { background-color: #c50000; color: #fff; }
+    &.html { background-color: #501ab7; color: #fff; }
+    &.inspiration { background-color: #e64c7f; color: #fff; }
+    &.javascript { background-color: #3b34bf; color: #fff; }
+    &.plugins { background-color: #657efb; }
+    &.ui { background-color: #208934; }
+    &.web { background-color: #435c00; color: #fff; }
+  }
+}
+
 .login_msg {
   display: none;
 } 
