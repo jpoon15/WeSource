@@ -1,5 +1,5 @@
 $(() => {
-  // ON LOAD
+  // LOAD ALL RESOURCES ON HOMEPAGE
   if (top.location.pathname === '/') {
     $.ajax({
     method: "GET",
@@ -7,20 +7,16 @@ $(() => {
     }).done((resources) => {
       console.log(resources);
       for(resource of resources) {
-      // $("<a>").attr("href", `/api/resources/${resource.id}`).text(resource.title).appendTo($("body"));
-      //$(`<a href="/api/resources/${resource.id}"><div class="card card-pin"><img class="card-img" src="${resource.imgurl}"/><p>${resource.title}</p><p>${resource.description}</p><a href="${resource.link}">${resource.link}</a><p>${resource.category_id}</p></div></a>`).prependTo($('.card-columns'));
       $(`<a href="/api/resources/${resource.id}"><div class="card card-pin"><img class="card-img" src="${resource.imgurl}"/><p>${resource.title}</p><p>${resource.description}</p><p>${resource.category_id}</p></div></a>`).prependTo($('.card-columns'));
     }
   });
   };
 
-  // Search Bar Query
+  // SEARCH BAR QUERY
   $("#searchButton").on("click", (e) => {
     e.preventDefault();
-    // set search query as let
     let searchKeyword = $('#searchKeyword').val();
     $.ajax({
-      // route to GET from
       url: "/api/homepage/search",
       method: "GET",
       data: {
@@ -41,7 +37,8 @@ $(() => {
     });
   });
 
-  // Add New Resource
+//MODALS
+  //ADD NEW RESOURCES
   $('#add').on('click', (e) => {
     e.preventDefault();
     $('body').addClass('fixed');
@@ -49,7 +46,7 @@ $(() => {
     $('#overlay').show();
   })
 
-    // Add New User
+   //REGISTER USER
   $('#registerUser').on('click', (e) => {
     e.preventDefault();
     $('body').addClass('fixed');
@@ -57,7 +54,6 @@ $(() => {
     $('#overlay').show();
   })
 
-    // Overlay Close
   $('#overlay').on('click', function() {
     $(this).hide();
     $('body').removeClass('fixed');
@@ -76,8 +72,7 @@ $(() => {
       description: $('#description').val(),
       category_id: category_id
     };
-    //ajax call to save data
-    //console.log("before ajax request ",data);
+
     $.ajax({
       url: '/api/resources/add',
       data: data,
@@ -97,91 +92,86 @@ $(() => {
     });
   })
 
-// REGISTER NEW USER
-$('#register').on('click', (e) => {
+  // REGISTER NEW USER
+  $('#register').on('click', (e) => {
+      e.preventDefault();
+
+      var register_id = $('#register').find(':selected').val();
+
+      var data  = {
+        email: $('#useremail').val(),
+        username: $('#username').val(),
+        password: $('#password').val(),
+      };
+      console.log("before ajax request ",data);
+      $.ajax({
+        url: '/api/users/register',
+        data: data,
+        type:'POST',
+        success: function(result){
+          console.log("we are in success");
+          $('#overlay').hide();
+          $('#registerModal').hide();
+          $('.register_msg').show()
+        },
+        error: function(error){
+          console.log("we are in error");
+        }
+      });
+    })
+
+  //LIKE AND UNLIKE FEATURE ON DETAIL PAGE
+  var globalresourceId;
+
+  $('#like_button').on('click', (e) => {
     e.preventDefault();
 
-    var register_id = $('#register').find(':selected').val();
+    var currentText = $('#like_button').text();
 
-    var data  = {
-      email: $('#useremail').val(),
-      username: $('#username').val(),
-      password: $('#password').val(),
-    };
-    console.log("before ajax request ",data);
-    $.ajax({
-      url: '/api/users/register',
-      data: data,
-      type:'POST',
-      success: function(result){
-        console.log("we are in success");
-        $('#overlay').hide();
-        $('#registerModal').hide();
-        $('.register_msg').show()
-      },
-      error: function(error){
-        console.log("we are in error");
-      }
-    });
-  })
+    if(currentText === "Like"){
+        globalresourceId = $('#like_button').attr('value');
+        console.log("test ",globalresourceId);
+        //console.log(resourceId);
+        var data = {
+          resource_id: $('#like_button').attr('value')
+        };
 
+      $.ajax({
+        url: 'like',
+        data: data,
+        type: 'POST',
+        success: function(result) {
+          // console.log('result', result)
+          // console.log('we have successfully added to database');
+          // $('#like_button').attr('class', 'delete_like').attr('value', result).text('Unlike');
+          $('#like_button').attr('value', result).text('Unlike');
+        },
+        error: function(error) {
+          console.log("we are in error");
+        }
+      });
 
-
-
-
-//LIKE AND UNLIKE FEATURE ON DETAIL PAGE
-var globalresourceId;
-
-$('#like_button').on('click', (e) => {
-  e.preventDefault();
-
-  var currentText = $('#like_button').text();
-
-  if(currentText === "Like"){
-      globalresourceId = $('#like_button').attr('value');
-      console.log("test ",globalresourceId);
-      //console.log(resourceId);
-      var data = {
-        resource_id: $('#like_button').attr('value')
-      };
-
-    $.ajax({
-      url: 'like',
-      data: data,
-      type: 'POST',
-      success: function(result) {
-        console.log('result', result)
-        console.log('we have successfully added to database');
-        // $('#like_button').attr('class', 'delete_like').attr('value', result).text('Unlike');
-        $('#like_button').attr('value', result).text('Unlike');
-      },
-      error: function(error) {
-        console.log("we are in error");
-      }
-    });
-
-  } else if(currentText==="Unlike"){
+    } else if(currentText==="Unlike"){
       e.preventDefault();
 
       var data = {
         like_id: $('#like_button').attr('value')
       };
 
-      console.log("before delete ajax request", data);
+      // console.log("before delete ajax request", data);
 
       $.ajax({
         url: 'delete',
         data: data,
         type: 'POST',
         success: function(result) {
-          console.log('we have successfully deleted to database');
+          // console.log('we have successfully deleted to database');
           $('#like_button').attr('value',globalresourceId).text('Like');
         },
         error: function(error) {
           console.log("we are in error");
         }
       });
-  }
-});
-
+    }
+  });
 });
