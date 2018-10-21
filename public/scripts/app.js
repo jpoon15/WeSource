@@ -105,7 +105,8 @@ $('#register').on('click', (e) => {
       type:'POST',
       success: function(result){
         console.log("we are in success");
-        // add success div notice
+         $('#overlay').hide();
+        $('#registerModal').hide();
         alert("You have successfully registered")
       },
       error: function(error){
