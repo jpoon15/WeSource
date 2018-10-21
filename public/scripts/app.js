@@ -1,24 +1,22 @@
 $(() => {
-  // ON LOAD
-  $.ajax({
+  // LOAD ALL RESOURCES ON HOMEPAGE
+  if (top.location.pathname === '/') {
+    $.ajax({
     method: "GET",
     url: "/api/homepage"
-  }).done((resources) => {
-    console.log(resources);
-    for(resource of resources) {
-      // $("<a>").attr("href", `/api/resources/${resource.id}`).text(resource.title).appendTo($("body"));
-      //$(`<a href="/api/resources/${resource.id}"><div class="card card-pin"><img class="card-img" src="${resource.imgurl}"/><p>${resource.title}</p><p>${resource.description}</p><a href="${resource.link}">${resource.link}</a><p>${resource.category_id}</p></div></a>`).prependTo($('.card-columns'));
-      $(`<a href="/api/resources/${resource.id}"><div class="card card-pin"><img class="card-img" src="${resource.imgurl}"/><p>${resource.title}</p><p>${resource.description}</p><p>${resource.category_id}</p></div></a>`).prependTo($('.card-columns'));
+    }).done((resources) => {
+      console.log(resources);
+      for(resource of resources) {
+      $(`<a href="/api/resources/${resource.id}"><div class="card card-pin"><img class="card-img" src="${resource.imgurl}"/><p>${resource.title}</p><p>${resource.description}</p><p>${resource.category}</p></div></a>`).prependTo($('.card-columns'));
     }
   });
+  };
 
-  // Search Bar Query
+  // SEARCH BAR QUERY
   $("#searchButton").on("click", (e) => {
     e.preventDefault();
-    // set search query as let
     let searchKeyword = $('#searchKeyword').val();
     $.ajax({
-      // route to GET from
       url: "/api/homepage/search",
       method: "GET",
       data: {
@@ -39,6 +37,8 @@ $(() => {
     });
   });
 
+//MODALS
+  //ADD NEW RESOURCES
   // Login
     $('#addLoggedOut').on('click', (e) => {
     e.preventDefault();
@@ -55,7 +55,7 @@ $(() => {
     $('#overlay').show();
   })
 
-    // Add New User
+   //REGISTER USER
   $('#registerUser').on('click', (e) => {
     e.preventDefault();
     $('body').addClass('fixed');
@@ -63,7 +63,6 @@ $(() => {
     $('#overlay').show();
   })
 
-    // Overlay Close
   $('#overlay').on('click', function() {
     $(this).hide();
     $('body').removeClass('fixed');
@@ -76,7 +75,6 @@ $(() => {
     $('#addResourceModal, #registerModal, #loginModal').hide();
   })
 
-
 //ADD NEW RESOUCE
   $('#addResource').on('click', (e) => {
     e.preventDefault();
@@ -88,14 +86,13 @@ $(() => {
       description: $('#description').val(),
       category_id: category_id
     };
-    //ajax call to save data
-    //console.log("before ajax request ",data);
+
     $.ajax({
       url: '/api/resources/add',
       data: data,
       type:'POST',
       success: function(result){
-        console.log("we are in success!");
+        // console.log("we are in success!");
         // add success div notice
         let newPost = $(`<div class="card card-pin"><img class="card-img" src="${result.imgurl}"/><p>${result.title}</p><p>${result.description}</p><a href="${result.link}">${result.link}</a><p>${result.category_id}</p></div>`);
         $(newPost).prependTo($('.card-columns'))
@@ -120,7 +117,7 @@ $('#register').on('click', (e) => {
       username: $('#username').val(),
       password: $('#password').val(),
     };
-    console.log("before ajax request ",data);
+    // console.log("before ajax request ",data);
     $.ajax({
       url: '/api/users/register',
       data: data,
@@ -138,58 +135,54 @@ $('#register').on('click', (e) => {
   })
 
 //LIKE AND UNLIKE FEATURE ON DETAIL PAGE
-var globalresourceId;
+  var globalresourceId;
+  $('#like_button').on('click', (e) => {
+    e.preventDefault();
 
-$('#like_button').on('click', (e) => {
-  e.preventDefault();
+    var currentText = $('#like_button').text();
 
-  var currentText = $('#like_button').text();
+    if(currentText === "Like"){
+        globalresourceId = $('#like_button').attr('value');
+        // console.log("test ",globalresourceId);
+        var data = {
+          resource_id: $('#like_button').attr('value')
+        };
 
-  if(currentText === "Like"){
-      globalresourceId = $('#like_button').attr('value');
-      console.log("test ",globalresourceId);
-      //console.log(resourceId);
-      var data = {
-        resource_id: $('#like_button').attr('value')
-      };
+      $.ajax({
+        url: 'like',
+        data: data,
+        type: 'POST',
+        success: function(result) {
+          // console.log('result', result)
+          // console.log('we have successfully added to database');
+          $('#like_button').attr('value', result).text('Unlike');
+        },
+        error: function(error) {
+          console.log("we are in error");
+        }
+      });
 
-    $.ajax({
-      url: 'like',
-      data: data,
-      type: 'POST',
-      success: function(result) {
-        console.log('result', result)
-        console.log('we have successfully added to database');
-        // $('#like_button').attr('class', 'delete_like').attr('value', result).text('Unlike');
-        $('#like_button').attr('value', result).text('Unlike');
-      },
-      error: function(error) {
-        console.log("we are in error");
-      }
-    });
-
-  } else if(currentText==="Unlike"){
+    } else if(currentText === "Unlike") {
       e.preventDefault();
 
       var data = {
         like_id: $('#like_button').attr('value')
       };
 
-      console.log("before delete ajax request", data);
+      // console.log("before delete ajax request", data);
 
       $.ajax({
-        url: 'delete',
+        url: 'deletelike',
         data: data,
         type: 'POST',
         success: function(result) {
-          console.log('we have successfully deleted to database');
+          // console.log('we have successfully removed your like');
           $('#like_button').attr('value',globalresourceId).text('Like');
         },
         error: function(error) {
           console.log("we are in error");
         }
       });
-  }
-});
-
+    }
+  });
 });

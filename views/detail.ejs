@@ -9,7 +9,7 @@
     <p><%=resource.description%></p>
     <div class='left'>
         <div class='main_image'>
-            <img src="http://www.quickmeme.com/img/da/da5e0673d23ddcb208a688dae038e3d8c8a5c2d71f177eae25074f430400a40e.jpg" alt='Cat meme'>
+            <img src="<%=resource.imgurl%>
         </div>
         <div class='comment_box'>
             <form>
@@ -23,16 +23,31 @@
     </div>
 
     <div class='right'>
-    <a id="like_button" class="create_like"value="<%=resource.id%>" href="#" style='font-size: 3em; margin-bottom: 1em; margin-top: 1em; text-decoration: none'>Like</a>
-    <p class="liked_msg"></p>
-    <p class="unliked_msg"></p>
-    <a id='go_button' href='http://<%=resource.link%>' style='font-size: 3em; margin-bottom: 1em; margin-top: 1em; text-decoration: none'>Check Out the Link</a>
-    <a id='share_button'href=''style='font-size: 3em; margin-bottom: 1em; margin-top: 1em; text-decoration: none'>Share</a>
+      <% if (user === resource.user_id) {%>
+      <form action="/api/resources/delete" method="POST">
+        <button name="resource_id" value="<%=resource.id%>">Delete</button>
+      </form>
+        <!-- <a id="delete_button" class="delete_res" value="<%=resource.id%>" href="#" style='font-size: 3em; margin-bottom: 1em; margin-top: 1em; text-decoration: none'>Delete</a> -->
+
+      <% } %>
+
+      <% if(like) { %>
+      <!-- if there is a like -->
+      <a id="like_button" class="like_res" value="<%=like.id%>" href="#" style='font-size: 3em; margin-bottom: 1em; margin-top: 1em; text-decoration: none'>Unlike</a>
+
+      <% } else { %>
+      <!-- if there isn't a like -->
+      <a id="like_button" class="del_like_res" value="<%=resource.id%>" href="#" style='font-size: 3em; margin-bottom: 1em; margin-top: 1em; text-decoration: none'>Like</a>
+
+      <% } %>
+
+      <p class="liked_msg"></p>
+      <p class="unliked_msg"></p>
+      <a id='go_button' href='http://<%=resource.link%>' style='font-size: 3em; margin-bottom: 1em; margin-top: 1em; text-decoration: none'>Check Out the Link</a>
+      <a id='share_button'href=''style='font-size: 3em; margin-bottom: 1em; margin-top: 1em; text-decoration: none'>Share</a>
     </div>
     </section>
 
-
-   
     <% include ./partials/_addResource %>
     <div id="overlay">overlay</div>
     </body>

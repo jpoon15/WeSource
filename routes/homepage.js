@@ -8,9 +8,8 @@ module.exports = router;
 
 //HOMEPAGE
 router.get("/", (req, res) => {
-  knex
-    .select("*")
-    .from("resources")
+  knex("resources")
+    .where('delete', 0)
     .then((results) => {
       res.json(results);
   });
