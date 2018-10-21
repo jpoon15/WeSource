@@ -31,7 +31,6 @@ router.post("/register", (req, res) => {
  // let userCurrent = req.session.id;
   console.log("we are in the registration post", req.body);
   const password = req.body.password;
-  console.log(password);
   const hashedPassword = bcrypt.hashSync(password,10);
   //Will insert data into database from ajax request:
   knex('users')
