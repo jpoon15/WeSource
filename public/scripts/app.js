@@ -151,7 +151,7 @@ $(() => {
         }
       });
 
-    } else if(currentText==="Unlike"){
+    } else if(currentText === "Unlike"){
       e.preventDefault();
 
       var data = {
@@ -174,4 +174,10 @@ $(() => {
       });
     }
   });
+
+  //DELETE RESOURCES
+
+
+
+
 });
