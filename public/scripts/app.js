@@ -171,28 +171,4 @@ $(() => {
       });
     }
   });
-
-  //DELETE RESOURCES
-  $('#delete_button').on('click', (e) => {
-    e.preventDefault();
-
-    var data = {
-      resource_id: $('#delete_button').attr('value')
-    };
-
-    console.log("before delete ajax request", data);
-
-    $.ajax({
-      url: 'delete',
-      data: data,
-      type: 'POST',
-      success: function(result) {
-        console.log('we have successfully deleted from database');
-        $('#delete_button').hide();
-      },
-      error: function(error) {
-        console.log("we are in error");
-      }
-    });
-  });
 });
