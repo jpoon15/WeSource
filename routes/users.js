@@ -13,7 +13,8 @@ router.get("/:id", (req, res) => {
   knex
     .select("*")
     .from("resources")
-    .where("user_id", `${userId}`)
+    .where("delete", 0)
+    .andWhere("user_id", `${userId}`)
     .then(results => {
       let resResults = results;
       console.log("results1", resResults)
