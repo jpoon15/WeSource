@@ -262,11 +262,3 @@ body .searchContainer form button:focus {
 .fixed {
   overflow: hidden;
 }
-
-.register_msg {
-  display: none;
-}
-
-.login_msg {
-  display: none;
--}
