@@ -41,20 +41,24 @@ module.exports = router;
 router.get("/:id", (req, res) => {
   console.log(req.params.id)
   let currentResourceId = req.params.id
+  let userId = req.session.id;
+  console.log("userid", userId)
 
   knex("resources")
     .where("id", `${currentResourceId}`).first()
     .then((results) => {
       console.log("results", results)
-      knex.select("*")
-      .from("likes")
+      knex("likes")
       .where("resource_id", `${currentResourceId}`)
+      .andWhere("user_id", `${userId}`).first()
       .then((likesres) => {
         console.log("likesres", likesres)
         let templeVars = {
           resource: results,
-          likes: likesres
+          like: likesres,
+          user: userId
         }
+        console.log("templeVars", templeVars)
         res.render("detail", templeVars);
       })
     })
