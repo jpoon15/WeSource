@@ -1,15 +1,43 @@
 
 <header class="header">
   <a class="logo" href="/">WeSource</a>
-  <div class="header__right">
-    <!-- Login -->
-    <form action="/backdoor" method="POST">
-      <label for="email"> LOGIN: </label>
-      <input id="email" type="text" name="email" placeholder="Enter Email">
-      <input id="password" type="text" name="password" placeholder="Enter Password">
-      <button type="submit">LOGIN</button>
-    </form>
-    <a id="add" class="addResource" href="#">ADD WESOURCE</a>
-    <a id="registerUser" class="registerUser" href="#">REGISTER</a>
-  </div>
+  <!-- <div class="header__right"> -->
+    <% if(!user){ %>
+    <div class="header__right noUser">
+      <!-- <a id="addLoggedOut" class="addResource" href="#">ADD WESOURCE</a> -->
+      <form action="/backdoor" method="POST">
+        <p>
+          <label for="email"> LOGIN: </label>
+          <input id="email" type="text" name="email" placeholder="Enter Email">
+        </p>
+        <p>
+          <label for="email"> PASSWORD: </label>
+          <input id="password" type="text" name="password" placeholder="Enter Password">
+        </p>
+        <button class="login" type="submit">LOGIN</button>
+      </form>
+      <a id="registerUser" class="register" href="#">REGISTER</a>
+    </div>
+    <% } else if (user){ %>
+      <div class="header__right user">
+      <!-- logout -->
+      <!-- <a id="add" class="addResource" href="#">ADD WESOURCE</a> -->
+      <a href="/api/users/:id">DASHBOARD</a>
+      <a href="/api/users/:id/profile">PROFILE</a>
+      <form action="/logout" method="POST">
+        <button class="logout" type="submit">LOGOUT</button>
+      </form>
+    </div>
+    <% } %>
+  
 </header>
+
+<div class="newWeSource">
+  <% if(!user){ %>
+    <a id="addLoggedOut" class="addResource" href="#">ADD <span class="logo">WeSource</span></a>
+  <% } else if (user){ %>
+    <a id="add" class="addResource" href="#">ADD <span class="logo">WeSource</span></a>
+  <% } %>
+
+</div>
+

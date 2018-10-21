@@ -16,13 +16,19 @@ router.get("/:id", (req, res) => {
     .select('resources')
     .where({user_id: '1'})
     .then((results) => {
-      let templateVars= {articles: results}
+      let templateVars= {
+        articles: results,
+        user: req.session.id
+      }
       res.render("mydashboard", templateVars);
     })
 })
 
 router.get("/:id/profile", (req, res) => {
-  res.render("profile");
+  let templateVars= {
+    user: req.session.id
+  }
+  res.render("profile", templateVars);
 });
 
 //Register a new User

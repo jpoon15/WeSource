@@ -39,15 +39,15 @@ module.exports = router;
 
 //DISPLAY SHOW PAGE
 router.get("/:id", (req, res) => {
-  console.log(req.params.id)
+  //console.log(req.params.id)
   let currentResourceId = req.params.id
-
   knex("resources")
     .where("id", `${currentResourceId}`).first()
     .then((results) => {
       // console.log("results", results);
       let templeVars = {
-        resource: results
+        resource: results,
+        user: req.session.id
       }
       res.render("detail", templeVars);
     });
