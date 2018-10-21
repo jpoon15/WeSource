@@ -97,7 +97,6 @@ $('#register').on('click', (e) => {
       username: $('#username').val(),
       password: $('#password').val(),
     };
-    //ajax call to save data
     console.log("before ajax request ",data);
     $.ajax({
       url: '/api/users/register',
