@@ -47,6 +47,15 @@ $(() => {
     $('#overlay').show();
   })
 
+    // Add New User
+  $('#registerUser').on('click', (e) => {
+    e.preventDefault();
+    $('body').addClass('fixed');
+    $('#registerModal').show();
+    $('#overlay').show();
+  })
+
+    // Overlay Close
   $('#overlay').on('click', function() {
     $(this).hide();
     $('body').removeClass('fixed');
@@ -54,10 +63,9 @@ $(() => {
   })
 
 
-//ADDING RESOUCES
+//ADD NEW RESOUCE
   $('#addResource').on('click', (e) => {
     e.preventDefault();
-
     var category_id = $('#addResourceModal #category').find(':selected').val();
 
     var data  = {
@@ -67,26 +75,27 @@ $(() => {
       category_id: category_id
     };
     //ajax call to save data
-    console.log("before ajax request ",data);
+    //console.log("before ajax request ",data);
     $.ajax({
       url: '/api/resources/add',
       data: data,
       type:'POST',
       success: function(result){
-        console.log("we are in success");
+        console.log("we are in success!");
         // add success div notice
         let newPost = $(`<div class="card card-pin"><img class="card-img" src="${result.imgurl}"/><p>${result.title}</p><p>${result.description}</p><a href="${result.link}">${result.link}</a><p>${result.category_id}</p></div>`);
         $(newPost).prependTo($('.card-columns'))
         $('#overlay').hide();
         $('#addResourceModal').hide();
+        location.reload();
       },
       error: function(error){
-        console.log("we are in error");
+        console.log("we are in error :(");
       }
     });
   })
 
-//USER REGISTER
+// REGISTER NEW USER
 $('#register').on('click', (e) => {
     e.preventDefault();
 
@@ -115,13 +124,7 @@ $('#register').on('click', (e) => {
   })
 
 
-  // Add New User
-  $('#registerUser').on('click', (e) => {
-    e.preventDefault();
-    $('body').addClass('fixed');
-    $('#registerModal').show();
-    $('#overlay').show();
-  })
+
 
 
 //LIKE AND UNLIKE FEATURE ON DETAIL PAGE
