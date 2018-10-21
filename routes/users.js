@@ -9,7 +9,6 @@ const bcrypt  = require('bcryptjs');
 module.exports = router;
 
 router.get("/:id", (req, res) => {
-<<<<<<< HEAD
   
   knex.select(
     'r.id',
@@ -37,7 +36,6 @@ router.get("/:id", (req, res) => {
         res.render("mydashboard", templateVars);
     });
 
-=======
   knex
     .select("*")
     .from("resources")
@@ -48,7 +46,6 @@ router.get("/:id", (req, res) => {
       let templateVars= {articles: results}
       res.render("mydashboard", templateVars);
     })
->>>>>>> master
 })
 
 router.get("/:id/profile", (req, res) => {
