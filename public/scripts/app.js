@@ -93,11 +93,10 @@ $('#register').on('click', (e) => {
     var register_id = $('#register').find(':selected').val();
 
     var data  = {
-      username: $('#url').val(),
-      email: $('#title').val(),
-      password: $('#description').val(),
+      email: $('#useremail').val(),
+      username: $('#username').val(),
+      password: $('#password').val(),
     };
-    //ajax call to save data
     console.log("before ajax request ",data);
     $.ajax({
       url: '/api/users/register',
@@ -105,8 +104,9 @@ $('#register').on('click', (e) => {
       type:'POST',
       success: function(result){
         console.log("we are in success");
-        // add success div notice
-        alert("You have successfully registered")
+        $('#overlay').hide();
+        $('#registerModal').hide();
+        $('.register_msg').show()
       },
       error: function(error){
         console.log("we are in error");

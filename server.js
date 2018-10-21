@@ -2,22 +2,23 @@
 
 require('dotenv').config();
 
-const PORT        = process.env.PORT || 8080;
-const ENV         = process.env.ENV || "development"; // maybe delete later?
-const express     = require("express");
-const bodyParser  = require("body-parser");
-const sass        = require("node-sass-middleware");
-const app         = express();
+const PORT          = process.env.PORT || 8080;
+const ENV           = process.env.ENV || "development"; // maybe delete later?
+const express       = require("express");
+const bodyParser    = require("body-parser");
+const sass          = require("node-sass-middleware");
+const app           = express();
 
 const cookieSession = require('cookie-session');
+const bcrypt        = require('bcryptjs');
 
-const knex        = require("./lib/database-connection");
-const morgan      = require('morgan');
-const knexLogger  = require('knex-logger');
+const knex          = require("./lib/database-connection");
+const morgan        = require('morgan');
+const knexLogger    = require('knex-logger');
 
 // Seperated Routes for each Resource
 const homepageRoutes = require("./routes/homepage");
-const usersRoutes = require("./routes/users");
+const usersRoutes   = require("./routes/users");
 const resourcesRoutes = require("./routes/resources");
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
