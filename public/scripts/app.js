@@ -1,16 +1,18 @@
 $(() => {
   // ON LOAD
-  $.ajax({
+  if (top.location.pathname === '/') {
+    $.ajax({
     method: "GET",
     url: "/api/homepage"
-  }).done((resources) => {
-    console.log(resources);
-    for(resource of resources) {
+    }).done((resources) => {
+      console.log(resources);
+      for(resource of resources) {
       // $("<a>").attr("href", `/api/resources/${resource.id}`).text(resource.title).appendTo($("body"));
       //$(`<a href="/api/resources/${resource.id}"><div class="card card-pin"><img class="card-img" src="${resource.imgurl}"/><p>${resource.title}</p><p>${resource.description}</p><a href="${resource.link}">${resource.link}</a><p>${resource.category_id}</p></div></a>`).prependTo($('.card-columns'));
       $(`<a href="/api/resources/${resource.id}"><div class="card card-pin"><img class="card-img" src="${resource.imgurl}"/><p>${resource.title}</p><p>${resource.description}</p><p>${resource.category_id}</p></div></a>`).prependTo($('.card-columns'));
     }
   });
+  };
 
   // Search Bar Query
   $("#searchButton").on("click", (e) => {
