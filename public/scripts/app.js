@@ -140,7 +140,7 @@ $(() => {
         type: 'POST',
         success: function(result) {
           // console.log('result', result)
-          console.log('we have successfully added to database');
+          // console.log('we have successfully added to database');
           $('#like_button').attr('value', result).text('Unlike');
         },
         error: function(error) {
@@ -155,7 +155,7 @@ $(() => {
         like_id: $('#like_button').attr('value')
       };
 
-      console.log("before delete ajax request", data);
+      // console.log("before delete ajax request", data);
 
       $.ajax({
         url: 'deletelike',
