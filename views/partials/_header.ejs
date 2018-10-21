@@ -1,29 +1,8 @@
+
 <header class="header">
   <a class="logo" href="/">WeSource</a>
   <div class="header__right">
     <!-- Login -->
-<<<<<<< HEAD
-    
-    <% if(articles){ %>
-      Logged as:  <%= articles[0].email %>   
-    <form method="POST", action="/logout">
-        <a id="add" class="addResource" href="#">ADD WESOURCE</a>
-        <a id="myDashboard" class="myDashboard" href="/users/<%= articles.id %>">My Sources</a>
-        <a id="myProfile" class="myProfile" href="/profiles">My Profile</a>
-        <!-- <%= articles[0].email %>    -->
-        <button type="submit",>Logout</button>
-    </form>
-    <% } else { %> 
-      <form action="/backdoor" method="POST">
-        <label for="email"> LOGIN: </label>
-        <input id="email" type="text" name="email" placeholder="Enter Email">
-        <button type="submit">LOGIN</button>
-        <a id="registerUser" class="registerUser" href="#">REGISTER</a>
-      </form>
-  <% } %>
-</header>
-
-=======
     <form action="/backdoor" method="POST">
       <label for="email"> LOGIN: </label>
       <input id="email" type="text" name="email" placeholder="Enter Email">
@@ -34,4 +13,3 @@
     <a id="registerUser" class="registerUser" href="#">REGISTER</a>
   </div>
 </header>
->>>>>>> master

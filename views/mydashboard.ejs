@@ -22,17 +22,10 @@
 
     <div class='bottom'>
         <h3>Liked Sources</h3>
-        <div class='my_articles_container'>
-            <% articles.forEach(function(item){  %>
-            <div class="card card-pin">
-                <h2 class="card-title title"><%=item.title%></h2>
-                <img class="card-img" src='<%=item.imgurl%>'>
-                <p><%=item.description%></p>
-                <a href='<%item.link%>'><%=item.link%></a>
-                <p><%=item.category%></p>
-            </div>
-
-            <% }) %>
+        <div class='liked_articles_container'>
+                <div class="posting" id='article1' style='border: 2px dashed red;'>Article1</div>
+                <div class="posting" id='article2' style='border: 2px dashed red;'>Article2</div>
+                <div id='article3' style='border: 2px dashed red;'>Article3</div>
         </div>
     </div>
 
