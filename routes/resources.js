@@ -18,7 +18,7 @@ module.exports = router;
 //       let $ = cheerio.load(html);
 //       //console.log($);
 //       // add fallbacks for any missing meta tags
-      
+
 //       // if (!$('meta[property="og:image"]')) {
 //       //     return $('meta[property="twitter:image"]').attr('content');
 //       // } else if (!$('meta[property="twitter:image"]')) {
@@ -32,7 +32,7 @@ module.exports = router;
 //       // add image to data via data.imageUrl = whatever...
 
 //       //return knex('resources').insert(data).returning('id');
-//   })    
+//   })
 // }
 
 
@@ -45,19 +45,27 @@ router.get("/:id", (req, res) => {
   knex("resources")
     .where("id", `${currentResourceId}`).first()
     .then((results) => {
-      // console.log("results", results);
-      let templeVars = {
-        resource: results
-      }
-      res.render("detail", templeVars);
-    });
+      console.log("results", results)
+      knex.select("*")
+      .from("likes")
+      .where("resource_id", `${currentResourceId}`)
+      .then((likesres) => {
+        console.log("likesres", likesres)
+        let templeVars = {
+          resource: results,
+          likes: likesres
+        }
+        res.render("detail", templeVars);
+      })
+    })
+
 });
 
 //ADDING RESOURCES
 router.post("/add", (req, res) => {
   let userCurrent = req.session.id;
   createResource(req.body.link)
-    .then((resultImg) => { 
+    .then((resultImg) => {
         knex('resources').insert({
           link: req.body.link,
           title: req.body.title,
@@ -88,17 +96,32 @@ router.post("/like", (req, res) => {
 })
 
 //DELETING LIKED RESOURCE
-router.post("/delete", (req, res) => {
+router.post("/deletelike", (req, res) => {
   let userCurrent = req.session.id
   console.log("we are in the delete resource", req.body);
 
   knex('likes')
-    .where('like_id', req.body.like_id)
+    .where('id', req.body.like_id)
     .del()
-
+    .then(function (result) {
+      console.log(result);
   res.send('successful deletion');
-});
+  });
+})
 
+//DELETING RESOURCE
+router.post("/delete", (req, res) => {
+  let userCurrent = req.session.id
+  console.log("we are in the delete resource", req.body);
+
+  knex('resources')
+    .where('id', req.body.resource_id)
+    .del()
+    .then(function(result) {
+      console.log(result);
+    })
+  res.redirect('/');
+});
 
 
 
