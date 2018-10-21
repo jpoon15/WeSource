@@ -7,7 +7,7 @@ $(() => {
     }).done((resources) => {
       console.log(resources);
       for(resource of resources) {
-      $(`<a href="/api/resources/${resource.id}"><div class="card card-pin"><img class="card-img" src="${resource.imgurl}"/><p>${resource.title}</p><p>${resource.description}</p><p>${resource.category_id}</p></div></a>`).prependTo($('.card-columns'));
+      $(`<a href="/api/resources/${resource.id}"><div class="card card-pin"><img class="card-img" src="${resource.imgurl}"/><p>${resource.title}</p><p>${resource.description}</p><p>${resource.category}</p></div></a>`).prependTo($('.card-columns'));
     }
   });
   };
@@ -59,7 +59,6 @@ $(() => {
     $('body').removeClass('fixed');
     $('#addResourceModal, #registerModal').hide();
   })
-
 
 //ADD NEW RESOUCE
   $('#addResource').on('click', (e) => {
@@ -121,8 +120,8 @@ $(() => {
     })
 
   //LIKE AND UNLIKE FEATURE ON DETAIL PAGE
-  var globalresourceId;
 
+  var globalresourceId;
   $('#like_button').on('click', (e) => {
     e.preventDefault();
 
@@ -130,8 +129,7 @@ $(() => {
 
     if(currentText === "Like"){
         globalresourceId = $('#like_button').attr('value');
-        console.log("test ",globalresourceId);
-        //console.log(resourceId);
+        // console.log("test ",globalresourceId);
         var data = {
           resource_id: $('#like_button').attr('value')
         };
@@ -142,8 +140,7 @@ $(() => {
         type: 'POST',
         success: function(result) {
           // console.log('result', result)
-          // console.log('we have successfully added to database');
-          // $('#like_button').attr('class', 'delete_like').attr('value', result).text('Unlike');
+          console.log('we have successfully added to database');
           $('#like_button').attr('value', result).text('Unlike');
         },
         error: function(error) {
@@ -151,21 +148,21 @@ $(() => {
         }
       });
 
-    } else if(currentText === "Unlike"){
+    } else if(currentText === "Unlike") {
       e.preventDefault();
 
       var data = {
         like_id: $('#like_button').attr('value')
       };
 
-      // console.log("before delete ajax request", data);
+      console.log("before delete ajax request", data);
 
       $.ajax({
-        url: 'delete',
+        url: 'deletelike',
         data: data,
         type: 'POST',
         success: function(result) {
-          // console.log('we have successfully deleted to database');
+          console.log('we have successfully removed your like');
           $('#like_button').attr('value',globalresourceId).text('Like');
         },
         error: function(error) {
@@ -176,8 +173,26 @@ $(() => {
   });
 
   //DELETE RESOURCES
+  $('#delete_button').on('click', (e) => {
+    e.preventDefault();
 
+    var data = {
+      resource_id: $('#delete_button').attr('value')
+    };
 
+    console.log("before delete ajax request", data);
 
-
+    $.ajax({
+      url: 'delete',
+      data: data,
+      type: 'POST',
+      success: function(result) {
+        console.log('we have successfully deleted from database');
+        $('#delete_button').hide();
+      },
+      error: function(error) {
+        console.log("we are in error");
+      }
+    });
+  });
 });
