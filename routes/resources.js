@@ -39,26 +39,21 @@ module.exports = router;
 
 //DISPLAY SHOW PAGE
 router.get("/:id", (req, res) => {
-  console.log(req.params.id)
   let currentResourceId = req.params.id
   let userId = req.session.id;
-  console.log("userid", userId)
 
   knex("resources")
     .where("id", `${currentResourceId}`).first()
     .then((results) => {
-      console.log("results", results)
       knex("likes")
       .where("resource_id", `${currentResourceId}`)
       .andWhere("user_id", `${userId}`).first()
       .then((likesres) => {
-        console.log("likesres", likesres)
         let templeVars = {
           resource: results,
           like: likesres,
           user: userId
         }
-        console.log("templeVars", templeVars)
         res.render("detail", templeVars);
       })
     })
@@ -76,7 +71,8 @@ router.post("/add", (req, res) => {
           description: req.body.description,
           category_id: req.body.category_id,
           user_id: userCurrent,
-          imgurl: resultImg // scrape
+          imgurl: resultImg, // scrape
+          delete: 0
         }).returning('id')
         .then((id) => {
           //console.log("successfully inserted the record of:  ", id);
@@ -115,12 +111,14 @@ router.post("/deletelike", (req, res) => {
 
 //DELETING RESOURCE
 router.post("/delete", (req, res) => {
-  let userCurrent = req.session.id
-  console.log("we are in the delete resource", req.body);
+  let userCurrent = req.session.id;
+  let resource_id = req.body.resource_id;
 
   knex('resources')
-    .where('id', req.body.resource_id)
-    .del()
+    .where('id', resource_id)
+    .update({
+      delete: 1
+    })
     .then(function(result) {
       console.log(result);
     })
