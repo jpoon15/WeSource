@@ -1,27 +1,43 @@
 <!DOCTYPE html>
 <html>
-<% include ./partials/_head %> 
-<body class="profile">
+<% include ./partials/_head %>
+<body>
+  <section class="profile">
     <% include ./partials/_header %>
-    <h1>My Dashboard</h1>
-    <div class='left'>
-        <div class='forums_container'>
-        <label>Username</label>
-        <input type="text" value="" class="input-xlarge">
-        <label>First Name</label>
-        <input type="text" value="" class="input-xlarge">
-        <label>Last Name</label>
-        <input type="text" value="" class="input-xlarge">
-        <label>Email</label>
-        <input type="text" value="" class="input-xlarge">
-        <label>Desrciption</label>
-        <input type="text" value='' class="input-xlarge">
-      </div>
-    </div>
-    <div class='right'>
-        <button id="edit">Edit</button>
-    </div>
+    <h1>My Profile</h1>
+    <button id="edit_profile">Edit My Profile</button><br><br>
+    <img src="<%=user.avatar%>" class="avatar" alt="myavatar">
+    <h3>Name</h3>
+    <%=user.name%>
+    <h3>Email</h3>
+    <%=user.email%>
+    <h3>About Me</h3>
+    <%=user.aboutme%>
+  </section>
+
+
+  <div id="profileModal">
+    <i class="fas fa-times"></i>
+    <form action="/api/users/:id/profile" method="POST">
+      <h2>EDIT PROFILE</h2>
+      <p>
+        <label for="name"><span>Name:</span></label>
+        <input type="text" id="username" name="username">
+      </p>
+      <p>
+        <label for="email"><span>Email:</span></label>
+        <input type="email" id="useremail" name="useremail">
+      </p>
+      <p>
+        <label for="aboutme"><span>Password:</span></label>
+        <input type="text" id="useraboutme" name="useraboutme">
+      </p>
+      <button id="edit" type="submit">EDIT</button>
+    </form>
+  </div>
+
     <div id="overlay"></div>
+
     <% include ./partials/_addResource %>
     <% include ./partials/_footer %>
     </body>
