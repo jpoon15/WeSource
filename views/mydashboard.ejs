@@ -12,13 +12,15 @@
           <div class="row">
             <div class="card-columns">
               <% articles.forEach(function(item) {  %>
-              <div class="card card-pin">
-                <img class="card__img" src='<%=item.imgurl%>'>
-                <p class="card__title"><%=item.title%></p>
-                <p class="card__description"><%=item.description%></p>
-                <!-- <a href='<%item.link%>'><%=item.link%></a> -->
-                <p class="card__cat"><%=item.category%></p>
-              </div>
+              <a href="/api/resources/<%=item.id%>">
+                <div class="card card-pin">
+                  <img class="card__img" src='<%=item.imgurl%>'>
+                  <p class="card__title"><%=item.title%></p>
+                  <p class="card__description"><%=item.description%></p>
+                  <!-- <a href='<%item.link%>'><%=item.link%></a> -->
+                  <p class="card__cat"><%=item.category%></p>
+                </div>
+              </a>
               <% }) %>
             </div>
           </div>
@@ -33,13 +35,15 @@
           <div class="row">
             <div class="card-columns">
             <% liked_res.forEach(function(item){  %>
-              <div class="card card-pin">
-                <img class="card__img" src='<%=item.imgurl%>'>
-                <p class="card__title"><%=item.title%></p>
-                <p class="card__description"><%=item.description%></p>
-                <!-- <a href='<%item.link%>'><%=item.link%></a> -->
-                <p class="card__cat"><%=item.category%></p>
-              </div>
+              <a href="/api/resources/<%=item.id%>">
+                <div class="card card-pin">
+                  <img class="card__img" src='<%=item.imgurl%>'>
+                  <p class="card__title"><%=item.title%></p>
+                  <p class="card__description"><%=item.description%></p>
+                  <!-- <a href='<%item.link%>'><%=item.link%></a> -->
+                  <p class="card__cat"><%=item.category%></p>
+                </div>
+              </a>
             <% }) %>
             </div>
           </div>
