@@ -6,21 +6,6 @@ body {
   background-color: #EEE;
   padding-top: 50px;
 
-  &.dashboard {
-    h1 {
-      width: 94%;
-      margin: 40px auto 0;
-
-      @include bp('tablet-landscape'){
-        text-align: center;
-      }
-    }
-
-    .fa-heart {
-      font-size: 33px;
-    }
-  }
-
   h1 {
     color: $brandColor;
   }
@@ -49,7 +34,6 @@ body {
         width: 100%;
         right: auto;
         margin-top: 90px;
-        
       }
 
       &.user {
@@ -62,7 +46,6 @@ body {
             width: auto;
           }
         }
-
       }
 
       &.noUser {
@@ -128,14 +111,12 @@ body {
             @include bp('tablet-landscape') {
               float: left;
             }
-
           }
 
           input {
             @include bp('tablet-landscape') {
               float: right;
             }
-
           }
         }
 
@@ -202,10 +183,6 @@ body {
         font-size: 50px;
         line-height: 50px;
       }
-
-      // @include bp('phone-large') {
-        
-      // }
 
       &:hover {
         border-bottom: 2px solid $brandColor;
@@ -299,10 +276,6 @@ body {
   text-align: center;
   margin-top: 40px;
 
-  @include bp('tablet-landscape') {
-
-  }
-
   a{
     background-color: #69b269;
     padding: 15px 30px;
@@ -369,48 +342,6 @@ body {
   }
 }
 
-.card {
-  color: $brandColor;
-  border-radius: 5px;
-
-  &__img {
-    margin-bottom: 10px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-  }
-
-  &__title {
-    width: 80%;
-    margin: 0 auto 15px;
-    font-weight: 700;
-  }
-
-  &__description {
-    width: 80%;
-    margin: 0 auto 15px;
-  }
-
-  &__cat {
-    width: 80%;
-    margin: 0 auto;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    text-align: center;
-    padding: 2px 0 4px;
-    color: #111;
-
-    &.accessibility { background-color: #fed345; }
-    &.animation { background-color: #e64600; color: #fff; }
-    &.css { background-color: #c50000; color: #fff; }
-    &.html { background-color: #501ab7; color: #fff; }
-    &.inspiration { background-color: #e64c7f; color: #fff; }
-    &.javascript { background-color: #3b34bf; color: #fff; }
-    &.plugins { background-color: #657efb; }
-    &.ui { background-color: #208934; }
-    &.web { background-color: #435c00; color: #fff; }
-  }
-}
-
 .login_msg {
   display: none;
 } 
@@ -418,7 +349,6 @@ body {
 .register_msg {
   display: none;
 } 
-
 
 #addResourceModal {
   display: none;
@@ -587,51 +517,23 @@ body {
 }
 
 #overlay{
-  position: fixed; /* Sit on top of the page content */
-  display: none; /* Hidden by default */
-  width: 100%; /* Full width (cover the whole page) */
-  height: 100%; /* Full height (cover the whole page) */
-  top: 0; 
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-  cursor: pointer; /* Add a pointer on hover */
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
 }
 
 .fixed {
   overflow: hidden;
 }
 
-
-
-
-.res_description {
-
-  .left {
-    width: 55%;
-    border: 1px solid $brandColor;
-    border-radius: 5px;
-    float: left;
-    margin-left: 10%;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-  }
-
-.right {
-    width: 15%;
-    border: 1px solid $brandColor;
-    border-radius: 5px;
-    float: right;
-    margin-right: 10%;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
-}
 
 // FOOTER STYLES TRAE
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
@@ -647,9 +549,9 @@ body {
 
 footer {
   font-family: 'Ubuntu', sans-serif;
-    background: gainsboro;
-    text-align: center;
-    padding: 1em;
+  background: gainsboro;
+  text-align: center;
+  padding: 1em;
 
     a {
       color: $brandColor;
@@ -657,30 +559,166 @@ footer {
       &:hover {
         color: $brandColor;
       }
-
     }
-}
 
-footer .container{
-  width: 100%;
-  margin: auto;
-}
+  .container{
+    width: 100%;
+    margin: auto;
+  }
 
-footer .footer-box{
+  .footer-box{
     width: 33.3333%;
     margin: auto;
-}
+  }
 
-footer .footer-box p{
+  .footer-box p{
     color: $brandColor;
     font-size: 18px;
-}
+  }
 
-footer .footer-box .fa{
+  .footer-box .fa{
     display: inline-block;
     background-color: #fff;
     border-radius: 50%;
     padding: 0.5em 0.6em;
     margin: 5px;
     font-size: 20px;
+  }
+
 }
+
+
+
+
+
+// Dashboard Page Styles
+body.dashboard {
+  h1 {
+    width: 94%;
+    margin: 40px auto 0;
+
+    @include bp('tablet-landscape'){
+      text-align: center;
+    }
+  }
+
+  .fa-heart {
+    font-size: 33px;
+  }
+}
+
+// Detail Page Styles
+body.detail {
+
+  h1, p {
+    width: 80%;
+    margin: 0 auto 20px;
+  }
+
+  .newWeSource {
+    margin-bottom: 60px;
+  }
+
+  .main_image {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 20px;
+
+    img {
+      border-radius: 5px;
+    } 
+  }
+
+  .res_description {
+    overflow: hidden;
+    width: 60%;
+    margin: 0 auto 100px;
+
+    @include bp('tablet-landscape') {
+      width: 80%;
+    }
+
+    .left {
+      width: 65%;
+      border: 1px solid $brandColor;
+      border-radius: 5px;
+      float: left;
+      margin-right: 5%;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+
+      @include bp('tablet-portrait') {
+        width: 50%;
+      }
+
+      @include bp('phone-xlarge') {
+        width: 45%;
+      }
+
+      @include bp('phone-large') {
+        min-width: 100%;
+        margin-bottom: 20px;
+      }
+
+    }
+  
+  .right {
+      width: 30%;
+      border: 1px solid $brandColor;
+      border-radius: 5px;
+      float: right;
+      display: flex;
+      padding: 50px 0;
+      flex-direction: column;
+      text-align: center;
+
+      @include bp('tablet-portrait') {
+        min-width: 185px;
+      }
+
+      @include bp('phone-xlarge') {
+        min-width: 45%;
+      }
+
+      @include bp('phone-large') {
+        min-width: 100%;
+      }
+
+      &__button {
+        margin-bottom: 20px;
+        color: $brandColor;
+        font-size: 24px;
+        text-transform: uppercase;
+      }
+
+      .rateP {
+        margin-top: 20px;
+      }
+
+      .delete {
+        border: 1px solid #777;
+        background: #777;
+        color: #fff;
+        border-radius: 5px;
+        width: 80%;
+        padding: 5px 0;
+        margin-top: 20px;
+        cursor: pointer;
+
+        &:hover {
+          color: $brandColor;
+          background-color: #fff;
+          border: 1px solid $brandColor;
+        }
+      }
+
+    }
+
+
+
+  }
+
+}
+ 
