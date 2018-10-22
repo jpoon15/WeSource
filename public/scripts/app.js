@@ -12,10 +12,6 @@ $(() => {
     });
   };
 
-  //EDIT PROFILE PAGE
-
-
-
   //RATING BARS
   $(document).ready(function(){
 
@@ -106,6 +102,14 @@ $(() => {
       }
     });
   });
+
+//USER PROFILE PAGE
+ $('#edit_button').on('click', (e) => {
+    e.preventDefault();
+    $('body').addClass('fixed');
+    $('#profileModal').show();
+    $('#overlay').show();
+  })
 
 //MODALS
   //ADD NEW RESOURCES
