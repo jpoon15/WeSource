@@ -23,54 +23,24 @@ router.get("/:id", (req, res) => {
         }
         res.render("detail", templeVars);
       })
+  } else {
+   knex("resources")
+      .where("id", `${currentResourceId}`).first()
+      .then((results) => {
+        knex("likes")
+        .where("resource_id", `${currentResourceId}`)
+        .andWhere("user_id", `${userId}`).first()
+        .then((likesres) => {
+          let templeVars = {
+            resource: results,
+            like: likesres,
+            user: userId
+          }
+          res.render("detail", templeVars);
+        })
+      })
   }
-  // } else {
-  //  knex("resources")
-  //     .where("id", `${currentResourceId}`).first()
-  //     .then((results) => {
-  //       knex("likes")
-  //       .where("resource_id", `${currentResourceId}`)
-  //       .andWhere("user_id", `${userId}`).first()
-  //       .then((likesres) => {
-  //         let templeVars = {
-  //           resource: results,
-  //           like: likesres,
-  //           user: userId
-  //         }
-  //         res.render("detail", templeVars);
-  //       })
-  //     })
-  // }
 });
-
-
-
-//   let userId = req.session.id;
-//     knex("resources")
-//       .where("id", `${currentResourceId}`).first()
-//       .then((results) => {
-//         knex("likes")
-//         .where("resource_id", `${currentResourceId}`)
-//         .andWhere("user_id", `${userId}`).first()
-//         .then((likesres) => {
-//           let templeVars = {
-//             resource: results,
-//             like: likesres,
-//             user: userId
-//           }
-//           res.render("detail", templeVars);
-//         })
-//       })
-//   } else {
-//   knex("resources")
-//     .where("id", `${currentResourceId}`).first()
-//       .then((results) => {
-//         let templeVars = {
-//         }
-//         res.render("detail", templeVars);
-//       })
-//     }
-// });
 
 //ADDING RESOURCES
 router.post("/add", (req, res) => {
