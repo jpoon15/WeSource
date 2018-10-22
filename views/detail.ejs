@@ -27,6 +27,29 @@
       <form action="/api/resources/delete" method="POST">
         <button name="resource_id" value="<%=resource.id%>">Delete</button>
       </form>
+      <section class='rating-widget'>
+  
+            <!-- Rating Stars Box -->
+            <div class='rating-stars text-center'>
+              <ul id='stars'>
+                <li class='star' title='Poor' data-value='1'>
+                  <i class='fa fa-star fa-fw'></i>
+                </li>
+                <li class='star' title='Fair' data-value='2'>
+                  <i class='fa fa-star fa-fw'></i>
+                </li>
+                <li class='star' title='Good' data-value='3'>
+                  <i class='fa fa-star fa-fw'></i>
+                </li>
+                <li class='star' title='Excellent' data-value='4'>
+                  <i class='fa fa-star fa-fw'></i>
+                </li>
+                <li class='star' title='WOW!!!' data-value='5'>
+                  <i class='fa fa-star fa-fw'></i>
+                </li>
+              </ul>
+            </div>
+          </section>
         <!-- <a id="delete_button" class="delete_res" value="<%=resource.id%>" href="#" style='font-size: 3em; margin-bottom: 1em; margin-top: 1em; text-decoration: none'>Delete</a> -->
 
       <% } %>
@@ -47,7 +70,6 @@
       <a id='share_button'href=''style='font-size: 3em; margin-bottom: 1em; margin-top: 1em; text-decoration: none'>Share</a>
     </div>
     </section>
-
     <% include ./partials/_addResource %>
     <div id="overlay">overlay</div>
     </body>
