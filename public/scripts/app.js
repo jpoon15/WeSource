@@ -166,7 +166,7 @@ $(() => {
         location.reload();
       },
       error: function(error){
-        console.log("we are in error :(");
+        console.log("we are in error :(", error);
       }
     });
   })
