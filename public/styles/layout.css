@@ -302,6 +302,158 @@ body .searchContainer form button:focus {
   overflow: hidden;
 }
 
+.card-columns a {
+  display: inline-block;
+}
+
+.card {
+  color: #244751;
+  border-radius: 5px;
+}
+
+.card__img {
+  margin-bottom: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.card__title {
+  width: 80%;
+  margin: 0 auto 15px;
+  font-weight: 700;
+}
+
+.card__description {
+  width: 80%;
+  margin: 0 auto 15px;
+}
+
+.card__cat {
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 2px 0 4px;
+  color: #111;
+}
+
+.card__cat.accessibility {
+  background-color: #fed345;
+}
+
+.card__cat.animation {
+  background-color: #e64600;
+  color: #fff;
+}
+
+.card__cat.css {
+  background-color: #c50000;
+  color: #fff;
+}
+
+.card__cat.html {
+  background-color: #501ab7;
+  color: #fff;
+}
+
+.card__cat.inspiration {
+  background-color: #e64c7f;
+  color: #fff;
+}
+
+.card__cat.javascript {
+  background-color: #3b34bf;
+  color: #fff;
+}
+
+.card__cat.plugins {
+  background-color: #657efb;
+}
+
+.card__cat.ui {
+  background-color: #208934;
+}
+
+.card__cat.web {
+  background-color: #435c00;
+  color: #fff;
+}
+
+.card {
+  color: #244751;
+  border-radius: 5px;
+}
+
+.card__img {
+  margin-bottom: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.card__title {
+  width: 80%;
+  margin: 0 auto 15px;
+  font-weight: 700;
+}
+
+.card__description {
+  width: 80%;
+  margin: 0 auto 15px;
+}
+
+.card__cat {
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 2px 0 4px;
+  color: #111;
+}
+
+.card__cat.accessibility {
+  background-color: #fed345;
+}
+
+.card__cat.animation {
+  background-color: #e64600;
+  color: #fff;
+}
+
+.card__cat.css {
+  background-color: #c50000;
+  color: #fff;
+}
+
+.card__cat.html {
+  background-color: #501ab7;
+  color: #fff;
+}
+
+.card__cat.inspiration {
+  background-color: #e64c7f;
+  color: #fff;
+}
+
+.card__cat.javascript {
+  background-color: #3b34bf;
+  color: #fff;
+}
+
+.card__cat.plugins {
+  background-color: #657efb;
+}
+
+.card__cat.ui {
+  background-color: #208934;
+}
+
+.card__cat.web {
+  background-color: #435c00;
+  color: #fff;
+}
+
 .login_msg {
   display: none;
 }
@@ -326,18 +478,23 @@ body .searchContainer form button:focus {
   margin-bottom: 20px;
 }
 
-#addResourceModal input {
+#addResourceModal p {
+  overflow: hidden;
+}
+
+#addResourceModal input, #addResourceModal textarea {
   padding: 5px 10px;
   border: 1px solid #fff;
   border-radius: 5px;
+  margin-left: 20px;
 }
 
-#addResourceModal input:focus {
+#addResourceModal input:focus, #addResourceModal textarea:focus {
   outline: 0;
   border: 1px solid #777;
 }
 
-#addResourceModal input, #addResourceModal select {
+#addResourceModal input, #addResourceModal textarea, #addResourceModal select {
   float: right;
   width: 180px;
 }

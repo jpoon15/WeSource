@@ -8,10 +8,11 @@ module.exports = router;
 
 //HOMEPAGE
 router.get("/", (req, res) => {
-  knex
-    .select("*")
-    .from("resources")
+  knex("resources")
+    .where('delete', 0)
+    .join("categories", "categories.id", "=", "resources.category_id")
     .then((results) => {
+      console.log("homepage results", results)
       res.json(results);
   });
 });
