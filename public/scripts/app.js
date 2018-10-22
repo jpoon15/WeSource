@@ -4,11 +4,11 @@ $(() => {
     $.ajax({
     method: "GET",
     url: "/api/homepage"
-  }).done((resources) => {
-    console.log(resources);
-    for(resource of resources) {
-      $(`<a href="/api/resources/${resource.id}"><div class="card card-pin"><img class="card__img" src="${resource.imgurl}"/><p class="card__title">${resource.title}</p><p class="card__description">${resource.description}</p><p class="card__cat ${resource.category}">${resource.category}</p></div></a>`).prependTo($('.card-columns'));
-    }
+
+  }).done((response) => {
+    response.forEach(item => {
+      $(`<a href="/api/resources/${item.resources_id}"><div class="card card-pin"><img class="card__img" src="${item.resources_imgurl}"/><p class="card__title">${item.resources_title}</p><p class="card__description">${item.resources_description}</p><p class="card__cat ${item.categories_category}">${item.categories_category}</p></div></a>`).prependTo($('.card-columns'));
+    })
     });
   };
   //RATING BARS
@@ -74,6 +74,14 @@ $(() => {
   $("#searchButton").on("click", (e) => {
     e.preventDefault();
     let searchKeyword = $('#searchKeyword').val();
+    $('.searchAlert').hide();
+
+    if (!searchKeyword) {
+      console.log("nothing to search!!!!!");
+      $('.searchAlert').show();
+      return;
+    }
+
     $.ajax({
       url: "/api/homepage/search",
       method: "GET",
@@ -84,12 +92,11 @@ $(() => {
       success: function(response){
         $('.card-columns').empty();
         response.forEach(item => {
-          console.log(item);
-          $(`<a href="/api/resources/${resource.id}"><div class="card card-pin"><img class="card__img" src="${item.imgurl}"/><p class="card__title">${item.title}</p><p class="card__description">${item.description}</p><p class="card__cat ${resource.category}">${item.category}</p></div></a>`).prependTo($('.card-columns'));
+          $(`<a href="/api/resources/${item.resources_id}"><div class="card card-pin"><img class="card__img" src="${item.resources_imgurl}"/><p class="card__title">${item.resources_title}</p><p class="card__description">${item.resources_description}</p><p class="card__cat ${item.categories_category}">${item.categories_category}</p></div></a>`).prependTo($('.card-columns'));
         })
     },
       error: function(err){
-        console.log(err);
+        console.log("Search err", err);
         // do error stuff
       }
     });
@@ -133,7 +140,7 @@ $(() => {
     $('#addResourceModal, #registerModal, #loginModal').hide();
   })
 
-//ADD NEW RESOUCE
+//ADD NEW RESOURCE
   $('#addResource').on('click', (e) => {
     e.preventDefault();
     var category_id = $('#addResourceModal #category').find(':selected').val();
