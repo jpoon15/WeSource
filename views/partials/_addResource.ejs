@@ -4,15 +4,15 @@
     <h2>Add a WeSource!</h2>
     <p>
     <label for="url"><span>Url:</span></label>
-    <input type="text" id="url" name="resourceUrl">
+    <input type="url" name="resourceUrl" id="url" placeholder="https://example.com" pattern="https://.*" size="20">
     </p>
     <p>
     <label for="title"><span>Title:</span></label>
-    <input type="text" id="title" name="resourceTitle">
+    <input type="text" id="title" name="resourceTitle" required>
     </p>
     <p>
     <label for="description"><span>Description:</span></label>
-    <textarea type="text" id="description" name="resourceDescription"></textarea>
+    <textarea type="text" id="description" name="resourceDescription" required></textarea>
     </p>
     <p>
     <label for="category">
