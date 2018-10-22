@@ -46,10 +46,6 @@
           <h2>Login</h2>
           <p>Please login to post a new WeSource.</p>
           <p>
-            <label for="description"><span>Description:</span></label>
-            <input type="text" id="description" name="resourceDescription">
-          </p>
-          <p>
             <label for="useremail"><span>Email:</span></label>
             <input type="email" id="useremail" name="registerEmail">
           </p>
@@ -59,9 +55,10 @@
           </p>
           <button id="login" type="submit">LOGIN</button>
         </form>
-      </div>
-      <div id="overlay"></div>
-      <% include ./partials/_addResource %>
-      <% include ./partials/_footer %>
+    </div>
+    
+    <div id="overlay"></div>
+    <% include ./partials/_addResource %>
+    <% include ./partials/_footer %>
   </body>
 </html>

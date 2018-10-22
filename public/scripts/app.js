@@ -137,10 +137,19 @@ $(() => {
     $('#overlay').show();
   })
 
+  // EDIT PROFILE MODAL
+  $('.editProfile').on('click', (e) => {
+    e.preventDefault();
+    $('body').addClass('fixed');
+    $('#profileModal').show();
+    $('#overlay').show();
+  })
+  
+
   $('#overlay').on('click', function() {
     $(this).hide();
     $('body').removeClass('fixed');
-    $('#addResourceModal, #registerModal, #loginModal').hide();
+    $('#addResourceModal, #registerModal, #loginModal, #profileModal').hide();
   })
 
   $('.fa-times').on('click', function() {
