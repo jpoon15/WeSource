@@ -1,26 +1,21 @@
 <!DOCTYPE html>
 <html>
-<% include ./partials/_head %> 
+<% include ./partials/_head %>
 <body>
+  <section class="profile">
     <% include ./partials/_header %>
-    <h1>My Dashboard</h1>
-    <div class='left'>
-        <div class='forums_container'>
-        <label>Username</label>
-        <input type="text" value="" class="input-xlarge">
-        <label>First Name</label>
-        <input type="text" value="" class="input-xlarge">
-        <label>Last Name</label>
-        <input type="text" value="" class="input-xlarge">
-        <label>Email</label>
-        <input type="text" value="" class="input-xlarge">
-        <label>Desrciption</label>
-        <input type="text" value='' class="input-xlarge">
-      </div>
-    </div>
-    <div class='right'>
-        <button id="edit">Edit</button>
-    </div>
+    <h1>My Profile</h1>
+    <button id="edit">Edit My Profile</button><br><br>
+    <img src="<%=user.avatar%>" class="avatar" alt="myavatar">
+    <h3>Name</h3>
+    <%=user.name%>
+    <h3>Email</h3>
+    <%=user.email%>
+    <h3>About Me</h3>
+    <%=user.aboutme%>
+  </section>
+
+
     <% include ./partials/_addResource %>
     <div id="overlay">overlay</div>
     </body>
