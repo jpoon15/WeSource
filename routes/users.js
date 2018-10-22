@@ -45,7 +45,7 @@ router.get("/:id/profile", (req, res) => {
     .from('users')
     .where("id", `${userId}`).first()
     .then(results => {
-      console.log("profile: users", results)
+      // console.log("profile: users", results)
       let templateVars= {
         userid: req.session.id,
         user: results
@@ -57,17 +57,23 @@ router.get("/:id/profile", (req, res) => {
 //EDIT PROFILE
 router.post("/:id/profile", (req, res) => {
   let userId = req.session.id;
+  let password = req.body.password
+  const hashedPassword = bcrypt.hashSync(password,10);
 
-  // knex('users')
-  //   .where('id', userId)
-  //   .update({
-  //     name:
-  //     email:
-  //     aboutme:
-  //   })
-  //   .then(function(result) {
-  //     console.log(result);
-  //   })
+  console.log("userid", req.session.id)
+  console.log("inside edit post", req.body)
+    knex('users')
+      .where('id', userId)
+      .update({
+        name: req.body.name,
+        email: req.body.email,
+        aboutme: req.body.aboutme,
+        password: hashedPassword
+      })
+      .then((result) => {
+        // console.log(result);
+        res.json({result: "True"});
+    })
 });
 
 //Register a new User
@@ -83,8 +89,8 @@ router.post("/register", (req, res) => {
     .returning('id')
     .then((id) => {
         let userId = req.session.id
-      console.log("successfully inserted the record ");
-      console.log(id);
+      // console.log("successfully inserted the record ");
+      // console.log(id);
       res.json({result: "True"});
     })
 })
