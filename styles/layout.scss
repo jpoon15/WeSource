@@ -6,6 +6,21 @@ body {
   background-color: #EEE;
   padding-top: 50px;
 
+  &.dashboard {
+    h1 {
+      width: 94%;
+      margin: 40px auto 0;
+
+      @include bp('tablet-landscape'){
+        text-align: center;
+      }
+    }
+
+    .fa-heart {
+      font-size: 33px;
+    }
+  }
+
   h1 {
     color: $brandColor;
   }
@@ -258,6 +273,14 @@ body {
       }
     }
   }
+}
+
+.searchAlert {
+  display: none;
+  color: red;
+  width: 100%;
+  text-align: center;
+
 }
 
 .addResource {

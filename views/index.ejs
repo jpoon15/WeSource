@@ -18,6 +18,8 @@
 
     <% include ./partials/_addResource %>
 
+    <!-- <img src="http://localhost:8080/images/thumb.jpg" /> -->
+
     <div id="registerModal">
       <i class="fas fa-times"></i>
       <form action="/backdoor" method="POST">
@@ -41,10 +43,13 @@
     <div id="loginModal">
         <i class="fas fa-times"></i>
         <form action="/api/users/register" method="POST">
-          <h2>LOGIN</h2>
+          <h2>Login</h2>
+          <p>Please login to post a new WeSource.</p>
           <p>
             <label for="description"><span>Description:</span></label>
             <input type="text" id="description" name="resourceDescription">
+          </p>
+          <p>
             <label for="useremail"><span>Email:</span></label>
             <input type="email" id="useremail" name="registerEmail">
           </p>

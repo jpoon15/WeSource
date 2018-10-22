@@ -40,7 +40,7 @@ router.post("/add", (req, res) => {
           description: req.body.description,
           category_id: req.body.category_id,
           user_id: userCurrent,
-          imgurl: resultImg, // scrape
+          imgurl: resultImg || 'http://localhost:8080/images/thumb.jpg', // scrape
           delete: 0
         }).returning('id')
         .then((id) => {

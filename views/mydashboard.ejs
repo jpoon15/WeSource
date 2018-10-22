@@ -1,52 +1,51 @@
 <!DOCTYPE html>
 <html>
   <% include ./partials/_head %>
-  <body>
+  <body class="dashboard">
     <% include ./partials/_header %>
-    <% include ./partials/_search %>
+
+    <h1>My Dashboard</h1>
+    <!-- <h3>My Sources</h3> -->
 
     <section class='my_articles_container'>
-    <h1>My Dashboard</h1>
-    <h3>My Sources</h3>
       <section class="mt-4 mb-5">
         <div class="container-fluid">
           <div class="row">
             <div class="card-columns">
               <% articles.forEach(function(item) {  %>
               <div class="card card-pin">
-                <h2 class="class-title title"><%=item.title%></h2>
-                <img class="card-img" src='<%=item.imgurl%>'>
-                <p><%=item.description%></p>
-                <a href='<%item.link%>'><%=item.link%></a>
-                <p><%=item.category%></p>
+                <img class="card__img" src='<%=item.imgurl%>'>
+                <p class="card__title"><%=item.title%></p>
+                <p class="card__description"><%=item.description%></p>
+                <!-- <a href='<%item.link%>'><%=item.link%></a> -->
+                <p class="card__cat"><%=item.category%></p>
               </div>
               <% }) %>
             </div>
           </div>
         </div>
       </section>
-    </div>
+    </section>
 
-    <div class='my_likes_container'>
-      <h3>Liked Sources</h3>
+    <section class='my_likes_container'>
+      <h1>I <i class="fas fa-heart"></i> these WeSources</h1>
         <section class="mt-4 mb-5">
           <div class="container-fluid">
             <div class="row">
               <div class="card-columns">
                 <% liked_res.forEach(function(item){  %>
                 <div class="card card-pin">
-                  <p><%=item.title%></p>
-                  <img class="card-img" src='<%=item.imgurl%>'>
-                  <p><%=item.description%></p>
-                  <a href='<%item.link%>'><%=item.link%></a>
-                  <p><%=item.category%></p>
+                  <img class="card__img" src='<%=item.imgurl%>'>
+                  <p class="card__title"><%=item.title%></p>
+                  <p class="card__description"><%=item.description%></p>
+                  <!-- <a href='<%item.link%>'><%=item.link%></a> -->
+                  <p class="card__cat"><%=item.category%></p>
                 </div>
               <% }) %>
             </div>
           </div>
         </div>
       </section>
-    </div>
   </section>
   <% include ./partials/_addResource %>
   <div id="overlay">overlay</div>

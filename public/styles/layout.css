@@ -3,6 +3,21 @@ body {
   padding-top: 50px;
 }
 
+body.dashboard h1 {
+  width: 94%;
+  margin: 40px auto 0;
+}
+
+@media only screen and (max-width: 1024px) {
+  body.dashboard h1 {
+    text-align: center;
+  }
+}
+
+body.dashboard .fa-heart {
+  font-size: 33px;
+}
+
 body h1 {
   color: #244751;
 }
@@ -265,6 +280,13 @@ body .searchContainer form button:hover {
 body .searchContainer form button:focus {
   outline: 0;
   border: 1px solid #244751;
+}
+
+.searchAlert {
+  display: none;
+  color: red;
+  width: 100%;
+  text-align: center;
 }
 
 @media only screen and (max-width: 1024px) {
