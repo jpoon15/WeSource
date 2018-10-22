@@ -23,7 +23,7 @@ const resourcesRoutes = require("./routes/resources");
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
-//         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
+// The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan('dev'));
 
 app.use(cookieSession({
@@ -66,10 +66,6 @@ app.get("/user", (req, res) => {
   res.render("mydashboard");
 });
 
-// app.post('/test/:id',(req,res)=>{
-//   console.log(req.params);
-//   //res.json({result:"True"});
-// });
 
 //Login
 app.post('/backdoor', (req, res) => {

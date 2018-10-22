@@ -61,8 +61,6 @@ $(() => {
       responseMessage(msg);
 
     });
-
-
   });
 
 
@@ -135,6 +133,7 @@ $.ajax({
 });
 
 //MODALS
+
   //ADD NEW RESOURCES
   // Login
     $('#addLoggedOut').on('click', (e) => {
@@ -199,7 +198,6 @@ $.ajax({
       type:'POST',
       success: function(result){
         // console.log("we are in success!");
-        // add success div notice
         let newPost = $(`<div class="card card-pin"><img class="card__img" src="${result.imgurl}"/><p class="card__title">${result.title}</p><textarea class="card__description">${result.description}</textarea><a href="${result.link}">${result.link}</a><p class="card__cat ${result.category}">${result.category}</p></div>`);
         $(newPost).prependTo($('.card-columns'))
         $('#overlay').hide();

@@ -308,6 +308,7 @@ body {
     margin-bottom: 10px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+    min-width: 100%;
   }
 
   &__title {
@@ -641,10 +642,6 @@ footer {
 
 }
 
-
-
-
-
 // Dashboard Page Styles
 body.dashboard {
   h1 {
@@ -664,8 +661,12 @@ body.dashboard {
 // Detail Page Styles
 body.detail {
 
-  h1, p {
+  h1 {
     width: 80%;
+    margin: 0 auto 20px;
+  }
+
+  p {
     margin: 0 auto 20px;
   }
 
@@ -714,6 +715,18 @@ body.detail {
       @include bp('phone-large') {
         min-width: 100%;
         margin-bottom: 20px;
+      }
+
+      .main_image {
+        img {
+          margin: 40px auto;
+          display: block;
+        }
+      }
+
+      p {
+        width: 80%;
+        margin: 0 auto 40px;
       }
 
     }

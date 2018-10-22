@@ -323,6 +323,7 @@ body .searchContainer form button:focus {
   margin-bottom: 10px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  min-width: 100%;
 }
 
 .card__title {
@@ -695,8 +696,12 @@ body.dashboard .fa-heart {
   font-size: 33px;
 }
 
-body.detail h1, body.detail p {
+body.detail h1 {
   width: 80%;
+  margin: 0 auto 20px;
+}
+
+body.detail p {
   margin: 0 auto 20px;
 }
 
@@ -755,6 +760,16 @@ body.detail .res_description .left {
     min-width: 100%;
     margin-bottom: 20px;
   }
+}
+
+body.detail .res_description .left .main_image img {
+  margin: 40px auto;
+  display: block;
+}
+
+body.detail .res_description .left p {
+  width: 80%;
+  margin: 0 auto 40px;
 }
 
 body.detail .res_description .right {
