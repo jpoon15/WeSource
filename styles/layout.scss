@@ -64,10 +64,10 @@ body {
 
         &.register {
           border: 0;
-          background: #777;
-          color: #fff;
+          background: $grayColor;
+          color: $white;
           padding: 8px 10px;
-          border: 1px solid #777;
+          border: 1px solid $grayColor;
           margin-left: -4px;
           border-radius: 5px;
           margin-left: 20px;
@@ -79,7 +79,7 @@ body {
 
           &:hover {
             border: 1px solid $brandColor;
-            background: #fff;
+            background: $white;
             outline: none;
             color: $brandColor;
             text-decoration: none;
@@ -121,7 +121,7 @@ body {
         }
 
         input {
-          border: 1px solid #fff;
+          border: 1px solid $white;
           padding: 5px 10px;
           margin-left: 5px;
           border-top-left-radius: 5px;
@@ -136,15 +136,15 @@ body {
 
         button {
           border: 0;
-          background: #777;
-          color: #fff;
+          background: $grayColor;
+          color: $white;
           padding: 5px 10px;
-          border: 1px solid #777;
+          border: 1px solid $grayColor;
           margin-left: -4px;
 
           &:hover {
             border: 1px solid $brandColor;
-            background: #fff;
+            background: $white;
             outline: none;
             color: $brandColor;
           }
@@ -209,7 +209,7 @@ body {
         border-top-left-radius: 5px;
         border-bottom-left-radius: 5px;
         border: 0;
-        border: 1px solid #fff;
+        border: 1px solid $white;
 
         @include bp('tablet-landscape') {
           width: 70%;
@@ -227,9 +227,9 @@ body {
         height: 100%;
         border-top-right-radius: 5px;
         border-bottom-right-radius: 5px;
-        border: 1px solid #777;
-        background-color: #777;
-        color: #fff;
+        border: 1px solid $grayColor;
+        background-color: $grayColor;
+        color: $white;
         font-style: normal;
         font-style: normal;
 
@@ -239,7 +239,7 @@ body {
 
         &:hover {
           border: 1px solid $brandColor;
-          background-color: #fff;
+          background-color: $white;
           color: $brandColor;
         }
 
@@ -286,7 +286,7 @@ body {
 
     &:hover {
       text-decoration: none;
-      background-color: #fff;
+      background-color: $white;
       border: 1px solid $brandColor;
     }
   }
@@ -331,14 +331,14 @@ body {
     color: #111;
 
     &.accessibility { background-color: #fed345; }
-    &.animation { background-color: #e64600; color: #fff; }
-    &.css { background-color: #c50000; color: #fff; }
-    &.html { background-color: #501ab7; color: #fff; }
-    &.inspiration { background-color: #e64c7f; color: #fff; }
-    &.javascript { background-color: #3b34bf; color: #fff; }
+    &.animation { background-color: #e64600; color: $white; }
+    &.css { background-color: #c50000; color: $white; }
+    &.html { background-color: #501ab7; color: $white; }
+    &.inspiration { background-color: #e64c7f; color: $white; }
+    &.javascript { background-color: #3b34bf; color: $white; }
     &.plugins { background-color: #657efb; }
-    &.ux { background-color: #208934; color: #fff;}
-    &.web { background-color: #435c00; color: #fff; }
+    &.ux { background-color: #208934; color: $white;}
+    &.web { background-color: #354900; color: $white; }
   }
 }
 
@@ -372,13 +372,13 @@ body {
 
   input, textarea {
     padding: 5px 10px;
-    border: 1px solid #fff;
+    border: 1px solid $white;
     border-radius: 5px;
     margin-left: 20px;
 
     &:focus {
       outline: 0;
-      border: 1px solid #777;
+      border: 1px solid $grayColor;
     }
   }
 
@@ -392,15 +392,15 @@ body {
     display: block;
     margin: 0 auto;
     border: 0;
-    border: 1px solid #777;
-    background: #777;
-    color: #fff;
+    border: 1px solid $grayColor;
+    background: $grayColor;
+    color: $white;
     border-radius: 5px;
     padding: 5px;
 
     &:hover {
       border: 1px solid $brandColor;
-      background-color: #fff;
+      background-color: $white;
       color: $brandColor;
     }
   }
@@ -426,12 +426,12 @@ body {
   input {
     margin-left: 20px;
     padding: 5px 10px;
-    border: 1px solid #fff;
+    border: 1px solid $white;
     border-radius: 5px;
 
     &:focus {
       outline: 0;
-      border: 1px solid #777;
+      border: 1px solid $grayColor;
     }
   }
 
@@ -445,15 +445,15 @@ body {
     display: block;
     margin: 30px auto 0;
     border: 0;
-    border: 1px solid #777;
-    background: #777;
-    color: #fff;
+    border: 1px solid $grayColor;
+    background: $grayColor;
+    color: $white;
     border-radius: 5px;
     padding: 5px;
 
     &:hover {
       border: 1px solid $brandColor;
-      background-color: #fff;
+      background-color: $white;
       color: $brandColor;
     }
   }
@@ -479,12 +479,12 @@ body {
   input {
     margin-left: 20px;
     padding: 5px 10px;
-    border: 1px solid #fff;
+    border: 1px solid $white;
     border-radius: 5px;
 
     &:focus {
       outline: 0;
-      border: 1px solid #777;
+      border: 1px solid $grayColor;
     }
   }
 
@@ -498,15 +498,15 @@ body {
     display: block;
     margin: 30px auto 0;
     border: 0;
-    border: 1px solid #777;
-    background: #777;
-    color: #fff;
+    border: 1px solid $grayColor;
+    background: $grayColor;
+    color: $white;
     border-radius: 5px;
     padding: 5px;
 
     &:hover {
       border: 1px solid $brandColor;
-      background-color: #fff;
+      background-color: $white;
       color: $brandColor;
     }
   }
@@ -535,13 +535,13 @@ body {
 
   input, textarea {
     padding: 5px 10px;
-    border: 1px solid #fff;
+    border: 1px solid $white;
     border-radius: 5px;
     margin-left: 20px;
 
     &:focus {
       outline: 0;
-      border: 1px solid #777;
+      border: 1px solid $grayColor;
     }
   }
 
@@ -555,15 +555,15 @@ body {
     display: block;
     margin: 30px auto 0;
     border: 0;
-    border: 1px solid #777;
-    background: #777;
-    color: #fff;
+    border: 1px solid $grayColor;
+    background: $grayColor;
+    color: $white;
     border-radius: 5px;
     padding: 5px;
 
     &:hover {
       border: 1px solid $brandColor;
-      background-color: #fff;
+      background-color: $white;
       color: $brandColor;
     }
   }
@@ -598,10 +598,7 @@ body {
 
 .profile{
   footer {
-    position: absolute;
     width: 100%;
-    bottom: 0;
-    left: 0;
   }
 }
 
@@ -635,7 +632,7 @@ footer {
 
   .footer-box .fa{
     display: inline-block;
-    background-color: #fff;
+    background-color: $white;
     border-radius: 50%;
     padding: 0.5em 0.6em;
     margin: 5px;
@@ -755,9 +752,9 @@ body.detail {
       }
 
       .delete {
-        border: 1px solid #777;
-        background: #777;
-        color: #fff;
+        border: 1px solid $grayColor;
+        background: $grayColor;
+        color: $white;
         border-radius: 5px;
         width: 80%;
         padding: 5px 0;
@@ -766,7 +763,7 @@ body.detail {
 
         &:hover {
           color: $brandColor;
-          background-color: #fff;
+          background-color: $white;
           border: 1px solid $brandColor;
         }
       }
@@ -794,7 +791,7 @@ body.profile {
   .avatar {
     width: 200px;
     height: 200px;
-    background-color: #777;
+    background-color: $grayColor;
     display: block;
     border-radius: 5px;
     margin-bottom: 20px;
@@ -804,15 +801,15 @@ body.profile {
     width: 180px;
     display: block;
     border: 0;
-    border: 1px solid #777;
-    background: #777;
-    color: #fff;
+    border: 1px solid $grayColor;
+    background: $grayColor;
+    color: $white;
     border-radius: 5px;
     padding: 5px;
 
     &:hover {
       border: 1px solid $brandColor;
-      background-color: #fff;
+      background-color: $white;
       color: $brandColor;
     }
   }
