@@ -4,10 +4,12 @@ $(() => {
     $.ajax({
     method: "GET",
     url: "/api/homepage"
+
   }).done((response) => {
     response.forEach(item => {
       $(`<a href="/api/resources/${item.resources_id}"><div class="card card-pin"><img class="card__img" src="${item.resources_imgurl}"/><p class="card__title">${item.resources_title}</p><p class="card__description">${item.resources_description}</p><p class="card__cat ${item.categories_category}">${item.categories_category}</p></div></a>`).prependTo($('.card-columns'));
     })
+    });
   };
 
   // SEARCH BAR QUERY
