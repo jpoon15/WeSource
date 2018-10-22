@@ -5,7 +5,7 @@
   <section class="profile">
     <% include ./partials/_header %>
     <h1>My Profile</h1>
-    <button id="edit">Edit My Profile</button><br><br>
+    <button id="edit_profile">Edit My Profile</button><br><br>
     <img src="<%=user.avatar%>" class="avatar" alt="myavatar">
     <h3>Name</h3>
     <%=user.name%>
@@ -15,6 +15,26 @@
     <%=user.aboutme%>
   </section>
 
+
+  <div id="profileModal">
+    <i class="fas fa-times"></i>
+    <form action="/api/users/:id/profile" method="POST">
+      <h2>EDIT PROFILE</h2>
+      <p>
+        <label for="name"><span>Name:</span></label>
+        <input type="text" id="username" name="username">
+      </p>
+      <p>
+        <label for="email"><span>Email:</span></label>
+        <input type="email" id="useremail" name="useremail">
+      </p>
+      <p>
+        <label for="aboutme"><span>Password:</span></label>
+        <input type="text" id="useraboutme" name="useraboutme">
+      </p>
+      <button id="edit" type="submit">EDIT</button>
+    </form>
+  </div>
 
     <% include ./partials/_addResource %>
     <div id="overlay">overlay</div>
