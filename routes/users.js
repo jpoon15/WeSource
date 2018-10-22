@@ -21,6 +21,8 @@ router.get("/:id", (req, res) => {
       knex.select("*")
         .from("likes")
         .where("likes.user_id", `${userId}`)
+        .groupBy("resources.id", "likes.id")
+        .having("delete", "=", 0)
         .join("resources", "resources.id", "=", "likes.resource_id")
         .then(likedres => {
           console.log("likedResources", likedres)
