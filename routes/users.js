@@ -54,6 +54,22 @@ router.get("/:id/profile", (req, res) => {
     })
 });
 
+//EDIT PROFILE
+router.post("/:id/profile", (req, res) => {
+  let userId = req.session.id;
+
+  // knex('users')
+  //   .where('id', userId)
+  //   .update({
+  //     name:
+  //     email:
+  //     aboutme:
+  //   })
+  //   .then(function(result) {
+  //     console.log(result);
+  //   })
+});
+
 //Register a new User
 router.post("/register", (req, res) => {
   const password = req.body.password;
