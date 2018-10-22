@@ -4,11 +4,12 @@ $(() => {
     $.ajax({
     method: "GET",
     url: "/api/homepage"
-  }).done((resources) => {
-    console.log(resources);
-    for(resource of resources) {
-      $(`<a href="/api/resources/${resource.id}"><div class="card card-pin"><img class="card__img" src="${resource.imgurl}"/><p class="card__title">${resource.title}</p><p class="card__description">${resource.description}</p><p class="card__cat ${resource.category}">${resource.category}</p></div></a>`).prependTo($('.card-columns'));
-    }
+  }).done((response) => {
+    console.log("ajax", response);
+    response.forEach(item => {
+      console.log("item", item);
+      $(`<a href="/api/resources/${item.resources_id}"><div class="card card-pin"><img class="card__img" src="${item.resources_imgurl}"/><p class="card__title">${item.resources_title}</p><p class="card__description">${item.resources_description}</p><p class="card__cat ${item.categories_category}">${item.categories_category}</p></div></a>`).prependTo($('.card-columns'));
+    })
     });
   };
 
@@ -27,7 +28,7 @@ $(() => {
         $('.card-columns').empty();
         response.forEach(item => {
           console.log(item);
-          $(`<a href="/api/resources/${resource.id}"><div class="card card-pin"><img class="card__img" src="${item.imgurl}"/><p class="card__title">${item.title}</p><p class="card__description">${item.description}</p><p class="card__cat ${resource.category}">${item.category}</p></div></a>`).prependTo($('.card-columns'));
+          $(`<a href="/api/resources/${resource_id}"><div class="card card-pin"><img class="card__img" src="${item_imgurl}"/><p class="card__title">${item_title}</p><p class="card__description">${item_description}</p><p class="card__cat ${resource_category}">${item_category}</p></div></a>`).prependTo($('.card-columns'));
         })
     },
       error: function(err){
