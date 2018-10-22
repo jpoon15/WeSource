@@ -666,7 +666,6 @@ footer .container {
 }
 
 footer .footer-box {
-  width: 33.3333%;
   margin: auto;
 }
 
@@ -816,4 +815,45 @@ body.detail .res_description .right .delete:hover {
   color: #244751;
   background-color: #fff;
   border: 1px solid #244751;
+}
+
+body.profile .newWeSource {
+  display: none;
+}
+
+body.profile h1 {
+  width: 80%;
+  margin: 40px auto;
+}
+
+body.profile .wrapper {
+  width: 80%;
+  margin: 0 auto;
+  padding-bottom: 100px;
+}
+
+body.profile .avatar {
+  width: 200px;
+  height: 200px;
+  background-color: #777;
+  display: block;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+body.profile #edit_profile {
+  width: 180px;
+  display: block;
+  border: 0;
+  border: 1px solid #777;
+  background: #777;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+body.profile #edit_profile:hover {
+  border: 1px solid #244751;
+  background-color: #fff;
+  color: #244751;
 }

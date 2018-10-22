@@ -342,6 +342,7 @@ body {
   }
 }
 
+
 .login_msg {
   display: none;
 } 
@@ -624,7 +625,6 @@ footer {
   }
 
   .footer-box{
-    width: 33.3333%;
     margin: auto;
   }
 
@@ -770,12 +770,52 @@ body.detail {
           border: 1px solid $brandColor;
         }
       }
-
     }
+  }
+}
 
+body.profile {
 
-
+  .newWeSource {
+    display: none;
   }
 
+  h1 {
+    width: 80%;
+    margin: 40px auto;
+  }
+
+  .wrapper {
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 100px;
+  }
+
+  .avatar {
+    width: 200px;
+    height: 200px;
+    background-color: #777;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+
+  #edit_profile {
+    width: 180px;
+    display: block;
+    border: 0;
+    border: 1px solid #777;
+    background: #777;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px;
+
+    &:hover {
+      border: 1px solid $brandColor;
+      background-color: #fff;
+      color: $brandColor;
+    }
+  }
+  
 }
  

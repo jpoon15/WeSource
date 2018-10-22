@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
 <% include ./partials/_head %>
-<body>
+<body class="profile">
+
   <section class="profile">
     <% include ./partials/_header %>
-    <h1>My Profile</h1>
-    <button id="edit_profile" class="editProfile">Edit My Profile</button><br><br>
-    <img src="<%=user.avatar%>" class="avatar" alt="myavatar">
-    <h3>Name</h3>
-    <%=user.name%>
-    <h3>Email</h3>
-    <%=user.email%>
-    <h3>About Me</h3>
-    <%=user.aboutme%>
-  </section>
 
+    <h1>My Profile</h1>
+
+    <section class="wrapper">
+        <img src="<%=user.avatar%>" class="avatar" alt="myavatar">
+        <p><strong>Name: </strong><%=user.name%></p>
+        <p><strong>Email: </strong><%=user.email%></p>
+        <p><strong>About Me: </strong><%=user.aboutme%></p>
+        <button id="edit_profile" class="editProfile">Edit My Profile</button><br><br>
+    </section>
+
+  </section>
 
   <div id="profileModal">
     <i class="fas fa-times"></i>

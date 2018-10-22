@@ -155,7 +155,7 @@ $(() => {
   $('.fa-times').on('click', function() {
     $('#overlay').hide();
     $('body').removeClass('fixed');
-    $('#addResourceModal, #registerModal, #loginModal').hide();
+    $('#addResourceModal, #registerModal, #loginModal, #profileModal').hide();
   })
 
 //ADD NEW RESOURCE
