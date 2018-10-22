@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
 body {
   background-color: #EEE;
   padding-top: 50px;
@@ -696,4 +697,50 @@ body .searchContainer form button:focus {
   display: flex;
   flex-direction: column;
   text-align: center;
+}
+
+.profile footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+footer {
+  font-family: 'Ubuntu', sans-serif;
+  background: gainsboro;
+  text-align: center;
+  padding: 1em;
+}
+
+footer a {
+  color: #244751;
+}
+
+footer a:hover {
+  color: #244751;
+}
+
+footer .container {
+  width: 100%;
+  margin: auto;
+}
+
+footer .footer-box {
+  width: 33.3333%;
+  margin: auto;
+}
+
+footer .footer-box p {
+  color: #244751;
+  font-size: 18px;
+}
+
+footer .footer-box .fa {
+  display: inline-block;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 0.5em 0.6em;
+  margin: 5px;
+  font-size: 20px;
 }

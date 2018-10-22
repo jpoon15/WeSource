@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <% include ./partials/_head %>
-<body>
+<body class="detail">
     <% include ./partials/_header %>
     <% include ./partials/_search %>
     <h1><%=resource.title%></h1>
@@ -9,7 +9,7 @@
     <p><%=resource.description%></p>
     <div class='left'>
         <div class='main_image'>
-            <img src="<%=resource.imgurl%>
+            <img src="<%=resource.imgurl%>"/>
         </div>
         <div class='comment_box'>
             <form>
@@ -70,7 +70,8 @@
       <a id='share_button'href=''style='font-size: 3em; margin-bottom: 1em; margin-top: 1em; text-decoration: none'>Share</a>
     </div>
     </section>
+    <div id="overlay"></div>
     <% include ./partials/_addResource %>
-    <div id="overlay">overlay</div>
+    <% include ./partials/_footer %>
     </body>
 </html>

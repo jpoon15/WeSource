@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <% include ./partials/_head %> 
-<body>
+<body class="profile">
     <% include ./partials/_header %>
     <h1>My Dashboard</h1>
     <div class='left'>
@@ -21,7 +21,8 @@
     <div class='right'>
         <button id="edit">Edit</button>
     </div>
+    <div id="overlay"></div>
     <% include ./partials/_addResource %>
-    <div id="overlay">overlay</div>
+    <% include ./partials/_footer %>
     </body>
 </html>

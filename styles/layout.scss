@@ -633,3 +633,54 @@ body {
   }
 }
 
+// FOOTER STYLES TRAE
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+.profile{
+  footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+footer {
+  font-family: 'Ubuntu', sans-serif;
+    background: gainsboro;
+    text-align: center;
+    padding: 1em;
+
+    a {
+      color: $brandColor;
+
+      &:hover {
+        color: $brandColor;
+      }
+
+    }
+}
+
+footer .container{
+  width: 100%;
+  margin: auto;
+}
+
+footer .footer-box{
+    width: 33.3333%;
+    margin: auto;
+}
+
+footer .footer-box p{
+    color: $brandColor;
+    font-size: 18px;
+}
+
+footer .footer-box .fa{
+    display: inline-block;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 0.5em 0.6em;
+    margin: 5px;
+    font-size: 20px;
+}
