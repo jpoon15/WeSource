@@ -11,8 +11,18 @@ router.get("/", (req, res) => {
   knex("resources")
     .where('delete', 0)
     .join("categories", "categories.id", "=", "resources.category_id")
+    .select(
+      "resources.id as resources_id",
+      "resources.title as resources_title",
+      "resources.link as resources_link",
+      "resources.category_id as resources_category_id",
+      "resources.user_id as resources_user_id",
+      "resources.imgurl as resources_imgurl",
+      "resources.description as resources_description",
+      "categories.id as category_id",
+      "categories.category as categories_category"
+      )
     .then((results) => {
-      //console.log("homepage results----------------", results)
       res.json(results);
   });
 });
@@ -20,15 +30,26 @@ router.get("/", (req, res) => {
 //SEARCH QUERY
 router.get("/search", (req, res) => {
   let searchKeyword = (req.query.search).toLowerCase();
-  console.log("search", req.query.search);
-  knex.select("*")
-    .from("resources")
+
+  knex("resources")
     .where(
       knex.raw('LOWER("title") like ?',`%${searchKeyword}%`))
     .orWhere(
       knex.raw('LOWER("description") like ?',`%${searchKeyword}%`))
     .orWhere(
       knex.raw('LOWER("link") like ?', `%${searchKeyword}%`))
+    .join("categories", "categories.id", "=", "resources.category_id")
+    .select(
+      "resources.id as resources_id",
+      "resources.title as resources_title",
+      "resources.link as resources_link",
+      "resources.category_id as resources_category_id",
+      "resources.user_id as resources_user_id",
+      "resources.imgurl as resources_imgurl",
+      "resources.description as resources_description",
+      "categories.id as category_id",
+      "categories.category as categories_category"
+      )
     .then((results) => {
       res.json(results);
     })
