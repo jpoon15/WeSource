@@ -5,7 +5,7 @@ $(() => {
     method: "GET",
     url: "/api/homepage"
     }).done((resources) => {
-      console.log(resources);
+      console.log("ajax", resources);
       for(resource of resources) {
       $(`<a href="/api/resources/${resource.id}"><div class="card card-pin"><img class="card__img" src="${resource.imgurl}"/><p class="card__title">${resource.title}</p><p class="card__description">${resource.description}</p><p class="card__cat ${resource.category}">${resource.category}</p></div></a>`).prependTo($('.card-columns'));
       }
