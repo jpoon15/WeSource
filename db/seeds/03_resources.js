@@ -85,7 +85,7 @@ exports.seed = function(knex, Promise) {
       category_id: 7,
       user_id: 1,
       imgurl: "https://bashooka.com/wp-content/uploads/2015/10/bar-star-rating-1.jpg",
-      delete: 0 }),
+      delete: 0 })
   ])
   .then(() => {
     return knex.raw("SELECT setval('resources_id_seq', COALESCE((SELECT MAX(id)+1 FROM resources), 1), false);")
