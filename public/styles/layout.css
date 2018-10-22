@@ -69,10 +69,10 @@ body .header__right a:hover {
 
 body .header__right a.register {
   border: 0;
-  background: #777;
-  color: #fff;
+  background: #777777;
+  color: #ffffff;
   padding: 8px 10px;
-  border: 1px solid #777;
+  border: 1px solid #777777;
   margin-left: -4px;
   border-radius: 5px;
   margin-left: 20px;
@@ -87,7 +87,7 @@ body .header__right a.register {
 
 body .header__right a.register:hover {
   border: 1px solid #244751;
-  background: #fff;
+  background: #ffffff;
   outline: none;
   color: #244751;
   text-decoration: none;
@@ -132,7 +132,7 @@ body .header__right form p {
 }
 
 body .header__right form input {
-  border: 1px solid #fff;
+  border: 1px solid #ffffff;
   padding: 5px 10px;
   margin-left: 5px;
   border-top-left-radius: 5px;
@@ -146,16 +146,16 @@ body .header__right form input:hover, body .header__right form input:focus {
 
 body .header__right form button {
   border: 0;
-  background: #777;
-  color: #fff;
+  background: #777777;
+  color: #ffffff;
   padding: 5px 10px;
-  border: 1px solid #777;
+  border: 1px solid #777777;
   margin-left: -4px;
 }
 
 body .header__right form button:hover {
   border: 1px solid #244751;
-  background: #fff;
+  background: #ffffff;
   outline: none;
   color: #244751;
 }
@@ -224,7 +224,7 @@ body .searchContainer form input {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   border: 0;
-  border: 1px solid #fff;
+  border: 1px solid #ffffff;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -244,9 +244,9 @@ body .searchContainer form button {
   height: 100%;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  border: 1px solid #777;
-  background-color: #777;
-  color: #fff;
+  border: 1px solid #777777;
+  background-color: #777777;
+  color: #ffffff;
   font-style: normal;
   font-style: normal;
 }
@@ -259,7 +259,7 @@ body .searchContainer form button {
 
 body .searchContainer form button:hover {
   border: 1px solid #244751;
-  background-color: #fff;
+  background-color: #ffffff;
   color: #244751;
 }
 
@@ -302,7 +302,7 @@ body .searchContainer form button:focus {
 
 .newWeSource a:hover {
   text-decoration: none;
-  background-color: #fff;
+  background-color: #ffffff;
   border: 1px solid #244751;
 }
 
@@ -352,27 +352,27 @@ body .searchContainer form button:focus {
 
 .card__cat.animation {
   background-color: #e64600;
-  color: #fff;
+  color: #ffffff;
 }
 
 .card__cat.css {
   background-color: #c50000;
-  color: #fff;
+  color: #ffffff;
 }
 
 .card__cat.html {
   background-color: #501ab7;
-  color: #fff;
+  color: #ffffff;
 }
 
 .card__cat.inspiration {
   background-color: #e64c7f;
-  color: #fff;
+  color: #ffffff;
 }
 
 .card__cat.javascript {
   background-color: #3b34bf;
-  color: #fff;
+  color: #ffffff;
 }
 
 .card__cat.plugins {
@@ -381,12 +381,12 @@ body .searchContainer form button:focus {
 
 .card__cat.ux {
   background-color: #208934;
-  color: #fff;
+  color: #ffffff;
 }
 
 .card__cat.web {
-  background-color: #435c00;
-  color: #fff;
+  background-color: #354900;
+  color: #ffffff;
 }
 
 .login_msg {
@@ -419,14 +419,14 @@ body .searchContainer form button:focus {
 
 #addResourceModal input, #addResourceModal textarea {
   padding: 5px 10px;
-  border: 1px solid #fff;
+  border: 1px solid #ffffff;
   border-radius: 5px;
   margin-left: 20px;
 }
 
 #addResourceModal input:focus, #addResourceModal textarea:focus {
   outline: 0;
-  border: 1px solid #777;
+  border: 1px solid #777777;
 }
 
 #addResourceModal input, #addResourceModal textarea, #addResourceModal select {
@@ -439,16 +439,16 @@ body .searchContainer form button:focus {
   display: block;
   margin: 0 auto;
   border: 0;
-  border: 1px solid #777;
-  background: #777;
-  color: #fff;
+  border: 1px solid #777777;
+  background: #777777;
+  color: #ffffff;
   border-radius: 5px;
   padding: 5px;
 }
 
 #addResourceModal #addResource:hover {
   border: 1px solid #244751;
-  background-color: #fff;
+  background-color: #ffffff;
   color: #244751;
 }
 
@@ -473,13 +473,13 @@ body .searchContainer form button:focus {
 #registerModal input {
   margin-left: 20px;
   padding: 5px 10px;
-  border: 1px solid #fff;
+  border: 1px solid #ffffff;
   border-radius: 5px;
 }
 
 #registerModal input:focus {
   outline: 0;
-  border: 1px solid #777;
+  border: 1px solid #777777;
 }
 
 #registerModal input, #registerModal select {
@@ -492,16 +492,16 @@ body .searchContainer form button:focus {
   display: block;
   margin: 30px auto 0;
   border: 0;
-  border: 1px solid #777;
-  background: #777;
-  color: #fff;
+  border: 1px solid #777777;
+  background: #777777;
+  color: #ffffff;
   border-radius: 5px;
   padding: 5px;
 }
 
 #registerModal #register:hover {
   border: 1px solid #244751;
-  background-color: #fff;
+  background-color: #ffffff;
   color: #244751;
 }
 
@@ -526,13 +526,13 @@ body .searchContainer form button:focus {
 #loginModal input {
   margin-left: 20px;
   padding: 5px 10px;
-  border: 1px solid #fff;
+  border: 1px solid #ffffff;
   border-radius: 5px;
 }
 
 #loginModal input:focus {
   outline: 0;
-  border: 1px solid #777;
+  border: 1px solid #777777;
 }
 
 #loginModal input {
@@ -545,16 +545,16 @@ body .searchContainer form button:focus {
   display: block;
   margin: 30px auto 0;
   border: 0;
-  border: 1px solid #777;
-  background: #777;
-  color: #fff;
+  border: 1px solid #777777;
+  background: #777777;
+  color: #ffffff;
   border-radius: 5px;
   padding: 5px;
 }
 
 #loginModal #login:hover {
   border: 1px solid #244751;
-  background-color: #fff;
+  background-color: #ffffff;
   color: #244751;
 }
 
@@ -582,14 +582,14 @@ body .searchContainer form button:focus {
 
 #profileModal input, #profileModal textarea {
   padding: 5px 10px;
-  border: 1px solid #fff;
+  border: 1px solid #ffffff;
   border-radius: 5px;
   margin-left: 20px;
 }
 
 #profileModal input:focus, #profileModal textarea:focus {
   outline: 0;
-  border: 1px solid #777;
+  border: 1px solid #777777;
 }
 
 #profileModal input, #profileModal textarea {
@@ -602,16 +602,16 @@ body .searchContainer form button:focus {
   display: block;
   margin: 30px auto 0;
   border: 0;
-  border: 1px solid #777;
-  background: #777;
-  color: #fff;
+  border: 1px solid #777777;
+  background: #777777;
+  color: #ffffff;
   border-radius: 5px;
   padding: 5px;
 }
 
 #profileModal #edit:hover {
   border: 1px solid #244751;
-  background-color: #fff;
+  background-color: #ffffff;
   color: #244751;
 }
 
@@ -639,10 +639,7 @@ body .searchContainer form button:focus {
 }
 
 .profile footer {
-  position: absolute;
   width: 100%;
-  bottom: 0;
-  left: 0;
 }
 
 footer {
@@ -676,7 +673,7 @@ footer .footer-box p {
 
 footer .footer-box .fa {
   display: inline-block;
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 50%;
   padding: 0.5em 0.6em;
   margin: 5px;
@@ -801,9 +798,9 @@ body.detail .res_description .right .rateP {
 }
 
 body.detail .res_description .right .delete {
-  border: 1px solid #777;
-  background: #777;
-  color: #fff;
+  border: 1px solid #777777;
+  background: #777777;
+  color: #ffffff;
   border-radius: 5px;
   width: 80%;
   padding: 5px 0;
@@ -813,7 +810,7 @@ body.detail .res_description .right .delete {
 
 body.detail .res_description .right .delete:hover {
   color: #244751;
-  background-color: #fff;
+  background-color: #ffffff;
   border: 1px solid #244751;
 }
 
@@ -835,7 +832,7 @@ body.profile .wrapper {
 body.profile .avatar {
   width: 200px;
   height: 200px;
-  background-color: #777;
+  background-color: #777777;
   display: block;
   border-radius: 5px;
   margin-bottom: 20px;
@@ -845,15 +842,15 @@ body.profile #edit_profile {
   width: 180px;
   display: block;
   border: 0;
-  border: 1px solid #777;
-  background: #777;
-  color: #fff;
+  border: 1px solid #777777;
+  background: #777777;
+  color: #ffffff;
   border-radius: 5px;
   padding: 5px;
 }
 
 body.profile #edit_profile:hover {
   border: 1px solid #244751;
-  background-color: #fff;
+  background-color: #ffffff;
   color: #244751;
 }

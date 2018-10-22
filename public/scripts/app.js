@@ -104,12 +104,35 @@ $(() => {
   });
 
 //USER PROFILE PAGE
- $('#edit_button').on('click', (e) => {
+ $('#edit').on('click', (e) => {
     e.preventDefault();
+    console.log("edit button clicked!")
     $('body').addClass('fixed');
     $('#profileModal').show();
     $('#overlay').show();
-  })
+
+    var data  = {
+      name: $('#username').val(),
+      aboutme: $('#useraboutme').val(),
+      email: $('#useremail').val(),
+      password: $('#password').val()
+    };
+
+$.ajax({
+      url: "profile",
+      type: "POST",
+      data: data,
+      success: function(response){
+      console.log("success")
+        $('#overlay').hide();
+        $('#profileModal').hide();
+        location.reload();
+      },
+      error: function(err){
+        console.log("Search err", err);
+      }
+    });
+});
 
 //MODALS
   //ADD NEW RESOURCES
@@ -144,7 +167,7 @@ $(() => {
     $('#profileModal').show();
     $('#overlay').show();
   })
-  
+
 
   $('#overlay').on('click', function() {
     $(this).hide();
@@ -267,5 +290,7 @@ $('#register').on('click', (e) => {
       });
     }
   });
+
+
 });
 

@@ -10,23 +10,36 @@ module.exports = router;
 //DISPLAY SHOW PAGE
 router.get("/:id", (req, res) => {
   let currentResourceId = req.params.id
+  console.log("special page", req.session.id);
   let userId = req.session.id;
 
+  if(!req.session.id) {
   knex("resources")
     .where("id", `${currentResourceId}`).first()
     .then((results) => {
-      knex("likes")
-      .where("resource_id", `${currentResourceId}`)
-      .andWhere("user_id", `${userId}`).first()
-      .then((likesres) => {
-        let templeVars = {
-          resource: results,
-          like: likesres,
-          user: userId
+      let templeVars = {
+        resource: results,
+        user: undefined
         }
         res.render("detail", templeVars);
       })
-    })
+  } else {
+   knex("resources")
+      .where("id", `${currentResourceId}`).first()
+      .then((results) => {
+        knex("likes")
+        .where("resource_id", `${currentResourceId}`)
+        .andWhere("user_id", `${userId}`).first()
+        .then((likesres) => {
+          let templeVars = {
+            resource: results,
+            like: likesres,
+            user: userId
+          }
+          res.render("detail", templeVars);
+        })
+      })
+  }
 });
 
 //ADDING RESOURCES
