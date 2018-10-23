@@ -11,11 +11,11 @@ WeSource, a collaborative board that allows learners to save learning resources 
 5. Go to <http://localhost:8080/> in your browser and explore WeSource! 
 
 ## Final Product
-!["Home Page"](https://github.com/jpoon15/tweeter/blob/master/public/images/HomePage.png)
-!["Resource Show Page"](https://github.com/jpoon15/tweeter/blob/master/public/images/Hover.png)
-!["Dash board"](https://github.com/jpoon15/tweeter/blob/master/public/images/Compose.png)
-!["Adding a Resource"](https://github.com/jpoon15/tweeter/blob/master/public/images/Compose.png)
-!["Profile Page"](https://github.com/jpoon15/tweeter/blob/master/public/images/Compose.png)
+!["Home Page"](https://github.com/jpoon15/WeSource/blob/master/public/images/homepage.png)
+!["Resource Show Page"](https://github.com/jpoon15/WeSource/blob/master/public/images/ResourceShowPage.png)
+!["Dash board"](https://github.com/jpoon15/WeSource/blob/master/public/images/dashboard.png)
+!["Adding a Resource"](https://github.com/jpoon15/WeSource/blob/master/public/images/AddingResource.png)
+!["Profile Page"](https://github.com/jpoon15/WeSource/blob/master/public/images/ProfilePage.png)
 
 ## Dependencies
 - Axios 0.18.x or above
