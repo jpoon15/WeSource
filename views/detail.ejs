@@ -29,7 +29,7 @@
       <% include ./partials/_ratingWidget %>
 
       <% if (user === resource.user_id) {%>
-        <form action="/api/resources/delete" method="POST">
+        <form action="/resources/delete" method="POST">
           <button class="delete" name="resource_id" value="<%=resource.id%>">DELETE</button>
         </form>
       <% } %>

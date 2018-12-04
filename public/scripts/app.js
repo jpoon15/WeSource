@@ -3,11 +3,11 @@ $(() => {
   if (top.location.pathname === '/') {
     $.ajax({
     method: "GET",
-    url: "/api/homepage"
+    url: "/homepage"
 
   }).done((response) => {
     response.forEach(item => {
-      $(`<a href="/api/resources/${item.resources_id}"><div class="card card-pin"><img class="card__img" src="${item.resources_imgurl}"/><p class="card__title">${item.resources_title}</p><p class="card__description">${item.resources_description}</p><p class="card__cat ${item.categories_category}">${item.categories_category}</p></div></a>`).prependTo($('.card-columns'));
+      $(`<a href="/resources/${item.resources_id}"><div class="card card-pin"><img class="card__img" src="${item.resources_imgurl}"/><p class="card__title">${item.resources_title}</p><p class="card__description">${item.resources_description}</p><p class="card__cat ${item.categories_category}">${item.categories_category}</p></div></a>`).prependTo($('.card-columns'));
     })
     });
   };
@@ -83,7 +83,7 @@ $(() => {
     }
 
     $.ajax({
-      url: "/api/homepage/search",
+      url: "/homepage/search",
       method: "GET",
       data: {
         search: searchKeyword
@@ -92,7 +92,7 @@ $(() => {
       success: function(response){
         $('.card-columns').empty();
         response.forEach(item => {
-          $(`<a href="/api/resources/${item.resources_id}"><div class="card card-pin"><img class="card__img" src="${item.resources_imgurl}"/><p class="card__title">${item.resources_title}</p><p class="card__description">${item.resources_description}</p><p class="card__cat ${item.categories_category}">${item.categories_category}</p></div></a>`).prependTo($('.card-columns'));
+          $(`<a href="/resources/${item.resources_id}"><div class="card card-pin"><img class="card__img" src="${item.resources_imgurl}"/><p class="card__title">${item.resources_title}</p><p class="card__description">${item.resources_description}</p><p class="card__cat ${item.categories_category}">${item.categories_category}</p></div></a>`).prependTo($('.card-columns'));
         })
     },
       error: function(err){
@@ -196,7 +196,7 @@ $.ajax({
     };
 
     $.ajax({
-      url: '/api/resources/add',
+      url: '/resources/add',
       data: data,
       type:'POST',
       success: function(result){
@@ -225,7 +225,7 @@ $('#register').on('click', (e) => {
       password: $('#password').val(),
     };
     $.ajax({
-      url: '/api/users/register',
+      url: '/users/register',
       data: data,
       type:'POST',
       success: function(result){

@@ -45,9 +45,9 @@ app.use("/styles", sass({
 app.use(express.static("public"));
 
 // Mount all resource routes
-app.use("/api/homepage", homepageRoutes);
-app.use("/api/users", usersRoutes);
-app.use("/api/resources", resourcesRoutes);
+app.use("/homepage", homepageRoutes);
+app.use("/users", usersRoutes);
+app.use("/resources", resourcesRoutes);
 
 // Home page
 app.get("/", (req, res) => {
@@ -62,25 +62,23 @@ app.get("/resources", (req, res) => {
   res.render("index");
 });
 
-app.get("/user", (req, res) => {
-  res.render("mydashboard");
-});
+// app.get("/user", (req, res) => {
+//   res.render("mydashboard");
+// });
 
 
 //Login
 app.post('/login', (req, res) => {
   console.log(req.body.email);
   let email = req.body.email
-
-//     knex.select("*").first()
-//     .from("users")
-//     .where("email", "like",`%${email}%`)
-//     .then(user => {
-//       console.log(user);
-//       req.session.id = user.id;
-//       console.log(req.session.id)
-//       res.redirect('api/users/' + req.session.id);
-//     });
+    knex.select("*").first()
+    .from("users")
+    .where("email", "like",`%${email}%`)
+    .then(user => {
+      req.session.id = user.id;
+      console.log("LOGIN", req.session.id)
+      res.redirect('users/' + req.session.id);
+    });
 });
 
 app.post("/logout", (req, res) => {

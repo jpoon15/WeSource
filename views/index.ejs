@@ -20,7 +20,7 @@
 
     <div id="registerModal">
       <i class="fas fa-times"></i>
-      <form action="/backdoor" method="POST">
+      <form action="/users/register" method="POST">
         <h2>REGISTER</h2>
         <p>
           <label for="username"><span>Username:</span></label>
@@ -40,7 +40,7 @@
 
     <div id="loginModal">
         <i class="fas fa-times"></i>
-        <form action="/api/users/register" method="POST">
+        <form action="/users/login" method="POST">
           <h2>Login</h2>
           <p>Please login to post a new WeSource.</p>
           <p>
@@ -54,7 +54,7 @@
           <button id="login" type="submit">LOGIN</button>
         </form>
     </div>
-    
+
     <div id="overlay"></div>
     <% include ./partials/_addResource %>
     <% include ./partials/_footer %>
