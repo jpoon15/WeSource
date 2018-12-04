@@ -1,5 +1,5 @@
 $(() => {
-  // LOAD ALL RESOURCES ON HOMEPAGE
+//------------ HOMEPAGE  ------------ //
   if (top.location.pathname === '/') {
     $.ajax({
     method: "GET",
@@ -17,7 +17,7 @@ $(() => {
 
     /* 1. Visualizing things on Hover - See next part for action on click */
     $('#stars li').on('mouseover', function(){
-      var onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
+      let onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
 
       // Now highlight all the stars that's not after the current hovered star
       $(this).parent().children('li.star').each(function(e){
@@ -38,8 +38,8 @@ $(() => {
 
     /* 2. Action to perform on click */
     $('#stars li').on('click', function(){
-      var onStar = parseInt($(this).data('value'), 10); // The star currently selected
-      var stars = $(this).parent().children('li.star');
+      let onStar = parseInt($(this).data('value'), 10); // The star currently selected
+      let stars = $(this).parent().children('li.star');
 
       for (i = 0; i < stars.length; i++) {
         $(stars[i]).removeClass('selected');
@@ -50,8 +50,8 @@ $(() => {
       }
 
       // JUST RESPONSE (Not needed)
-      var ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
-      var msg = "";
+      let ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
+      let msg = "";
       if (ratingValue > 1) {
           msg = "Thanks! You rated this " + ratingValue + " stars.";
       }
@@ -69,7 +69,8 @@ $(() => {
     $('.success-box div.text-message').html("<span>" + msg + "</span>");
   }
 
-  // SEARCH BAR QUERY
+//------------ SEARCH QUERY ------------ //
+
   $("#searchButton").on("click", (e) => {
     e.preventDefault();
     let searchKeyword = $('#searchKeyword').val();
@@ -96,12 +97,12 @@ $(() => {
     },
       error: function(err){
         console.log("Search err", err);
-        // do error stuff
       }
     });
   });
 
-//USER PROFILE PAGE
+//------------ USER PROFILE PAGE ------------ //
+
  $('#edit').on('click', (e) => {
     e.preventDefault();
     console.log("edit button clicked!")
@@ -109,7 +110,7 @@ $(() => {
     $('#profileModal').show();
     $('#overlay').show();
 
-    var data  = {
+    let data  = {
       name: $('#username').val(),
       aboutme: $('#useraboutme').val(),
       email: $('#useremail').val(),
@@ -134,8 +135,7 @@ $.ajax({
 
 //MODALS
 
-  //ADD NEW RESOURCES
-  // Login
+//------------ LOGIN ------------ //
     $('#addLoggedOut').on('click', (e) => {
     e.preventDefault();
     $('body').addClass('fixed');
@@ -143,7 +143,8 @@ $.ajax({
     $('#overlay').show();
   })
 
-  // Add New Resource
+//------------ ADD NEW RESOURCE ------------ //
+
   $('#add').on('click', (e) => {
     e.preventDefault();
     $('body').addClass('fixed');
@@ -151,7 +152,8 @@ $.ajax({
     $('#overlay').show();
   })
 
-   //REGISTER USER
+//------------ REGISTER USER ------------ //
+
   $('#registerUser').on('click', (e) => {
     e.preventDefault();
     $('body').addClass('fixed');
@@ -159,7 +161,7 @@ $.ajax({
     $('#overlay').show();
   })
 
-  // EDIT PROFILE MODAL
+//------------ EDIT PROFILE MODAL ------------ //
   $('.editProfile').on('click', (e) => {
     e.preventDefault();
     $('body').addClass('fixed');
@@ -180,12 +182,13 @@ $.ajax({
     $('#addResourceModal, #registerModal, #loginModal, #profileModal').hide();
   })
 
-//ADD NEW RESOURCE
+//------------ ADDING NEW RESOURCE ------------ //
+
   $('#addResource').on('click', (e) => {
     e.preventDefault();
-    var category_id = $('#addResourceModal #category').find(':selected').val();
+    let category_id = $('#addResourceModal #category').find(':selected').val();
 
-    var data  = {
+    let data  = {
       link: $('#url').val(),
       title: $('#title').val(),
       description: $('#description').val(),
@@ -197,7 +200,6 @@ $.ajax({
       data: data,
       type:'POST',
       success: function(result){
-        // console.log("we are in success!");
         let newPost = $(`<div class="card card-pin"><img class="card__img" src="${result.imgurl}"/><p class="card__title">${result.title}</p><textarea class="card__description">${result.description}</textarea><a href="${result.link}">${result.link}</a><p class="card__cat ${result.category}">${result.category}</p></div>`);
         $(newPost).prependTo($('.card-columns'))
         $('#overlay').hide();
@@ -211,18 +213,17 @@ $.ajax({
   })
 
 
-// REGISTER NEW USER
+//------------ REGISTER NEW USER ------------ //
 $('#register').on('click', (e) => {
     e.preventDefault();
 
-    var register_id = $('#register').find(':selected').val();
+    let register_id = $('#register').find(':selected').val();
 
-    var data  = {
+    let data  = {
       email: $('#useremail').val(),
       username: $('#username').val(),
       password: $('#password').val(),
     };
-    // console.log("before ajax request ",data);
     $.ajax({
       url: '/api/users/register',
       data: data,
@@ -239,16 +240,15 @@ $('#register').on('click', (e) => {
     });
   })
 
-  var globalresourceId;
+  let globalresourceId;
   $('#like_button').on('click', (e) => {
     e.preventDefault();
 
-    var currentText = $('#like_button').text();
+    let currentText = $('#like_button').text();
 
     if(currentText === "Like"){
         globalresourceId = $('#like_button').attr('value');
-        // console.log("test ",globalresourceId);
-        var data = {
+        let data = {
           resource_id: $('#like_button').attr('value')
         };
 
@@ -257,33 +257,29 @@ $('#register').on('click', (e) => {
         data: data,
         type: 'POST',
         success: function(result) {
-          // console.log('result', result)
-          // console.log('we have successfully added to database');
           $('#like_button').attr('value', result).text('Unlike');
         },
         error: function(error) {
-          console.log("we are in error");
+          console.log("Error-Deleting Like");
         }
       });
 
     } else if(currentText === "Unlike") {
       e.preventDefault();
 
-      var data = {
+      let data = {
         like_id: $('#like_button').attr('value')
       };
-      // console.log("before delete ajax request", data);
 
       $.ajax({
         url: 'deletelike',
         data: data,
         type: 'POST',
         success: function(result) {
-        // console.log('we have successfully removed your like');
           $('#like_button').attr('value',globalresourceId).text('Like');
         },
         error: function(error) {
-          console.log("we are in error");
+          console.log("Error - Deleting Like");
         }
       });
     }

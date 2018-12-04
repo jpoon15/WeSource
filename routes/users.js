@@ -8,7 +8,8 @@ const bcrypt  = require('bcryptjs');
 
 module.exports = router;
 
-//DASHBOARD
+//------------ DASHBOARD ------------ //
+
 router.get("/:id", (req, res) => {
   let userId = req.session.id;
   knex
@@ -37,7 +38,8 @@ router.get("/:id", (req, res) => {
     })
 })
 
-//PROFILE
+//------------ PROFILE PAGE ------------ //
+
 router.get("/:id/profile", (req, res) => {
   let userId = req.session.id;
   knex
@@ -45,7 +47,6 @@ router.get("/:id/profile", (req, res) => {
     .from('users')
     .where("id", `${userId}`).first()
     .then(results => {
-      // console.log("profile: users", results)
       let templateVars= {
         userid: req.session.id,
         user: results
@@ -76,7 +77,7 @@ router.post("/:id/profile", (req, res) => {
     })
 });
 
-//Register a new User
+//------------ REGISTER ------------ //
 router.post("/register", (req, res) => {
   const password = req.body.password;
   const hashedPassword = bcrypt.hashSync(password,10);
@@ -89,8 +90,6 @@ router.post("/register", (req, res) => {
     .returning('id')
     .then((id) => {
         let userId = req.session.id
-      // console.log("successfully inserted the record ");
-      // console.log(id);
       res.json({result: "True"});
     })
 })

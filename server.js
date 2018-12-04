@@ -68,19 +68,19 @@ app.get("/user", (req, res) => {
 
 
 //Login
-app.post('/backdoor', (req, res) => {
+app.post('/login', (req, res) => {
   console.log(req.body.email);
   let email = req.body.email
 
-    knex.select("*").first()
-    .from("users")
-    .where("email", "like",`%${email}%`)
-    .then(user => {
-      console.log(user);
-      req.session.id = user.id;
-      console.log(req.session.id)
-      res.redirect('api/users/' + req.session.id);
-    });
+//     knex.select("*").first()
+//     .from("users")
+//     .where("email", "like",`%${email}%`)
+//     .then(user => {
+//       console.log(user);
+//       req.session.id = user.id;
+//       console.log(req.session.id)
+//       res.redirect('api/users/' + req.session.id);
+//     });
 });
 
 app.post("/logout", (req, res) => {

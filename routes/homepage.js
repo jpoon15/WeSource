@@ -6,7 +6,8 @@ const knex    = require('../lib/database-connection');
 
 module.exports = router;
 
-//HOMEPAGE
+//------------ HOMEPAGE ------------ //
+
 router.get("/", (req, res) => {
   knex("resources")
     .where('delete', 0)
@@ -27,7 +28,8 @@ router.get("/", (req, res) => {
   });
 });
 
-//SEARCH QUERY
+//------------ SEARCH QUERY ------------ //
+
 router.get("/search", (req, res) => {
   let searchKeyword = (req.query.search).toLowerCase();
 

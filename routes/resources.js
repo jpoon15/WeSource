@@ -7,10 +7,9 @@ const knex            = require('../lib/database-connection');
 
 module.exports = router;
 
-//DISPLAY SHOW PAGE
+//------------ RESOURCE SHOW PAGE ------------ //
 router.get("/:id", (req, res) => {
   let currentResourceId = req.params.id
-  console.log("special page", req.session.id);
   let userId = req.session.id;
 
   if(!req.session.id) {
@@ -42,7 +41,7 @@ router.get("/:id", (req, res) => {
   }
 });
 
-//ADDING RESOURCES
+//------------ ADDING RESOURCES ------------ //
 router.post("/add", (req, res) => {
   let userCurrent = req.session.id;
   createResource(req.body.link)
@@ -57,13 +56,12 @@ router.post("/add", (req, res) => {
           delete: 0
         }).returning('id')
         .then((id) => {
-          //console.log("successfully inserted the record of:  ", id);
           res.json({result: "True"});
         })
     })
 })
 
-//LIKING RESOURCE
+//------------ LIKING RESOURCES ------------ //
 router.post("/like", (req, res) => {
   let userCurrent = req.session.id
   knex('likes').insert({
@@ -71,16 +69,13 @@ router.post("/like", (req, res) => {
     resource_id: req.body.resource_id
   }).returning('id')
   .then((id) => {
-    console.log("successfully inserted the record");
-    // console.log(id);
     res.json(id);
   })
 })
 
-//DELETING LIKED RESOURCE
+// UNLIKE RESOURCE
 router.post("/deletelike", (req, res) => {
   let userCurrent = req.session.id
-  console.log("we are in the delete resource", req.body);
 
   knex('likes')
     .where('id', req.body.like_id)
@@ -91,7 +86,7 @@ router.post("/deletelike", (req, res) => {
   });
 })
 
-//DELETING RESOURCE
+//------------ DELETE RESOURCE ------------ //
 router.post("/delete", (req, res) => {
   let userCurrent = req.session.id;
   let resource_id = req.body.resource_id;
