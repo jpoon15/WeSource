@@ -77,7 +77,6 @@ $(() => {
     $('.searchAlert').hide();
 
     if (!searchKeyword) {
-      console.log("nothing to search!!!!!");
       $('.searchAlert').show();
       return;
     }
@@ -105,7 +104,6 @@ $(() => {
 
  $('#edit').on('click', (e) => {
     e.preventDefault();
-    console.log("edit button clicked!")
     $('body').addClass('fixed');
     $('#profileModal').show();
     $('#overlay').show();
@@ -122,7 +120,6 @@ $.ajax({
       type: "POST",
       data: data,
       success: function(response){
-      console.log("success")
         $('#overlay').hide();
         $('#profileModal').hide();
         location.reload();
@@ -222,14 +219,14 @@ $('#register').on('click', (e) => {
     let data  = {
       email: $('#useremail').val(),
       username: $('#username').val(),
-      password: $('#password').val(),
+      password: $('#userpassword').val(),
     };
+
     $.ajax({
       url: '/users/register',
       data: data,
       type:'POST',
       success: function(result){
-        console.log("we are in success");
         $('#overlay').hide();
         $('#registerModal').hide();
         $('.register_msg').show()
