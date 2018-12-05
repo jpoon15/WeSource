@@ -8,6 +8,8 @@ const bcrypt  = require('bcryptjs');
 
 module.exports = router;
 
+var salt = bcrypt.genSaltSync(10);
+
 //------------ DASHBOARD ------------ //
 
 router.get("/:id", (req, res) => {
@@ -19,7 +21,6 @@ router.get("/:id", (req, res) => {
     .andWhere("user_id", `${userId}`)
     .then(results => {
       let resResults = results;
-      console.log("results1", resResults)
       knex.select("*")
         .from("likes")
         .where("likes.user_id", `${userId}`)
@@ -27,7 +28,6 @@ router.get("/:id", (req, res) => {
         .having("delete", "=", 0)
         .join("resources", "resources.id", "=", "likes.resource_id")
         .then(likedres => {
-          console.log("likedResources", likedres)
           let templateVars= {
             articles: results,
             liked_res: likedres,
@@ -59,10 +59,8 @@ router.get("/:id/profile", (req, res) => {
 router.post("/:id/profile", (req, res) => {
   let userId = req.session.id;
   let password = req.body.password
-  const hashedPassword = bcrypt.hashSync(password,10);
+  const hashedPassword = bcrypt.hashSync(password, salt);
 
-  console.log("userid", req.session.id)
-  console.log("inside edit post", req.body)
     knex('users')
       .where('id', userId)
       .update({
@@ -72,7 +70,6 @@ router.post("/:id/profile", (req, res) => {
         password: hashedPassword
       })
       .then((result) => {
-        // console.log(result);
         res.json({result: "True"});
     })
 });
@@ -80,7 +77,7 @@ router.post("/:id/profile", (req, res) => {
 //------------ REGISTER ------------ //
 router.post("/register", (req, res) => {
   const password = req.body.password;
-  const hashedPassword = bcrypt.hashSync(password,10);
+  const hashedPassword = bcrypt.hashSync(password, salt);
   knex('users')
     .insert({
       email: req.body.email,
