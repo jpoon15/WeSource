@@ -62,22 +62,24 @@ app.get("/resources", (req, res) => {
   res.render("index");
 });
 
-// app.get("/user", (req, res) => {
-//   res.render("mydashboard");
-// });
-
-
 //Login
 app.post('/login', (req, res) => {
-  console.log(req.body.email);
-  let email = req.body.email
+  console.log("LOGIN", req.body);
+  let email = req.body.email;
+  let password = req.body.password;
+
     knex.select("*").first()
-    .from("users")
-    .where("email", "like",`%${email}%`)
-    .then(user => {
-      req.session.id = user.id;
-      console.log("LOGIN", req.session.id)
-      res.redirect('users/' + req.session.id);
+      .from("users")
+      .where({
+        email: req.body.email
+        })
+      .then(user => {
+        if (bcrypt.compareSync(password, user.password)) {
+          req.session.id = user.id;
+          res.redirect('users/' + req.session.id);
+        } else {
+          res.status(403).send('Error - Username and Password does not match, go <a href="/"> back </a>');
+        }
     });
 });
 
