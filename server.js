@@ -3,7 +3,7 @@
 require('dotenv').config();
 
 const PORT          = process.env.PORT || 8080;
-const ENV           = process.env.ENV || "development"; // maybe delete later?
+const ENV           = process.env.NODE_ENV || "development"; // maybe delete later?
 const express       = require("express");
 const bodyParser    = require("body-parser");
 const sass          = require("node-sass-middleware");
