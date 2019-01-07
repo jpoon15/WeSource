@@ -1,9 +1,11 @@
 "use strict";
 
-require('dotenv').config({path: __dirname + '/.env'});
+require('dotenv').config();
 
 const PORT          = process.env.PORT || 8080;
-const ENV           = process.env.NODE_ENV || "development"; // maybe delete later?
+
+const env           = process.env.NODE_ENV || 'development';
+
 const express       = require("express");
 const bodyParser    = require("body-parser");
 const sass          = require("node-sass-middleware");
