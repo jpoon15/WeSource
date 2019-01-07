@@ -1,7 +1,7 @@
 {
   "name": "node-skeleton",
   "version": "1.0.0",
-  "description": "",
+  "description": "WeSource",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,10 +9,6 @@
     "local": "./node_modules/.bin/nodemon -L --ignore public/",
     "knex": "./node_modules/.bin/knex",
     "heroku-postbuild": "npm install --production"
-  },
-  "engine": {
-    "node": "11.4.0",
-    "npm": "6.5.0"
   },
   "author": "Lighthouse Labs",
   "license": "ISC",
