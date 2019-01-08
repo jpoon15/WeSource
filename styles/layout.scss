@@ -189,7 +189,7 @@ body {
       }
     }
   }
-  
+
   .searchContainer {
     width: 50%;
     margin: 40px auto;
@@ -298,7 +298,7 @@ body {
   a {
     display: inline-block;
   }
-} 
+}
 
 .card {
   color: $brandColor;
@@ -346,11 +346,18 @@ body {
 
 .login_msg {
   display: none;
-} 
+}
 
 .register_msg {
   display: none;
-} 
+  text-align: center;
+  padding: 10px;
+  margin-left: 10%;
+  width: 80%;
+  border-radius: 5px;
+  background-color: white;
+  border: 1px solid black;
+}
 
 #addResourceModal {
   display: none;
@@ -681,7 +688,7 @@ body.detail {
 
     img {
       border-radius: 5px;
-    } 
+    }
   }
 
   .res_description {
@@ -730,7 +737,7 @@ body.detail {
       }
 
     }
-  
+
   .right {
       width: 30%;
       border: 1px solid $brandColor;
@@ -826,6 +833,6 @@ body.profile {
       color: $brandColor;
     }
   }
-  
+
 }
- 
+
