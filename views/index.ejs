@@ -38,6 +38,26 @@
       </form>
     </div>
 
+    <div id="loginErrorModal">
+      <i class="fas fa-times"></i>
+      <form action="/users/register" method="POST">
+        <h2>REGISTER</h2>
+        <p>
+          <label for="username"><span>Username:</span></label>
+          <input type="text" id="username" name="registerName">
+        </p>
+        <p>
+          <label for="useremail"><span>Email:</span></label>
+          <input type="email" id="useremail" name="registerEmail">
+        </p>
+        <p>
+          <label for="password"><span>Password:</span></label>
+          <input type="password" id="userpassword" name="registerPassword">
+        </p>
+        <button id="register" type="submit">REGISTER</button>
+      </form>
+    </div>
+
     <div id="loginModal">
         <i class="fas fa-times"></i>
         <form action="/login" method="POST">
