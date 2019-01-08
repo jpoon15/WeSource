@@ -237,6 +237,40 @@ $('#register').on('click', (e) => {
     });
   })
 
+//------------ LOGIN ERROR ------------ //
+$('.login').on('click', (e) => {
+    e.preventDefault();
+
+    let data  = {
+      email: $('#email').val(),
+      password: $('#password').val(),
+    };
+
+    if (!data.email || !data.password) {
+      $('.missinginfo_msg').show()
+    } else {
+      $.ajax({
+        url: '/login',
+        data: data,
+        type:'POST',
+        success: function(result){
+          $('.login_msg').show()
+          $('.missinginfo_msg').hide()
+          $('.loginerror_msg').hide()
+
+        },
+        error: function(error){
+          $('.loginerror_msg').show()
+          $('.missinginfo_msg').hide()
+          $('#email').val("")
+          $('#password').val("")
+          console.log("we are in error");
+        }
+      });
+    }
+  })
+//------------ REGISTER NEW USER ------------ //
+
   let globalresourceId;
   $('#like_button').on('click', (e) => {
     e.preventDefault();
