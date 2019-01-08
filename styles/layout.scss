@@ -344,11 +344,11 @@ body {
 }
 
 
-.login_msg {
+/*.login_msg {
   display: none;
 }
-
-.register_msg {
+*/
+.register_msg,.login_msg,.loginerror_msg,.missinginfo_msg {
   display: none;
   text-align: center;
   padding: 10px;
@@ -357,6 +357,7 @@ body {
   border-radius: 5px;
   background-color: white;
   border: 1px solid black;
+  margin-bottom: 10px;
 }
 
 #addResourceModal {
