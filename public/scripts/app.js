@@ -254,9 +254,11 @@ $('.login').on('click', (e) => {
         data: data,
         type:'POST',
         success: function(result){
+          console.log("results", result)
           $('.login_msg').show()
           $('.missinginfo_msg').hide()
           $('.loginerror_msg').hide()
+          window.location.href = result;
 
         },
         error: function(error){
