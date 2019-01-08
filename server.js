@@ -82,8 +82,8 @@ app.post('/login', (req, res) => {
           res.status(403).send('Error - Username and Password does not match, go <a href="/"> back </a>');
         } else if (bcrypt.compareSync(password, user.password)) {
           req.session.id = user.id;
-          res.json(user.id)
-          res.redirect('users/' + req.session.id);
+          res.json('users/' + req.session.id)
+          // res.redirect('users/' + req.session.id);
         } else {
           res.status(403).send('Error - Username and Password does not match, go <a href="/"> back </a>');
         }
