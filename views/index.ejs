@@ -43,23 +43,26 @@
       </form>
     </div>
 
+
     <div id="loginModal">
         <i class="fas fa-times"></i>
-        <form action="/login" method="POST">
           <h2>Login</h2>
           <p>Please login to post a new WeSource.</p>
-          <div class="loginerror_msg">Oops! The information you have entered is incorrect. Please try again!</div>
-          <div class="missinginfo_msg">Missing Login Information - Please enter your email and password</div>
+        <div class="modalerror_msg">Incorrect Login Credentials - Please try again!</div>
+        <div class="modalinfo_msg">Missing Information</div>
+
+        <form action="/login" method="POST">
           <p>
-            <label for="useremail"><span>Email:</span></label>
-            <input type="email" id="useremail" name="registerEmail">
+            <label for="email"> EMAIL: </label>
+            <input id="modal_loginemail" type="text" name="email" placeholder="Enter Email">
           </p>
           <p>
-            <label for="password"><span>Password:</span></label>
-            <input type="password" id="password" name="registerPassword">
+            <label for="email"> PASSWORD: </label>
+            <input id="modal_loginpw" type="password" name="password" placeholder="Enter Password">
           </p>
-          <button id="login" type="submit">LOGIN</button>
+          <button class="modallogin" type="submit">LOGIN</button>
         </form>
+
     </div>
 
     <div id="overlay"></div>

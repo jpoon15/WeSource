@@ -237,8 +237,10 @@ $('#register').on('click', (e) => {
     });
   })
 
-//------------ LOGIN ERROR ------------ //
+//------------ LOGIN ------------ //
 $('.login').on('click', (e) => {
+  console.log($('#useremail').val())
+  console.log("CLICKED HEADER")
     e.preventDefault();
 
     let data  = {
@@ -246,8 +248,12 @@ $('.login').on('click', (e) => {
       password: $('#password').val(),
     };
 
+    console.log("Data", data)
+
     if (!data.email || !data.password) {
       $('.missinginfo_msg').show()
+      $('.loginerror_msg').hide()
+
     } else {
       $.ajax({
         url: '/login',
@@ -271,6 +277,47 @@ $('.login').on('click', (e) => {
       });
     }
   })
+
+//------------ LOGIN MODAL ------------ //
+$('.modallogin').on('click', (e) => {
+  console.log("CLICKED MODAL")
+    e.preventDefault();
+
+    let data  = {
+      email: $('#modal_loginemail').val(),
+      password: $('#modal_loginpw').val(),
+    };
+
+    console.log("Data", data)
+
+    if (!data.email || !data.password) {
+      $('.modalinfo_msg').show()
+      $('.modalerror_msg').hide()
+
+    } else {
+      $.ajax({
+        url: '/login',
+        data: data,
+        type:'POST',
+        success: function(result){
+          console.log("results", result)
+          $('.login_msg').show()
+          $('.modalinfo_msg').hide()
+          $('.modalerror_msg').hide()
+          window.location.href = result;
+
+        },
+        error: function(error){
+          $('.modalerror_msg').show()
+          $('.modalinfo_msg').hide()
+          $('#email').val("")
+          $('#password').val("")
+          console.log("we are in error");
+        }
+      });
+    }
+  })
+
 //------------ REGISTER NEW USER ------------ //
 
   let globalresourceId;
