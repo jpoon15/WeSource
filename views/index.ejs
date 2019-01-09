@@ -7,6 +7,7 @@
       <div class="loginerror_msg">Oops! The information you have entered is incorrect. Please try again!</div>
       <div class="missinginfo_msg">Missing Login Information - Please enter your email and password</div>
       <div class="register_msg">You have successfully registered!</div>
+      <div class="badregister_msg">Oops, something went wrong! You did not registered! Please try again</div>
 
       <% include ./partials/_header %>
       <% include ./partials/_search %>
@@ -27,17 +28,20 @@
       <i class="fas fa-times"></i>
       <form action="/users/register" method="POST">
         <h2>REGISTER</h2>
+        <div class="modalinfo_msg">Missing Information</div>
+        <div class="modalemail_msg">Insert a proper Email</div>
+
         <p>
           <label for="username"><span>Username:</span></label>
-          <input type="text" id="username" name="registerName">
+          <input type="text" id="username" name="registerName" required>
         </p>
         <p>
           <label for="useremail"><span>Email:</span></label>
-          <input type="email" id="useremail" name="registerEmail">
+          <input type="email" id="useremail" name="registerEmail" required>
         </p>
         <p>
           <label for="password"><span>Password:</span></label>
-          <input type="password" id="userpassword" name="registerPassword">
+          <input type="password" id="userpassword" name="registerPassword" required>
         </p>
         <button id="register" type="submit">REGISTER</button>
       </form>

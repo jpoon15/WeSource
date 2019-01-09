@@ -1,0 +1,26 @@
+
+<header class="header">
+  <a class="logo" href="/">WeSource</a>
+  <!-- <div class="header__right"> -->
+    <% if(!user){ %>
+    <div class="header__right noUser">
+      <!-- <a id="addLoggedOut" class="addResource" href="#">ADD WESOURCE</a> -->
+      <a id="registerUser" class="register" href="#">REGISTER</a>
+    </div>
+    <% } else if (user){ %>
+      <div class="header__right user">
+      <!-- logout -->
+      <!-- <a id="add" class="addResource" href="#">ADD WESOURCE</a> -->
+      <a href="/users/<%=user%>">DASHBOARD</a>
+      <a href="/users/<%=user%>/profile">PROFILE</a>
+      <form action="/logout" method="POST">
+        <button class="logout" type="submit">LOGOUT</button>
+      </form>
+    </div>
+    <% } %>
+
+</header>
+
+<div class="newWeSource">
+</div>
+

@@ -350,7 +350,7 @@ body {
   display: none;
 }
 */
-.register_msg,.login_msg,.loginerror_msg,.missinginfo_msg {
+.register_msg,.login_msg,.loginerror_msg,.missinginfo_msg,.badregister_msg {
   display: none;
   text-align: center;
   padding: 5px;
@@ -362,7 +362,7 @@ body {
   margin-bottom: 10px;
 }
 
-.modalerror_msg,.modalinfo_msg {
+.modalerror_msg,.modalinfo_msg,.modalemail_msg {
   display: none;
   text-align: center;
   padding: 5px;

@@ -177,6 +177,12 @@ $.ajax({
     $('#overlay').hide();
     $('body').removeClass('fixed');
     $('#addResourceModal, #registerModal, #loginModal, #profileModal').hide();
+    $('.modalinfo_msg').hide();
+    $('.modalerror_msg').hide();
+    $('#modal_loginemail').val("");
+    $('#modal_loginpw').val("");
+    $('#username').val("");
+    $('#userpassword').val("");
   })
 
 //------------ ADDING NEW RESOURCE ------------ //
@@ -215,12 +221,23 @@ $('#register').on('click', (e) => {
     e.preventDefault();
 
     let register_id = $('#register').find(':selected').val();
+    let useremail = $('#useremail').val()
 
     let data  = {
       email: $('#useremail').val(),
       username: $('#username').val(),
       password: $('#userpassword').val(),
     };
+
+    if (!data.email || !data.password || !data.username) {
+        $('.modalinfo_msg').show()
+        $('.modalemail_msg').hide()
+    }
+    else if (useremail.indexOf('@') === -1) {
+      $('.modalemail_msg').show()
+      $('.modalinfo_msg').hide()
+    }
+    else {
 
     $.ajax({
       url: '/users/register',
@@ -229,26 +246,27 @@ $('#register').on('click', (e) => {
       success: function(result){
         $('#overlay').hide();
         $('#registerModal').hide();
+        $('.missinginfo_msg').hide()
+        $('.loginerror_msg').hide()
         $('.register_msg').show()
+        $('.badregister_msg').hide()
       },
       error: function(error){
+        $('.badregister_msg').show()
         console.log("we are in error");
       }
     });
-  })
+  }
+})
 
-//------------ LOGIN ------------ //
+//------------ LOGIN HEADER------------ //
 $('.login').on('click', (e) => {
-  console.log($('#useremail').val())
-  console.log("CLICKED HEADER")
     e.preventDefault();
 
     let data  = {
       email: $('#email').val(),
       password: $('#password').val(),
     };
-
-    console.log("Data", data)
 
     if (!data.email || !data.password) {
       $('.missinginfo_msg').show()
@@ -260,11 +278,11 @@ $('.login').on('click', (e) => {
         data: data,
         type:'POST',
         success: function(result){
-          console.log("results", result)
           $('.login_msg').show()
           $('.missinginfo_msg').hide()
           $('.loginerror_msg').hide()
-          window.location.href = result;
+          console.log(result)
+            window.location.href = result;
 
         },
         error: function(error){
@@ -280,15 +298,12 @@ $('.login').on('click', (e) => {
 
 //------------ LOGIN MODAL ------------ //
 $('.modallogin').on('click', (e) => {
-  console.log("CLICKED MODAL")
     e.preventDefault();
 
     let data  = {
       email: $('#modal_loginemail').val(),
       password: $('#modal_loginpw').val(),
     };
-
-    console.log("Data", data)
 
     if (!data.email || !data.password) {
       $('.modalinfo_msg').show()
@@ -300,7 +315,6 @@ $('.modallogin').on('click', (e) => {
         data: data,
         type:'POST',
         success: function(result){
-          console.log("results", result)
           $('.login_msg').show()
           $('.modalinfo_msg').hide()
           $('.modalerror_msg').hide()
@@ -318,7 +332,7 @@ $('.modallogin').on('click', (e) => {
     }
   })
 
-//------------ REGISTER NEW USER ------------ //
+//------------ Like/DIslike Resource ------------ //
 
   let globalresourceId;
   $('#like_button').on('click', (e) => {

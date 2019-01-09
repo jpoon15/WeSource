@@ -4,9 +4,11 @@ body {
   background-color: #EEE;
   padding-top: 50px;
 }
+
 body h1 {
   color: #244751;
 }
+
 body .header {
   position: relative;
   width: calc(100% - 5%);
@@ -15,17 +17,20 @@ body .header {
   border-radius: 5px;
   margin: 0 auto;
 }
+
 @media only screen and (max-width: 1024px) {
   body .header {
     text-align: center;
   }
 }
+
 body .header__right {
   position: absolute;
   right: 20px;
   top: 50%;
   transform: translateY(-50%);
 }
+
 @media only screen and (max-width: 1024px) {
   body .header__right {
     position: relative;
@@ -35,28 +40,34 @@ body .header__right {
     margin-top: 90px;
   }
 }
+
 @media only screen and (max-width: 1024px) {
   body .header__right.user {
     margin-top: 50px;
   }
 }
+
 @media only screen and (max-width: 1024px) {
   body .header__right.user form {
     width: auto;
   }
 }
+
 @media only screen and (max-width: 1024px) {
   body .header__right.noUser {
     margin-bottom: -30px;
   }
 }
+
 body .header__right a {
   margin-right: 20px;
 }
+
 body .header__right a:hover {
   text-decoration: underline;
   cursor: pointer;
 }
+
 body .header__right a.register {
   border: 0;
   background: #777777;
@@ -68,11 +79,13 @@ body .header__right a.register {
   margin-left: 20px;
   margin-right: 0;
 }
+
 @media only screen and (max-width: 1024px) {
   body .header__right a.register {
     display: none;
   }
 }
+
 body .header__right a.register:hover {
   border: 1px solid #244751;
   background: #ffffff;
@@ -80,19 +93,23 @@ body .header__right a.register:hover {
   color: #244751;
   text-decoration: none;
 }
+
 body .header__right form {
   display: inline-block;
 }
+
 @media only screen and (max-width: 1024px) {
   body .header__right form {
     width: 300px;
   }
 }
+
 body .header__right form p {
   display: inline-block;
   margin-bottom: 0;
   margin-left: 10px;
 }
+
 @media only screen and (max-width: 1024px) {
   body .header__right form p {
     display: block;
@@ -102,16 +119,19 @@ body .header__right form p {
     margin-left: 0;
   }
 }
+
 @media only screen and (max-width: 1024px) {
   body .header__right form p label {
     float: left;
   }
 }
+
 @media only screen and (max-width: 1024px) {
   body .header__right form p input {
     float: right;
   }
 }
+
 body .header__right form input {
   border: 1px solid #ffffff;
   padding: 5px 10px;
@@ -119,10 +139,12 @@ body .header__right form input {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
+
 body .header__right form input:hover, body .header__right form input:focus {
   border: 1px solid #999;
   outline: none;
 }
+
 body .header__right form button {
   border: 0;
   background: #777777;
@@ -131,34 +153,41 @@ body .header__right form button {
   border: 1px solid #777777;
   margin-left: -4px;
 }
+
 body .header__right form button:hover {
   border: 1px solid #244751;
   background: #ffffff;
   outline: none;
   color: #244751;
 }
+
 body .header__right form button.login {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
+
 @media only screen and (max-width: 1024px) {
   body .header__right form button.login {
     border-radius: 5px;
     width: 100%;
   }
 }
+
 body .header__right form button.logout {
   border-radius: 5px;
 }
+
 body .header a {
   color: #244751;
   text-decoration: none;
 }
+
 body .header .logo {
   font-weight: 500;
   font-size: 30px;
   border-bottom: 2px solid transparent;
 }
+
 @media only screen and (max-width: 1024px) {
   body .header .logo {
     width: auto;
@@ -168,22 +197,27 @@ body .header .logo {
     line-height: 50px;
   }
 }
+
 body .header .logo:hover {
   border-bottom: 2px solid #244751;
 }
+
 body .searchContainer {
   width: 50%;
   margin: 40px auto;
   display: flex;
 }
+
 @media only screen and (max-width: 1024px) {
   body .searchContainer {
     width: 80%;
   }
 }
+
 body .searchContainer form {
   width: 100%;
 }
+
 body .searchContainer form input {
   width: 80%;
   padding: 10px 20px;
@@ -193,15 +227,18 @@ body .searchContainer form input {
   border: 0;
   border: 1px solid #ffffff;
 }
+
 @media only screen and (max-width: 1024px) {
   body .searchContainer form input {
     width: 70%;
   }
 }
+
 body .searchContainer form input:focus {
   border: 1px solid #999;
   outline: 0;
 }
+
 body .searchContainer form button {
   width: 20%;
   float: right;
@@ -214,16 +251,19 @@ body .searchContainer form button {
   font-style: normal;
   font-style: normal;
 }
+
 @media only screen and (max-width: 1024px) {
   body .searchContainer form button {
     width: 30%;
   }
 }
+
 body .searchContainer form button:hover {
   border: 1px solid #244751;
   background-color: #ffffff;
   color: #244751;
 }
+
 body .searchContainer form button:focus {
   outline: 0;
   border: 1px solid #244751;
@@ -242,6 +282,7 @@ body .searchContainer form button:focus {
     display: inline-block;
   }
 }
+
 .addResource .logo {
   font-weight: 500;
 }
@@ -250,6 +291,7 @@ body .searchContainer form button:focus {
   text-align: center;
   margin-top: 40px;
 }
+
 .newWeSource a {
   background-color: #69b269;
   padding: 15px 30px;
@@ -258,6 +300,7 @@ body .searchContainer form button:focus {
   border-radius: 5px;
   border: 1px solid #69b269;
 }
+
 .newWeSource a:hover {
   text-decoration: none;
   background-color: #ffffff;
@@ -267,6 +310,7 @@ body .searchContainer form button:focus {
 .card-columns {
   overflow: hidden;
 }
+
 .card-columns a {
   display: inline-block;
 }
@@ -275,21 +319,25 @@ body .searchContainer form button:focus {
   color: #244751;
   border-radius: 5px;
 }
+
 .card__img {
   margin-bottom: 10px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   min-width: 100%;
 }
+
 .card__title {
   width: 80%;
   margin: 0 auto 15px;
   font-weight: 700;
 }
+
 .card__description {
   width: 80%;
   margin: 0 auto 15px;
 }
+
 .card__cat {
   width: 80%;
   margin: 0 auto;
@@ -299,36 +347,45 @@ body .searchContainer form button:focus {
   padding: 2px 0 4px;
   color: #111;
 }
+
 .card__cat.accessibility {
   background-color: #fed345;
 }
+
 .card__cat.animation {
   background-color: #e64600;
   color: #ffffff;
 }
+
 .card__cat.css {
   background-color: #c50000;
   color: #ffffff;
 }
+
 .card__cat.html {
   background-color: #501ab7;
   color: #ffffff;
 }
+
 .card__cat.inspiration {
   background-color: #e64c7f;
   color: #ffffff;
 }
+
 .card__cat.javascript {
   background-color: #3b34bf;
   color: #ffffff;
 }
+
 .card__cat.plugins {
   background-color: #657efb;
 }
+
 .card__cat.ux {
   background-color: #208934;
   color: #ffffff;
 }
+
 .card__cat.web {
   background-color: #354900;
   color: #ffffff;
@@ -338,7 +395,7 @@ body .searchContainer form button:focus {
   display: none;
 }
 */
-.register_msg, .login_msg, .loginerror_msg, .missinginfo_msg {
+.register_msg, .login_msg, .loginerror_msg, .missinginfo_msg, .badregister_msg {
   display: none;
   text-align: center;
   padding: 5px;
@@ -350,7 +407,7 @@ body .searchContainer form button:focus {
   margin-bottom: 10px;
 }
 
-.modalerror_msg, .modalinfo_msg {
+.modalerror_msg, .modalinfo_msg, .modalemail_msg {
   display: none;
   text-align: center;
   padding: 5px;
@@ -372,26 +429,32 @@ body .searchContainer form button:focus {
   z-index: 3;
   border-radius: 5px;
 }
+
 #addResourceModal h2 {
   margin-bottom: 20px;
 }
+
 #addResourceModal p {
   overflow: hidden;
 }
+
 #addResourceModal input, #addResourceModal textarea {
   padding: 5px 10px;
   border: 1px solid #ffffff;
   border-radius: 5px;
   margin-left: 20px;
 }
+
 #addResourceModal input:focus, #addResourceModal textarea:focus {
   outline: 0;
   border: 1px solid #777777;
 }
+
 #addResourceModal input, #addResourceModal textarea, #addResourceModal select {
   float: right;
   width: 180px;
 }
+
 #addResourceModal #addResource {
   width: 180px;
   display: block;
@@ -403,6 +466,7 @@ body .searchContainer form button:focus {
   border-radius: 5px;
   padding: 5px;
 }
+
 #addResourceModal #addResource:hover {
   border: 1px solid #244751;
   background-color: #ffffff;
@@ -420,25 +484,30 @@ body .searchContainer form button:focus {
   z-index: 3;
   border-radius: 5px;
 }
+
 #registerModal h2 {
   margin-bottom: 20px;
   text-align: center;
   width: 100%;
 }
+
 #registerModal input {
   margin-left: 20px;
   padding: 5px 10px;
   border: 1px solid #ffffff;
   border-radius: 5px;
 }
+
 #registerModal input:focus {
   outline: 0;
   border: 1px solid #777777;
 }
+
 #registerModal input, #registerModal select {
   float: right;
   width: 180px;
 }
+
 #registerModal #register {
   width: 180px;
   display: block;
@@ -450,6 +519,7 @@ body .searchContainer form button:focus {
   border-radius: 5px;
   padding: 5px;
 }
+
 #registerModal #register:hover {
   border: 1px solid #244751;
   background-color: #ffffff;
@@ -467,6 +537,7 @@ body .searchContainer form button:focus {
   z-index: 3;
   border-radius: 5px;
 }
+
 #loginModal button {
   border: 0;
   background: #777777;
@@ -474,41 +545,49 @@ body .searchContainer form button:focus {
   padding: 5px 10px;
   border: 1px solid #777777;
 }
+
 #loginModal button:hover {
   border: 1px solid #244751;
   background: #ffffff;
   outline: none;
   color: #244751;
 }
+
 #loginModal button.modallogin {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
+
 @media only screen and (max-width: 1024px) {
   #loginModal button.modallogin {
     border-radius: 5px;
     width: 100%;
   }
 }
+
 #loginModal h2 {
   margin-bottom: 20px;
   text-align: center;
   width: 100%;
 }
+
 #loginModal input {
   margin-left: 20px;
   padding: 5px 10px;
   border: 1px solid #ffffff;
   border-radius: 5px;
 }
+
 #loginModal input:focus {
   outline: 0;
   border: 1px solid #777777;
 }
+
 #loginModal input {
   float: right;
   width: 180px;
 }
+
 #loginModal #login {
   width: 180px;
   display: block;
@@ -520,6 +599,7 @@ body .searchContainer form button:focus {
   border-radius: 5px;
   padding: 5px;
 }
+
 #loginModal #login:hover {
   border: 1px solid #244751;
   background-color: #ffffff;
@@ -537,28 +617,34 @@ body .searchContainer form button:focus {
   border-radius: 5px;
   z-index: 3;
 }
+
 #profileModal h2 {
   margin-bottom: 20px;
   text-align: center;
   width: 100%;
 }
+
 #profileModal p {
   overflow: hidden;
 }
+
 #profileModal input, #profileModal textarea {
   padding: 5px 10px;
   border: 1px solid #ffffff;
   border-radius: 5px;
   margin-left: 20px;
 }
+
 #profileModal input:focus, #profileModal textarea:focus {
   outline: 0;
   border: 1px solid #777777;
 }
+
 #profileModal input, #profileModal textarea {
   float: right;
   width: 180px;
 }
+
 #profileModal #edit {
   width: 180px;
   display: block;
@@ -570,6 +656,7 @@ body .searchContainer form button:focus {
   border-radius: 5px;
   padding: 5px;
 }
+
 #profileModal #edit:hover {
   border: 1px solid #244751;
   background-color: #ffffff;
@@ -604,28 +691,34 @@ body .searchContainer form button:focus {
 }
 
 footer {
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   background: gainsboro;
   text-align: center;
   padding: 1em;
 }
+
 footer a {
   color: #244751;
 }
+
 footer a:hover {
   color: #244751;
 }
+
 footer .container {
   width: 100%;
   margin: auto;
 }
+
 footer .footer-box {
   margin: auto;
 }
+
 footer .footer-box p {
   color: #244751;
   font-size: 18px;
 }
+
 footer .footer-box .fa {
   display: inline-block;
   background-color: #ffffff;
@@ -639,11 +732,13 @@ body.dashboard h1 {
   width: 94%;
   margin: 40px auto 0;
 }
+
 @media only screen and (max-width: 1024px) {
   body.dashboard h1 {
     text-align: center;
   }
 }
+
 body.dashboard .fa-heart {
   font-size: 33px;
 }
@@ -652,30 +747,37 @@ body.detail h1 {
   width: 80%;
   margin: 0 auto 20px;
 }
+
 body.detail p {
   margin: 0 auto 20px;
 }
+
 body.detail .newWeSource {
   margin-bottom: 60px;
 }
+
 body.detail .main_image {
   max-width: 100%;
   border-radius: 5px;
   margin-bottom: 20px;
 }
+
 body.detail .main_image img {
   border-radius: 5px;
 }
+
 body.detail .res_description {
   overflow: hidden;
   width: 60%;
   margin: 0 auto 100px;
 }
+
 @media only screen and (max-width: 1024px) {
   body.detail .res_description {
     width: 80%;
   }
 }
+
 body.detail .res_description .left {
   width: 65%;
   border: 1px solid #244751;
@@ -687,30 +789,36 @@ body.detail .res_description .left {
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+
 @media only screen and (max-width: 768px) {
   body.detail .res_description .left {
     width: 50%;
   }
 }
+
 @media only screen and (max-width: 576px) {
   body.detail .res_description .left {
     width: 45%;
   }
 }
+
 @media only screen and (max-width: 414px) {
   body.detail .res_description .left {
     min-width: 100%;
     margin-bottom: 20px;
   }
 }
+
 body.detail .res_description .left .main_image img {
   margin: 40px auto;
   display: block;
 }
+
 body.detail .res_description .left p {
   width: 80%;
   margin: 0 auto 40px;
 }
+
 body.detail .res_description .right {
   width: 30%;
   border: 1px solid #244751;
@@ -721,30 +829,36 @@ body.detail .res_description .right {
   flex-direction: column;
   text-align: center;
 }
+
 @media only screen and (max-width: 768px) {
   body.detail .res_description .right {
     min-width: 185px;
   }
 }
+
 @media only screen and (max-width: 576px) {
   body.detail .res_description .right {
     min-width: 45%;
   }
 }
+
 @media only screen and (max-width: 414px) {
   body.detail .res_description .right {
     min-width: 100%;
   }
 }
+
 body.detail .res_description .right__button {
   margin-bottom: 20px;
   color: #244751;
   font-size: 24px;
   text-transform: uppercase;
 }
+
 body.detail .res_description .right .rateP {
   margin-top: 20px;
 }
+
 body.detail .res_description .right .delete {
   border: 1px solid #777777;
   background: #777777;
@@ -755,6 +869,7 @@ body.detail .res_description .right .delete {
   margin-top: 20px;
   cursor: pointer;
 }
+
 body.detail .res_description .right .delete:hover {
   color: #244751;
   background-color: #ffffff;
@@ -764,15 +879,18 @@ body.detail .res_description .right .delete:hover {
 body.profile .newWeSource {
   display: none;
 }
+
 body.profile h1 {
   width: 80%;
   margin: 40px auto;
 }
+
 body.profile .wrapper {
   width: 80%;
   margin: 0 auto;
   padding-bottom: 100px;
 }
+
 body.profile .avatar {
   width: 200px;
   height: 200px;
@@ -781,6 +899,7 @@ body.profile .avatar {
   border-radius: 5px;
   margin-bottom: 20px;
 }
+
 body.profile #edit_profile {
   width: 180px;
   display: block;
@@ -791,10 +910,9 @@ body.profile #edit_profile {
   border-radius: 5px;
   padding: 5px;
 }
+
 body.profile #edit_profile:hover {
   border: 1px solid #244751;
   background-color: #ffffff;
   color: #244751;
 }
-
-/*# sourceMappingURL=layout.css.map */
